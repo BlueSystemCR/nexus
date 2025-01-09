@@ -1,0 +1,116 @@
+/* Winamp Classic Theme */
+QMainWindow {
+    background-color: #000000;
+    color: #00FF00;
+}
+
+/* Botones principales */
+QPushButton {
+    background-color: #333333;
+    color: #00FF00;
+    border: 1px solid #00FF00;
+    border-radius: 0px;
+    padding: 4px 8px;
+    font-family: "Digital-7", monospace;
+    min-height: 24px;
+}
+
+QPushButton:hover {
+    background-color: #00FF00;
+    color: #000000;
+}
+
+/* Sliders */
+QSlider::groove:horizontal {
+    border: 1px solid #00FF00;
+    height: 6px;
+    background: black;
+}
+
+QSlider::handle:horizontal {
+    background: #00FF00;
+    border: 1px solid #00FF00;
+    width: 18px;
+    height: 18px;
+    margin: -6px 0;
+}
+
+QSlider::handle:horizontal:hover {
+    background: #33FF33;
+}
+
+/* Lista de reproducción */
+QListWidget {
+    background-color: #000000;
+    border: 1px solid #00FF00;
+    padding: 2px;
+    font-family: "MS Sans Serif", sans-serif;
+}
+
+QListWidget::item {
+    height: 20px;
+    padding: 2px;
+    color: #00FF00;
+}
+
+QListWidget::item:selected {
+    background-color: #00FF00;
+    color: #000000;
+}
+
+QListWidget::item:hover {
+    background-color: #003300;
+}
+
+/* Grupo de metadatos */
+QGroupBox {
+    background-color: #000000;
+    border: 1px solid #00FF00;
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+QGroupBox::title {
+    color: #00FF00;
+    font-family: "Digital-7", monospace;
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 3px;
+}
+
+/* Labels */
+QLabel {
+    color: #00FF00;
+    font-family: "Digital-7", monospace;
+}
+
+QLabel#etiquetaTitulo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00FF00;
+}
+
+QLabel#etiquetaArtista {
+    font-size: 14px;
+    color: #00FF00;
+}
+
+/* ComboBox */
+QComboBox {
+    border: 1px solid #00FF00;
+    padding: 2px 4px;
+    background: #000000;
+    color: #00FF00;
+    font-family: "MS Sans Serif", sans-serif;
+}
+
+QComboBox::drop-down {
+    border: 1px solid #00FF00;
+    width: 20px;
+}
+
+QComboBox::down-arrow {
+    image: url(:/images/down-arrow-green.png);
+    width: 12px;
+    height: 12px;
+}

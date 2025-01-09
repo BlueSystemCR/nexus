@@ -1,0 +1,61 @@
+QMainWindow {
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
+
+QTreeWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #3c3c3c;
+}
+
+QTreeWidget::item:selected {
+    background-color: #0d47a1;
+}
+
+QTreeWidget::item:hover {
+    background-color: #1565c0;
+}
+
+QHeaderView::section {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: 1px solid #3c3c3c;
+}
+
+QPushButton {
+    background-color: #424242;
+    color: #ffffff;
+    border: 1px solid #616161;
+    border-radius: 4px;
+    padding: 5px;
+    min-width: 80px;
+}
+
+QPushButton:hover {
+    background-color: #616161;
+}
+
+QPushButton:pressed {
+    background-color: #212121;
+}
+
+QSlider::groove:horizontal {
+    border: 1px solid #999999;
+    height: 8px;
+    background: #424242;
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+    background: #1976d2;
+    border: 1px solid #5c5c5c;
+    width: 18px;
+    margin: -2px 0;
+    border-radius: 3px;
+}
+
+QStatusBar {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}

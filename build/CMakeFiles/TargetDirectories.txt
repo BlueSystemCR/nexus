@@ -1,0 +1,5 @@
+/Users/freddymolina/Projects/next/build/CMakeFiles/ReproductorMusica.dir
+/Users/freddymolina/Projects/next/build/CMakeFiles/edit_cache.dir
+/Users/freddymolina/Projects/next/build/CMakeFiles/rebuild_cache.dir
+/Users/freddymolina/Projects/next/build/CMakeFiles/ReproductorMusica_autogen_timestamp_deps.dir
+/Users/freddymolina/Projects/next/build/CMakeFiles/ReproductorMusica_autogen.dir

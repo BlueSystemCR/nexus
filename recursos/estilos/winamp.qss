@@ -1,0 +1,70 @@
+QMainWindow {
+    background-color: #2b4c7e;
+    color: #ffffff;
+    border: 1px solid #4a6ea5;
+}
+
+QTreeWidget {
+    background-color: #1a2f4d;
+    color: #c4d3e6;
+    border: 1px solid #4a6ea5;
+    font-family: "Segoe UI", Arial;
+}
+
+QTreeWidget::item:selected {
+    background-color: #4a6ea5;
+    color: #ffffff;
+}
+
+QTreeWidget::item:hover {
+    background-color: #365985;
+}
+
+QHeaderView::section {
+    background-color: #2b4c7e;
+    color: #ffffff;
+    border: 1px solid #4a6ea5;
+    padding: 4px;
+}
+
+QPushButton {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                    stop:0 #4a6ea5, stop:1 #2b4c7e);
+    color: #ffffff;
+    border: 1px solid #4a6ea5;
+    border-radius: 3px;
+    padding: 5px;
+    min-width: 80px;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                    stop:0 #5980b5, stop:1 #365985);
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                    stop:0 #2b4c7e, stop:1 #4a6ea5);
+}
+
+QSlider::groove:horizontal {
+    border: 1px solid #4a6ea5;
+    height: 8px;
+    background: #1a2f4d;
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #4a6ea5, stop:1 #2b4c7e);
+    border: 1px solid #4a6ea5;
+    width: 18px;
+    margin: -2px 0;
+    border-radius: 3px;
+}
+
+QStatusBar {
+    background-color: #1a2f4d;
+    color: #c4d3e6;
+    border-top: 1px solid #4a6ea5;
+}

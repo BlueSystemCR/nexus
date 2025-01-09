@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Reproductor de Música</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTreeWidget" name="playlistWidget">
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="dragDropMode">
+       <enum>QAbstractItemView::DropOnly</enum>
+      </property>
+      <property name="defaultDropAction">
+       <enum>Qt::CopyAction</enum>
+      </property>
+      <column>
+       <property name="text">
+        <string>Título</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Artista</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Álbum</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Comentarios</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Duración</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="controlsLayout">
+      <item>
+       <widget class="QPushButton" name="previousButton">
+        <property name="text">
+         <string>Anterior</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="playButton">
+        <property name="text">
+         <string>Reproducir</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="nextButton">
+        <property name="text">
+         <string>Siguiente</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="volumeLabel">
+        <property name="text">
+         <string>Volumen:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="volumeSlider">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QSlider" name="progressSlider">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionAbrirArchivo"/>
+    <addaction name="actionAbrirDirectorio"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuTemas">
+    <property name="title">
+     <string>Temas</string>
+    </property>
+    <addaction name="actionTemaClaro"/>
+    <addaction name="actionTemaOscuro"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuTemas"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAbrirArchivo">
+   <property name="text">
+    <string>Abrir Archivo</string>
+   </property>
+  </action>
+  <action name="actionAbrirDirectorio">
+   <property name="text">
+    <string>Abrir Directorio</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionTemaClaro">
+   <property name="text">
+    <string>Tema Claro</string>
+   </property>
+  </action>
+  <action name="actionTemaOscuro">
+   <property name="text">
+    <string>Tema Oscuro</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

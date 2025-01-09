@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RCC>
+    <qresource prefix="/">
+        <file>styles/apple_music.qss</file>
+        <file>resources/icons/play.svg</file>
+        <file>resources/icons/pause.svg</file>
+        <file>resources/icons/previous.svg</file>
+        <file>resources/icons/next.svg</file>
+    </qresource>
+</RCC>
