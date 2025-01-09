@@ -132,29 +132,6 @@
 		"/opt/homebrew/lib/cmake/Qt6Core/Qt6QDarwinMicrophonePermissionPluginTargets.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Core/Qt6QDarwinMicrophonePermissionPluginTargets-release.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Core/Qt6QDarwinMicrophonePermissionPluginAdditionalTargetInfo.cmake",
-		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake",
-		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake",
-		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
-		"/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
-		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
-		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake",
-		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake",
-		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake",
-		"/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
-		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake",
-		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersion.cmake",
-		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersionImpl.cmake",
-		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfig.cmake",
-		"/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
-		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake",
-		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake",
-		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-release.cmake",
-		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake",
-		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake",
-		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake",
-		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-release.cmake",
-		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake",
-		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiConfigVersion.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiConfigVersionImpl.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
@@ -178,6 +155,7 @@
 		"/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
 		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake",
 		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake",
+		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-release.cmake",
 		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake",
 		"/opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake",
 		"/opt/homebrew/lib/cmake/Qt6DBus/Qt6DBusConfigVersion.cmake",
@@ -300,6 +278,20 @@
 		"/opt/homebrew/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets-release.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Gui/Qt6QWebpPluginAdditionalTargetInfo.cmake",
+		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake",
+		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake",
+		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
+		"/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
+		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
+		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake",
+		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake",
+		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake",
+		"/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
+		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake",
+		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake",
+		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-release.cmake",
+		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake",
+		"/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsTargets-release.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake",
@@ -382,6 +374,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/Users/freddymolina/Projects/next/src/asynctaskmanager.h",
+			"MU",
+			"UVLADIE3JM/moc_asynctaskmanager.cpp",
+			null
+		],
+		[
 			"/Users/freddymolina/Projects/next/src/audioconverter.h",
 			"MU",
 			"UVLADIE3JM/moc_audioconverter.cpp",
@@ -403,6 +401,12 @@
 			"/Users/freddymolina/Projects/next/src/playlist.h",
 			"MU",
 			"UVLADIE3JM/moc_playlist.cpp",
+			null
+		],
+		[
+			"/Users/freddymolina/Projects/next/src/threadpool.h",
+			"MU",
+			"UVLADIE3JM/moc_threadpool.cpp",
 			null
 		]
 	],
@@ -430,14 +434,15 @@
 		"/opt/homebrew/include/taglib",
 		"/opt/homebrew/opt/qt6/plugins",
 		"/opt/homebrew/lib/gstreamer-1.0",
+		"/Users/freddymolina/Projects/next/src",
 		"/opt/homebrew/lib/QtCore.framework/Headers",
 		"/opt/homebrew/lib/QtCore.framework",
 		"/opt/homebrew/share/qt/mkspecs/macx-clang",
 		"/opt/homebrew/include",
-		"/opt/homebrew/lib/QtWidgets.framework/Headers",
-		"/opt/homebrew/lib/QtWidgets.framework",
 		"/opt/homebrew/lib/QtGui.framework/Headers",
 		"/opt/homebrew/lib/QtGui.framework",
+		"/opt/homebrew/lib/QtWidgets.framework/Headers",
+		"/opt/homebrew/lib/QtWidgets.framework",
 		"/opt/homebrew/lib/QtMultimedia.framework/Headers",
 		"/opt/homebrew/lib/QtMultimedia.framework",
 		"/opt/homebrew/lib/QtNetwork.framework/Headers",
@@ -483,6 +488,11 @@
 	"SOURCES" : 
 	[
 		[
+			"/Users/freddymolina/Projects/next/src/asynctaskmanager.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/freddymolina/Projects/next/src/audioconverter.cpp",
 			"MU",
 			null
@@ -494,7 +504,8 @@
 			"MU",
 			null
 		],
-		[ "/Users/freddymolina/Projects/next/src/playlist.cpp", "MU", null ]
+		[ "/Users/freddymolina/Projects/next/src/playlist.cpp", "MU", null ],
+		[ "/Users/freddymolina/Projects/next/src/threadpool.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

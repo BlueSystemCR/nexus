@@ -771,6 +771,239 @@ alerts:
       - notify_team
 ```
 
+### 12. Platform-Specific Optimizations
+
+#### 12.1 macOS Audio Stack
+
+##### AVFoundation Integration
+
+```swift
+class AVFAudioEngine {
+    private let engine: AVAudioEngine
+    private let playerNode: AVAudioPlayerNode
+    private let effectsNode: AVAudioUnitEQ
+    private let timeEffect: AVAudioUnitTimePitch
+    
+    // Audio format configuration
+    private let format = AVAudioFormat(
+        commonFormat: .pcmFloat32,
+        sampleRate: 44100,
+        channels: 2,
+        interleaved: false
+    )
+    
+    init() {
+        engine = AVAudioEngine()
+        playerNode = AVAudioPlayerNode()
+        effectsNode = AVAudioUnitEQ(numberOfBands: 10)
+        timeEffect = AVAudioUnitTimePitch()
+        
+        setupAudioChain()
+        setupEffects()
+    }
+    
+    private func setupAudioChain() {
+        // Build the audio processing chain
+        engine.attach(playerNode)
+        engine.attach(effectsNode)
+        engine.attach(timeEffect)
+        
+        engine.connect(playerNode, to: effectsNode, format: format)
+        engine.connect(effectsNode, to: timeEffect, format: format)
+        engine.connect(timeEffect, to: engine.mainMixerNode, format: format)
+    }
+    
+    func play(_ url: URL) async throws {
+        let file = try AVAudioFile(forReading: url)
+        playerNode.scheduleFile(file, at: nil)
+        
+        try engine.start()
+        playerNode.play()
+    }
+    
+    // Real-time effects
+    func setEQBand(_ band: Int, gain: Float) {
+        effectsNode.bands[band].gain = gain
+    }
+    
+    func setPitch(_ cents: Float) {
+        timeEffect.pitch = cents
+    }
+    
+    // Audio session management
+    func handleInterruption(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+              let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+            return
+        }
+        
+        switch type {
+        case .began:
+            playerNode.pause()
+        case .ended:
+            guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else { return }
+            let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
+            if options.contains(.shouldResume) {
+                playerNode.play()
+            }
+        @unknown default:
+            break
+        }
+    }
+}
+```
+
+##### Core Audio Integration
+
+```cpp
+class CoreAudioEngine {
+private:
+    AudioUnit audioUnit;
+    AudioStreamBasicDescription format;
+    
+    // Audio unit setup
+    void setupAudioUnit() {
+        AudioComponentDescription desc = {
+            .componentType = kAudioUnitType_Output,
+            .componentSubType = kAudioUnitSubType_DefaultOutput,
+            .componentManufacturer = kAudioUnitManufacturer_Apple,
+            .componentFlags = 0,
+            .componentFlagsMask = 0
+        };
+        
+        AudioComponent component = AudioComponentFindNext(NULL, &desc);
+        AudioComponentInstanceNew(component, &audioUnit);
+    }
+    
+    // Audio format configuration
+    void setupAudioFormat() {
+        format.mSampleRate = 44100;
+        format.mFormatID = kAudioFormatLinearPCM;
+        format.mFormatFlags = kAudioFormatFlagIsFloat | 
+                            kAudioFormatFlagIsPacked | 
+                            kAudioFormatFlagIsNonInterleaved;
+        format.mBitsPerChannel = 32;
+        format.mChannelsPerFrame = 2;
+        format.mFramesPerPacket = 1;
+        format.mBytesPerFrame = 4;
+        format.mBytesPerPacket = 4;
+    }
+    
+public:
+    // Render callback
+    static OSStatus renderCallback(
+        void* inRefCon,
+        AudioUnitRenderActionFlags* ioActionFlags,
+        const AudioTimeStamp* inTimeStamp,
+        UInt32 inBusNumber,
+        UInt32 inNumberFrames,
+        AudioBufferList* ioData
+    ) {
+        CoreAudioEngine* engine = static_cast<CoreAudioEngine*>(inRefCon);
+        return engine->processAudio(ioData, inNumberFrames);
+    }
+    
+    // Audio processing
+    OSStatus processAudio(AudioBufferList* ioData, UInt32 inNumberFrames) {
+        for (UInt32 i = 0; i < ioData->mNumberBuffers; i++) {
+            float* buffer = static_cast<float*>(ioData->mBuffers[i].mData);
+            // Process audio buffer here
+        }
+        return noErr;
+    }
+    
+    // Real-time audio manipulation
+    void applyEffect(AudioBufferList* bufferList, Effect effect) {
+        for (UInt32 i = 0; i < bufferList->mNumberBuffers; i++) {
+            float* buffer = static_cast<float*>(bufferList->mBuffers[i].mData);
+            effect.process(buffer, bufferList->mBuffers[i].mDataByteSize / sizeof(float));
+        }
+    }
+};
+```
+
+#### 12.2 Audio Engine Bridge
+
+```cpp
+class AudioEngineBridge {
+public:
+    enum class Backend {
+        Qt,
+        AVFoundation,
+        CoreAudio
+    };
+    
+    void setBackend(Backend backend) {
+        switch (backend) {
+            case Backend::Qt:
+                useQtBackend();
+                break;
+            case Backend::AVFoundation:
+                useAVFoundationBackend();
+                break;
+            case Backend::CoreAudio:
+                useCoreAudioBackend();
+                break;
+        }
+    }
+    
+    // Performance metrics
+    struct PerformanceMetrics {
+        double latency;      // in milliseconds
+        double cpuUsage;     // percentage
+        size_t bufferSize;   // in frames
+        int underruns;       // count
+    };
+    
+    PerformanceMetrics getMetrics() const {
+        return currentMetrics;
+    }
+    
+private:
+    std::unique_ptr<IAudioBackend> currentBackend;
+    PerformanceMetrics currentMetrics;
+    
+    void useAVFoundationBackend() {
+        #if defined(Q_OS_MACOS)
+            currentBackend = std::make_unique<AVFAudioBackend>();
+        #endif
+    }
+    
+    void useCoreAudioBackend() {
+        #if defined(Q_OS_MACOS)
+            currentBackend = std::make_unique<CoreAudioBackend>();
+        #endif
+    }
+};
+```
+
+#### 12.3 Performance Comparison
+
+| Metric           | Qt Multimedia | AVFoundation | Core Audio |
+|-----------------|--------------|-------------|------------|
+| Latency         | ~20ms        | ~10ms       | ~5ms       |
+| CPU Usage       | Medium       | Low         | Lowest     |
+| Feature Support | High         | Native      | Complete   |
+| Implementation  | Simple       | Moderate    | Complex    |
+
+#### 12.4 Use Case Recommendations
+
+1. **Qt Multimedia**
+   - Cross-platform development
+   - Simple playback needs
+   - Rapid prototyping
+
+2. **AVFoundation**
+   - macOS/iOS specific features
+   - Modern audio processing
+   - Background audio support
+
+3. **Core Audio**
+   - Low-latency requirements
+   - Custom DSP processing
+   - Professional audio applications
+
 ---
 
 *Last updated: 2025-01-09*

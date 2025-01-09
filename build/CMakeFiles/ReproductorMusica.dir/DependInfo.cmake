@@ -10,11 +10,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "ReproductorMusica_autogen/timestamp" "custom" "ReproductorMusica_autogen/deps"
   "/Users/freddymolina/Projects/next/build/ReproductorMusica_autogen/mocs_compilation.cpp" "CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.o.d"
+  "/Users/freddymolina/Projects/next/src/asynctaskmanager.cpp" "CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o" "gcc" "CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o.d"
   "/Users/freddymolina/Projects/next/src/audioconverter.cpp" "CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o" "gcc" "CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o.d"
   "/Users/freddymolina/Projects/next/src/main.cpp" "CMakeFiles/ReproductorMusica.dir/src/main.cpp.o" "gcc" "CMakeFiles/ReproductorMusica.dir/src/main.cpp.o.d"
   "/Users/freddymolina/Projects/next/src/mainwindow.cpp" "CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o" "gcc" "CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o.d"
   "/Users/freddymolina/Projects/next/src/metadatamanager.cpp" "CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o" "gcc" "CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o.d"
   "/Users/freddymolina/Projects/next/src/playlist.cpp" "CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o" "gcc" "CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o.d"
+  "/Users/freddymolina/Projects/next/src/threadpool.cpp" "CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o" "gcc" "CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

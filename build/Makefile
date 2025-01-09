@@ -179,6 +179,30 @@ ReproductorMusica_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.s
 .PHONY : ReproductorMusica_autogen/mocs_compilation.cpp.s
 
+src/asynctaskmanager.o: src/asynctaskmanager.cpp.o
+.PHONY : src/asynctaskmanager.o
+
+# target to build an object file
+src/asynctaskmanager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o
+.PHONY : src/asynctaskmanager.cpp.o
+
+src/asynctaskmanager.i: src/asynctaskmanager.cpp.i
+.PHONY : src/asynctaskmanager.i
+
+# target to preprocess a source file
+src/asynctaskmanager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.i
+.PHONY : src/asynctaskmanager.cpp.i
+
+src/asynctaskmanager.s: src/asynctaskmanager.cpp.s
+.PHONY : src/asynctaskmanager.s
+
+# target to generate assembly for a file
+src/asynctaskmanager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.s
+.PHONY : src/asynctaskmanager.cpp.s
+
 src/audioconverter.o: src/audioconverter.cpp.o
 .PHONY : src/audioconverter.o
 
@@ -299,6 +323,30 @@ src/playlist.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.s
 .PHONY : src/playlist.cpp.s
 
+src/threadpool.o: src/threadpool.cpp.o
+.PHONY : src/threadpool.o
+
+# target to build an object file
+src/threadpool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o
+.PHONY : src/threadpool.cpp.o
+
+src/threadpool.i: src/threadpool.cpp.i
+.PHONY : src/threadpool.i
+
+# target to preprocess a source file
+src/threadpool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.i
+.PHONY : src/threadpool.cpp.i
+
+src/threadpool.s: src/threadpool.cpp.s
+.PHONY : src/threadpool.s
+
+# target to generate assembly for a file
+src/threadpool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.s
+.PHONY : src/threadpool.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -313,6 +361,9 @@ help:
 	@echo "... ReproductorMusica_autogen/mocs_compilation.o"
 	@echo "... ReproductorMusica_autogen/mocs_compilation.i"
 	@echo "... ReproductorMusica_autogen/mocs_compilation.s"
+	@echo "... src/asynctaskmanager.o"
+	@echo "... src/asynctaskmanager.i"
+	@echo "... src/asynctaskmanager.s"
 	@echo "... src/audioconverter.o"
 	@echo "... src/audioconverter.i"
 	@echo "... src/audioconverter.s"
@@ -328,6 +379,9 @@ help:
 	@echo "... src/playlist.o"
 	@echo "... src/playlist.i"
 	@echo "... src/playlist.s"
+	@echo "... src/threadpool.o"
+	@echo "... src/threadpool.i"
+	@echo "... src/threadpool.s"
 .PHONY : help
 
 

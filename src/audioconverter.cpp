@@ -2,102 +2,113 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <QDir>
-#include <QDateTime>
-#include <QThread>
-#include <QTimer>
+#include <QStandardPaths>
 
 AudioConverter::AudioConverter(QObject *parent)
     : QObject(parent)
+    , ffmpegProcess(nullptr)
 {
+    qDebug() << "AudioConverter inicializado";
 }
 
-QString AudioConverter::createTempFile(const QString& suffix)
+AudioConverter::~AudioConverter()
 {
-    QString tempPath = QDir::tempPath() + "/ReproductorMusica_" + 
-                      QString::number(QDateTime::currentMSecsSinceEpoch()) +
-                      suffix;
-    tempFiles.append(tempPath);
-    return tempPath;
+    cleanupTempFiles();
+    if (ffmpegProcess) {
+        ffmpegProcess->kill();
+        delete ffmpegProcess;
+    }
 }
 
-void AudioConverter::monitorearProgreso(QProcess* proceso, qint64 tamanoEntrada)
+QString AudioConverter::convertFlacToWav(const QString& inputFile)
 {
-    QTimer* timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, [=]() {
-        if (proceso && proceso->state() == QProcess::Running) {
-            QFile outputFile(tempFiles.last());
-            if (outputFile.exists()) {
-                qint64 tamanoActual = outputFile.size();
-                // Estimamos el progreso basándonos en el tamaño del archivo
-                // El archivo WAV suele ser más grande que el FLAC, usamos un factor de 1.5
-                int progreso = (tamanoActual * 100) / (tamanoEntrada * 1.5);
-                progreso = qMin(progreso, 99); // Nunca mostramos 100% hasta que termine
-                emit conversionProgress(progreso);
-            }
-        }
-    });
-    timer->start(100); // Actualizar cada 100ms
-    
-    // Autodestruir el timer cuando el proceso termine
-    connect(proceso, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
-            timer, &QTimer::stop);
-    connect(proceso, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
-            timer, &QTimer::deleteLater);
-}
-
-QString AudioConverter::convertFlacToWav(const QString& flacFile)
-{
-    QFileInfo fileInfo(flacFile);
-    if (!fileInfo.exists()) {
-        emit conversionError("El archivo FLAC no existe: " + flacFile);
+    QFileInfo inputInfo(inputFile);
+    if (!inputInfo.exists()) {
+        emit conversionError("El archivo de entrada no existe");
         return QString();
     }
 
-    QString outputFile = createTempFile(".wav");
-    QProcess* proceso = new QProcess(this);
-    QStringList arguments;
+    tempOutputFile = generateTempFilename();
+    QString taskId = AsyncTaskManager::instance().submitTask("audio_conversion",
+        [this, inputFile]() {
+            startConversion(inputFile, tempOutputFile);
+        });
     
-    // Configurar argumentos de FFmpeg para convertir FLAC a WAV
-    arguments << "-i" << flacFile
+    monitorProgress(taskId);
+    return tempOutputFile;
+}
+
+void AudioConverter::startConversion(const QString& inputFile, const QString& outputFile)
+{
+    if (ffmpegProcess) {
+        delete ffmpegProcess;
+    }
+    
+    ffmpegProcess = new QProcess(this);
+    
+    connect(ffmpegProcess, &QProcess::readyReadStandardOutput,
+            this, &AudioConverter::handleFFmpegOutput);
+    connect(ffmpegProcess, &QProcess::readyReadStandardError,
+            this, &AudioConverter::handleFFmpegError);
+    connect(ffmpegProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+            this, &AudioConverter::handleFFmpegFinished);
+
+    QStringList arguments;
+    arguments << "-i" << inputFile
              << "-acodec" << "pcm_s16le"
              << "-ar" << "44100"
              << "-ac" << "2"
              << outputFile;
 
-    qDebug() << "Convirtiendo FLAC a WAV...";
-    qDebug() << "Comando: ffmpeg" << arguments.join(" ");
-    
-    // Iniciar monitoreo de progreso
-    monitorearProgreso(proceso, fileInfo.size());
-    
-    proceso->start("ffmpeg", arguments);
-    
-    if (!proceso->waitForStarted()) {
-        delete proceso;
-        emit conversionError("No se pudo iniciar FFmpeg");
-        return QString();
-    }
+    emit conversionStarted(inputFile);
+    conversionTimer.start();
+    ffmpegProcess->start("ffmpeg", arguments);
+}
 
-    proceso->waitForFinished();
+void AudioConverter::handleFFmpegOutput()
+{
+    if (!ffmpegProcess) return;
     
-    if (proceso->exitCode() != 0) {
-        QString error = QString::fromUtf8(proceso->readAllStandardError());
-        delete proceso;
-        emit conversionError("Error al convertir el archivo: " + error);
-        return QString();
-    }
+    QString output = ffmpegProcess->readAllStandardOutput();
+    qDebug() << "FFmpeg output:" << output;
+}
 
-    QFileInfo outputInfo(outputFile);
-    if (!outputInfo.exists()) {
-        delete proceso;
-        emit conversionError("El archivo de salida no se creó correctamente");
-        return QString();
-    }
+void AudioConverter::handleFFmpegError()
+{
+    if (!ffmpegProcess) return;
+    
+    QString error = ffmpegProcess->readAllStandardError();
+    qDebug() << "FFmpeg error:" << error;
+}
 
-    delete proceso;
-    emit conversionProgress(100);
-    emit conversionFinished(outputFile);
-    return outputFile;
+void AudioConverter::handleFFmpegFinished(int exitCode, QProcess::ExitStatus exitStatus)
+{
+    if (exitStatus == QProcess::NormalExit && exitCode == 0) {
+        emit conversionFinished(tempOutputFile);
+        tempFiles.append(tempOutputFile);
+    } else {
+        emit conversionError("Error en la conversión de audio");
+        QFile::remove(tempOutputFile);
+    }
+}
+
+QString AudioConverter::generateTempFilename()
+{
+    QString tempPath = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+    QString tempFile = QString("%1/nexus_temp_%2.wav")
+                          .arg(tempPath)
+                          .arg(QDateTime::currentMSecsSinceEpoch());
+    return tempFile;
+}
+
+void AudioConverter::monitorProgress(const QString& taskId)
+{
+    connect(&AsyncTaskManager::instance(), &AsyncTaskManager::progressUpdated,
+        this, [this](const QString& id, const QString& type, int progress) {
+            if (type == "audio_conversion") {
+                emit conversionProgress(progress);
+            }
+        });
 }
 
 void AudioConverter::cleanupTempFiles()
