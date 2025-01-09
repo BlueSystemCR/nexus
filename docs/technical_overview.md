@@ -3,229 +3,330 @@
 
 ### 1. Arquitectura del Sistema
 
-#### 1.1 Componentes Principales
-- **MainWindow**: Interfaz principal y controlador central
-- **AudioConverter**: Manejo de conversión de formatos
-- **PlayList**: Gestión de lista de reproducción
-- **MetadataManager**: Extracción y manejo de metadatos
-- **Logger**: Sistema de registro de eventos
-- **EventFilter**: Manejo de eventos globales
-- **Configuracion**: Gestión de configuraciones
-- **Tema**: Sistema de temas y estilos
+#### 1.1 Diagrama de Componentes
 
-#### 1.2 Tecnologías Utilizadas
-- **Framework**: Qt 6
-- **Lenguaje**: C++17
-- **Biblioteca de Audio**: Qt Multimedia
-- **Conversión**: FFmpeg
-- **Build System**: CMake
-- **Control de Versiones**: Git
+```mermaid
+classDiagram
+    MainWindow --> AudioPlayer
+    MainWindow --> PlayList
+    MainWindow --> AudioConverter
+    AudioPlayer --> MetadataManager
+    AudioConverter --> AsyncTaskManager
+    AsyncTaskManager --> ThreadPool
+    
+    class MainWindow {
+        -AudioPlayer* player
+        -PlayList* playlist
+        -AudioConverter* converter
+        +initializeUI()
+        +handlePlayback()
+    }
+    
+    class AudioPlayer {
+        -QMediaPlayer* mediaPlayer
+        -MetadataManager* metadata
+        +play()
+        +pause()
+        +stop()
+    }
+    
+    class PlayList {
+        -QList~TrackInfo~ tracks
+        +addTrack()
+        +removeTrack()
+        +saveToFile()
+        +loadFromFile()
+    }
+    
+    class AudioConverter {
+        -ThreadPool* threadPool
+        +convertFlacToWav()
+        +monitorProgress()
+    }
+    
+    class AsyncTaskManager {
+        -QHash~QString, TaskStats~ taskHistory
+        +submitTask()
+        +getTaskHistory()
+    }
+    
+    class ThreadPool {
+        -int maxThreads
+        +submit()
+        +setMaxThreadCount()
+    }
+```
+
+#### 1.2 Interacción entre Componentes
+
+#### MainWindow ↔ PlayList
+- La ventana principal se comunica con PlayList mediante señales y slots de Qt
+- Cuando se agrega una canción: `MainWindow::onAddTrack() → PlayList::addTrack()`
+- Actualizaciones de UI: `PlayList::trackAdded() → MainWindow::updatePlaylistView()`
+
+#### MainWindow ↔ AudioPlayer
+- Control de reproducción mediante señales directas
+- Estado de reproducción: `AudioPlayer::stateChanged() → MainWindow::updatePlaybackControls()`
+- Progreso: `AudioPlayer::positionChanged() → MainWindow::updateProgressBar()`
+
+#### AudioConverter ↔ AsyncTaskManager
+- Conversión asíncrona de archivos
+- Monitoreo de progreso en tiempo real
+- Manejo de errores y notificaciones al usuario
+
+#### 1.3 Tecnologías Utilizadas
+
+#### Qt 6
+- **Justificación**: Framework moderno con soporte multiplataforma robusto
+- **Ventajas**:
+  - Widgets nativos del sistema operativo
+  - Sistema de señales y slots para comunicación entre componentes
+  - Excelente documentación y comunidad activa
+
+#### FFmpeg
+- **Justificación**: Biblioteca estándar de la industria para procesamiento multimedia
+- **Ventajas**:
+  - Soporte para múltiples formatos de audio
+  - Alto rendimiento en conversión
+  - Actualización constante con nuevos codecs
 
 ### 2. Funcionalidades Implementadas
 
-#### 2.1 Reproducción de Audio
-- Soporte para múltiples formatos:
-  - MP3
-  - WAV
-  - OGG
-  - M4A
-  - FLAC
-  - AAC
-- Control de volumen con slider
-- Barra de progreso interactiva
-- Botones de control (Play/Pause, Siguiente, Anterior)
-- Reproducción continua automática
+#### 2.1 Interfaz de Usuario
+![Interfaz Principal](screenshots/main_interface.png)
 
-#### 2.2 Conversión de Audio
-- Conversión automática de FLAC a WAV
-- Indicador de progreso visual
-- Estimación de tiempo restante
-- Manejo de errores de conversión
-- Limpieza automática de archivos temporales
+#### Componentes Principales:
+1. Barra de herramientas superior
+2. Lista de reproducción
+3. Controles de reproducción
+4. Barra de progreso
+5. Panel de información de la pista
+
+#### 2.2 Reproducción de Audio
+- Motor de audio: QMediaPlayer
+- Formatos soportados: MP3, WAV, FLAC, OGG
+- Buffer de reproducción: 2048 bytes
+- Latencia aproximada: <100ms
 
 #### 2.3 Gestión de Lista de Reproducción
-- Vista en árbol con columnas:
-  - Título
-  - Artista
-  - Álbum
-  - Comentarios
-  - Duración
-- Soporte para arrastrar y soltar
-- Selección múltiple
-- Ordenamiento por columnas
-- Persistencia de la lista
 
-#### 2.4 Interfaz de Usuario
-- Diseño moderno y minimalista
-- Barra de estado informativa
-- Indicadores visuales de estado
-- Soporte para temas claros/oscuros
-- Atajos de teclado configurables
+#### Formato de Archivo
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1.0">
+    <track>
+        <path>/ruta/al/archivo.mp3</path>
+        <title>Título de la Canción</title>
+        <artist>Artista</artist>
+        <duration>180</duration>
+    </track>
+</playlist>
+```
 
-#### 2.5 Optimización de Recursos
-- Gestión eficiente de memoria
-- Liberación de recursos no utilizados
-- Caché de archivos convertidos
-- Procesamiento asíncrono de conversiones
+#### Persistencia
+- Ubicación: `~/.config/nexus/playlists/`
+- Formato: XML personalizado
+- Backup automático cada 5 minutos
+- Restauración automática al inicio
+
+#### 2.4 Barra de Progreso
+- Cálculo basado en bytes procesados
+- Actualización cada 100ms
+- Fórmula: `progreso = (bytesActuales * 100) / bytesTotales`
 
 ### 3. Áreas de Mejora Potencial
 
-#### 3.1 Funcionalidades
-- [ ] Ecualizador de audio
-- [ ] Visualizaciones de audio
-- [ ] Soporte para listas de reproducción en la nube
-- [ ] Sincronización entre dispositivos
-- [ ] Soporte para letras de canciones
-- [ ] Radio por Internet
-- [ ] Modo karaoke
-- [ ] Crossfade entre canciones
+#### 3.1 Prioridades (Q1 2025)
 
-#### 3.2 Técnicas
-- [ ] Implementar tests unitarios
-- [ ] Mejorar el manejo de memoria en archivos grandes
-- [ ] Optimizar el proceso de conversión
-- [ ] Agregar soporte para más formatos
-- [ ] Mejorar la detección de metadatos
-- [ ] Implementar caché de miniaturas
-- [ ] Soporte para plugins
+1. Alta Prioridad
+   - Soporte para streaming (Spotify API)
+   - Mejoras en el ecualizador
+   - Optimización de memoria
 
-#### 3.3 Interfaz de Usuario
-- [ ] Personalización de temas
-- [ ] Modo mini-reproductor
-- [ ] Vista de álbum con carátulas
-- [ ] Gestor de biblioteca musical
-- [ ] Búsqueda avanzada
-- [ ] Filtros inteligentes
-- [ ] Estadísticas de reproducción
+2. Media Prioridad
+   - Sincronización entre dispositivos
+   - Visualizaciones de audio
+   - Soporte para letras de canciones
+
+3. Baja Prioridad
+   - Temas personalizados
+   - Estadísticas de reproducción
+   - Integración con Last.fm
 
 ### 4. API y Extensibilidad
 
-#### 4.1 Señales Principales
+#### 4.1 Señales y Slots Principales
+
 ```cpp
-// MainWindow
-void reproduccionIniciada(const QString& archivo);
-void reproduccionPausada();
-void reproduccionDetenida();
-void progresoActualizado(qint64 posicion);
-void volumenCambiado(int volumen);
+// Ejemplo de uso de señales y slots
+connect(player, &AudioPlayer::stateChanged,
+        this, &MainWindow::updatePlaybackState);
 
-// AudioConverter
-void conversionProgress(int porcentaje);
-void conversionFinished(const QString& outputFile);
-void conversionError(const QString& error);
+connect(playlist, &PlayList::trackChanged,
+        player, &AudioPlayer::loadTrack);
 
-// PlayList
-void listaModificada();
-void indiceActualCambiado(int nuevoIndice);
+// Manejo de errores
+connect(converter, &AudioConverter::conversionError,
+        this, &MainWindow::showErrorDialog);
 ```
 
-#### 4.2 Slots Públicos
-```cpp
-// MainWindow
-void reproducir();
-void pausar();
-void detener();
-void siguiente();
-void anterior();
-void setVolumen(int volumen);
-void setPosicion(qint64 posicion);
+#### 4.2 Eventos Personalizados
 
-// PlayList
-void agregarCancion(const QString& ruta);
-void eliminarCancion(int indice);
-void limpiar();
-void moverCancion(int desde, int hasta);
+```cpp
+// Definición de evento personalizado
+class TrackChangeEvent : public QEvent {
+public:
+    TrackChangeEvent(const QString& trackId)
+        : QEvent(QEvent::Type(User + 1))
+        , m_trackId(trackId) {}
+        
+    QString trackId() const { return m_trackId; }
+    
+private:
+    QString m_trackId;
+};
 ```
 
-### 5. Configuración del Entorno de Desarrollo
+### 5. Configuración del Entorno
 
-#### 5.1 Requisitos
-- Qt 6.7.3 o superior
-- CMake 3.31.3 o superior
-- Compilador con soporte para C++17
-- FFmpeg instalado en el sistema
-- Git
+#### 5.1 Requisitos del Sistema
 
-#### 5.2 Compilación
+#### macOS
 ```bash
-mkdir build
-cd build
-cmake ..
-make
+brew install qt@6
+brew install ffmpeg
+brew install taglib
 ```
 
-#### 5.3 Estructura del Proyecto
+#### Ubuntu/Debian
+```bash
+sudo apt install qt6-base-dev
+sudo apt install ffmpeg
+sudo apt install libtag1-dev
 ```
-nexus/
-├── src/
-│   ├── main.cpp
-│   ├── mainwindow.cpp
-│   ├── audioconverter.cpp
-│   ├── playlist.cpp
-│   └── ...
-├── include/
-│   ├── mainwindow.h
-│   ├── audioconverter.h
-│   ├── playlist.h
-│   └── ...
-├── resources/
-│   ├── icons/
-│   └── styles/
-├── docs/
-├── tests/
-└── CMakeLists.txt
+
+#### Windows
+```powershell
+vcpkg install qt6:x64-windows
+vcpkg install ffmpeg:x64-windows
+vcpkg install taglib:x64-windows
 ```
 
 ### 6. Guías de Contribución
 
-#### 6.1 Estilo de Código
-- Seguir el estilo de Qt
-- Usar camelCase para nombres de funciones y variables
-- Documentar todas las funciones públicas
-- Mantener las funciones pequeñas y enfocadas
-- Usar nombres descriptivos y en español
+#### 6.1 Formato de Commits
 
-#### 6.2 Proceso de Pull Request
-1. Crear una rama para cada feature
-2. Seguir el formato de commit convencional
-3. Incluir tests cuando sea posible
-4. Actualizar la documentación
-5. Solicitar revisión de código
+```bash
+# Nuevas características
+feat: agregar soporte para visualizaciones de audio
+
+# Correcciones
+fix: resolver memory leak en conversión de audio
+
+# Documentación
+docs: actualizar instrucciones de instalación
+
+# Refactorización
+refactor: simplificar lógica de reproducción
+```
+
+#### 6.2 Proceso de Revisión
+
+1. **Revisión Automática**
+   - Linting (clang-format)
+   - Tests unitarios
+   - Cobertura de código
+
+2. **Revisión Manual**
+   - Diseño y arquitectura
+   - Rendimiento
+   - Seguridad
+   - Documentación
 
 ### 7. Rendimiento y Seguridad
 
-#### 7.1 Consideraciones de Rendimiento
-- Uso de memoria optimizado para archivos grandes
-- Conversión asíncrona de archivos
-- Caché de archivos convertidos
-- Liberación proactiva de recursos
+#### 7.1 Gestión de Caché
 
-#### 7.2 Seguridad
-- Validación de archivos de entrada
-- Manejo seguro de archivos temporales
-- Protección contra desbordamiento de buffer
-- Sanitización de nombres de archivo
+```cpp
+struct CacheEntry {
+    QString originalPath;
+    QString convertedPath;
+    qint64 timestamp;
+    qint64 size;
+    QString checksum;
+};
+```
 
-### 8. Roadmap Futuro
+#### Política de Caché
+- Tamaño máximo: 1GB
+- Tiempo de vida: 7 días
+- Estrategia: LRU (Least Recently Used)
 
-#### 8.1 Corto Plazo (3 meses)
-- Implementar ecualizador
-- Agregar visualizaciones de audio
-- Mejorar el manejo de metadatos
-- Optimizar la conversión de FLAC
+#### 7.2 Sanitización de Archivos
 
-#### 8.2 Medio Plazo (6 meses)
-- Soporte para streaming
+```cpp
+class TempFileManager {
+public:
+    static QString createTempFile(const QString& prefix);
+    static void cleanupOldFiles(const QDir& tempDir);
+    static void secureDelete(const QString& path);
+private:
+    static void shredFile(const QString& path);
+};
+```
+
+#### 7.3 Validación de Metadatos
+
+```cpp
+class MetadataValidator {
+public:
+    static bool validateTags(const TagLib::FileRef& file);
+    static QString sanitizeString(const QString& input);
+    static bool isValidEncoding(const QByteArray& data);
+};
+```
+
+### 8. Monitoreo y Logging
+
+#### 8.1 Sistema de Logging
+
+```cpp
+enum class LogLevel {
+    Debug,
+    Info,
+    Warning,
+    Error,
+    Critical
+};
+
+class Logger {
+public:
+    static void log(LogLevel level, const QString& message);
+    static void setLogFile(const QString& path);
+    static void enableConsoleOutput(bool enable);
+};
+```
+
+#### 8.2 Métricas de Rendimiento
+
+- Tiempo de carga de archivos
+- Uso de memoria
+- Tiempo de conversión
+- Latencia de reproducción
+
+### 9. Roadmap
+
+#### Q1 2025
+- Implementación de streaming
+- Mejoras en el ecualizador
+- Optimización de memoria
+
+#### Q2 2025
+- Sistema de plugins
 - Sincronización en la nube
-- Modo colaborativo
-- API para plugins
+- Visualizaciones de audio
 
-#### 8.3 Largo Plazo (12 meses)
-- Integración con servicios de música
-- Aplicación móvil companion
-- Sistema de recomendaciones
-- Análisis de audio avanzado
-
----
-
-*Última actualización: 9 de enero de 2025*
+#### Q3-Q4 2025
+- Integración con servicios externos
+- Modo sin conexión
+- Recomendaciones basadas en IA
