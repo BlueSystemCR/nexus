@@ -1,9 +1,9 @@
-# Nexus - Reproductor de Música
-## Documentación Técnica para Desarrollo
+# Nexus - Music Player
+## Technical Documentation for Development
 
-### 1. Arquitectura del Sistema
+### 1. System Architecture
 
-#### 1.1 Diagrama de Componentes
+#### 1.1 Component Diagram
 
 ```mermaid
 classDiagram
@@ -57,123 +57,123 @@ classDiagram
     }
 ```
 
-#### 1.2 Interacción entre Componentes
+#### 1.2 Component Interaction
 
 #### MainWindow ↔ PlayList
-- La ventana principal se comunica con PlayList mediante señales y slots de Qt
-- Cuando se agrega una canción: `MainWindow::onAddTrack() → PlayList::addTrack()`
-- Actualizaciones de UI: `PlayList::trackAdded() → MainWindow::updatePlaylistView()`
+- The main window communicates with PlayList via Qt signals and slots
+- When adding a song: `MainWindow::onAddTrack() → PlayList::addTrack()`
+- UI updates: `PlayList::trackAdded() → MainWindow::updatePlaylistView()`
 
 #### MainWindow ↔ AudioPlayer
-- Control de reproducción mediante señales directas
-- Estado de reproducción: `AudioPlayer::stateChanged() → MainWindow::updatePlaybackControls()`
-- Progreso: `AudioPlayer::positionChanged() → MainWindow::updateProgressBar()`
+- Playback control via direct signals
+- Playback state: `AudioPlayer::stateChanged() → MainWindow::updatePlaybackControls()`
+- Progress: `AudioPlayer::positionChanged() → MainWindow::updateProgressBar()`
 
 #### AudioConverter ↔ AsyncTaskManager
-- Conversión asíncrona de archivos
-- Monitoreo de progreso en tiempo real
-- Manejo de errores y notificaciones al usuario
+- Asynchronous file conversion
+- Real-time progress monitoring
+- Error handling and user notifications
 
-#### 1.3 Tecnologías Utilizadas
+#### 1.3 Technologies Used
 
 #### Qt 6
-- **Justificación**: Framework moderno con soporte multiplataforma robusto
-- **Ventajas**:
-  - Widgets nativos del sistema operativo
-  - Sistema de señales y slots para comunicación entre componentes
-  - Excelente documentación y comunidad activa
+- **Justification**: Modern framework with robust multi-platform support
+- **Advantages**:
+  - Native system widgets
+  - Signal-slot system for component communication
+  - Excellent documentation and active community
 
 #### FFmpeg
-- **Justificación**: Biblioteca estándar de la industria para procesamiento multimedia
-- **Ventajas**:
-  - Soporte para múltiples formatos de audio
-  - Alto rendimiento en conversión
-  - Actualización constante con nuevos codecs
+- **Justification**: Industry-standard multimedia processing library
+- **Advantages**:
+  - Support for multiple audio formats
+  - High-performance conversion
+  - Constant updates with new codecs
 
-### 2. Funcionalidades Implementadas
+### 2. Implemented Features
 
-#### 2.1 Interfaz de Usuario
-![Interfaz Principal](screenshots/main_interface.png)
+#### 2.1 User Interface
+![Main Interface](screenshots/main_interface.png)
 
-#### Componentes Principales:
-1. Barra de herramientas superior
-2. Lista de reproducción
-3. Controles de reproducción
-4. Barra de progreso
-5. Panel de información de la pista
+#### Main Components:
+1. Top toolbar
+2. Playlist
+3. Playback controls
+4. Progress bar
+5. Track information panel
 
-#### 2.2 Reproducción de Audio
-- Motor de audio: QMediaPlayer
-- Formatos soportados: MP3, WAV, FLAC, OGG
-- Buffer de reproducción: 2048 bytes
-- Latencia aproximada: <100ms
+#### 2.2 Audio Playback
+- Audio engine: QMediaPlayer
+- Supported formats: MP3, WAV, FLAC, OGG
+- Playback buffer: 2048 bytes
+- Approximate latency: <100ms
 
-#### 2.3 Gestión de Lista de Reproducción
+#### 2.3 Playlist Management
 
-#### Formato de Archivo
+#### File Format
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <playlist version="1.0">
     <track>
-        <path>/ruta/al/archivo.mp3</path>
-        <title>Título de la Canción</title>
-        <artist>Artista</artist>
+        <path>/path/to/file.mp3</path>
+        <title>Track Title</title>
+        <artist>Artist</artist>
         <duration>180</duration>
     </track>
 </playlist>
 ```
 
-#### Persistencia
-- Ubicación: `~/.config/nexus/playlists/`
-- Formato: XML personalizado
-- Backup automático cada 5 minutos
-- Restauración automática al inicio
+#### Persistence
+- Location: `~/.config/nexus/playlists/`
+- Format: Custom XML
+- Automatic backup every 5 minutes
+- Automatic restore on startup
 
-#### 2.4 Barra de Progreso
-- Cálculo basado en bytes procesados
-- Actualización cada 100ms
-- Fórmula: `progreso = (bytesActuales * 100) / bytesTotales`
+#### 2.4 Progress Bar
+- Calculation based on processed bytes
+- Update every 100ms
+- Formula: `progress = (currentBytes * 100) / totalBytes`
 
-### 3. Áreas de Mejora Potencial
+### 3. Potential Areas for Improvement
 
-#### 3.1 Prioridades (Q1 2025)
+#### 3.1 Priorities (Q1 2025)
 
-1. Alta Prioridad
-   - Soporte para streaming (Spotify API)
-   - Mejoras en el ecualizador
-   - Optimización de memoria
+1. High Priority
+   - Streaming support (Spotify API)
+   - Equalizer improvements
+   - Memory optimization
 
-2. Media Prioridad
-   - Sincronización entre dispositivos
-   - Visualizaciones de audio
-   - Soporte para letras de canciones
+2. Medium Priority
+   - Device synchronization
+   - Audio visualizations
+   - Lyrics support
 
-3. Baja Prioridad
-   - Temas personalizados
-   - Estadísticas de reproducción
-   - Integración con Last.fm
+3. Low Priority
+   - Custom themes
+   - Playback statistics
+   - Last.fm integration
 
-### 4. API y Extensibilidad
+### 4. API and Extensibility
 
-#### 4.1 Señales y Slots Principales
+#### 4.1 Main Signals and Slots
 
 ```cpp
-// Ejemplo de uso de señales y slots
+// Example usage of signals and slots
 connect(player, &AudioPlayer::stateChanged,
         this, &MainWindow::updatePlaybackState);
 
 connect(playlist, &PlayList::trackChanged,
         player, &AudioPlayer::loadTrack);
 
-// Manejo de errores
+// Error handling
 connect(converter, &AudioConverter::conversionError,
         this, &MainWindow::showErrorDialog);
 ```
 
-#### 4.2 Eventos Personalizados
+#### 4.2 Custom Events
 
 ```cpp
-// Definición de evento personalizado
+// Custom event definition
 class TrackChangeEvent : public QEvent {
 public:
     TrackChangeEvent(const QString& trackId)
@@ -187,9 +187,9 @@ private:
 };
 ```
 
-### 5. Configuración del Entorno
+### 5. Environment Setup
 
-#### 5.1 Requisitos del Sistema
+#### 5.1 System Requirements
 
 #### macOS
 ```bash
@@ -212,40 +212,40 @@ vcpkg install ffmpeg:x64-windows
 vcpkg install taglib:x64-windows
 ```
 
-### 6. Guías de Contribución
+### 6. Contribution Guides
 
-#### 6.1 Formato de Commits
+#### 6.1 Commit Format
 
 ```bash
-# Nuevas características
-feat: agregar soporte para visualizaciones de audio
+# New features
+feat: add support for audio visualizations
 
-# Correcciones
-fix: resolver memory leak en conversión de audio
+# Fixes
+fix: resolve memory leak in audio conversion
 
-# Documentación
-docs: actualizar instrucciones de instalación
+# Documentation
+docs: update installation instructions
 
-# Refactorización
-refactor: simplificar lógica de reproducción
+# Refactoring
+refactor: simplify playback logic
 ```
 
-#### 6.2 Proceso de Revisión
+#### 6.2 Review Process
 
-1. **Revisión Automática**
+1. **Automated Review**
    - Linting (clang-format)
-   - Tests unitarios
-   - Cobertura de código
+   - Unit tests
+   - Code coverage
 
-2. **Revisión Manual**
-   - Diseño y arquitectura
-   - Rendimiento
-   - Seguridad
-   - Documentación
+2. **Manual Review**
+   - Design and architecture
+   - Performance
+   - Security
+   - Documentation
 
-### 7. Rendimiento y Seguridad
+### 7. Performance and Security
 
-#### 7.1 Gestión de Caché
+#### 7.1 Cache Management
 
 ```cpp
 struct CacheEntry {
@@ -257,12 +257,12 @@ struct CacheEntry {
 };
 ```
 
-#### Política de Caché
-- Tamaño máximo: 1GB
-- Tiempo de vida: 7 días
-- Estrategia: LRU (Least Recently Used)
+#### Cache Policy
+- Maximum size: 1GB
+- Lifetime: 7 days
+- Strategy: LRU (Least Recently Used)
 
-#### 7.2 Sanitización de Archivos
+#### 7.2 File Sanitization
 
 ```cpp
 class TempFileManager {
@@ -275,7 +275,7 @@ private:
 };
 ```
 
-#### 7.3 Validación de Metadatos
+#### 7.3 Metadata Validation
 
 ```cpp
 class MetadataValidator {
@@ -286,9 +286,9 @@ public:
 };
 ```
 
-### 8. Monitoreo y Logging
+### 8. Monitoring and Logging
 
-#### 8.1 Sistema de Logging
+#### 8.1 Logging System
 
 ```cpp
 enum class LogLevel {
@@ -307,44 +307,44 @@ public:
 };
 ```
 
-#### 8.2 Métricas de Rendimiento
+#### 8.2 Performance Metrics
 
-- Tiempo de carga de archivos
-- Uso de memoria
-- Tiempo de conversión
-- Latencia de reproducción
+- File load time
+- Memory usage
+- Conversion time
+- Playback latency
 
-### 9. Roadmap y Planificación Futura
+### 9. Roadmap and Future Planning
 
-#### 9.1 Q1 2025 (Enero - Marzo)
-- Implementación de streaming
-  - Integración con Spotify Web API
-  - Autenticación OAuth 2.0
-  - Sincronización de playlists
-- Mejoras en el ecualizador
-  - Presets personalizables
-  - Visualización en tiempo real
-- Optimización de memoria
-  - Buffering inteligente
-  - Caché adaptativa
+#### 9.1 Q1 2025 (January - March)
+- Streaming implementation
+  - Spotify Web API integration
+  - OAuth 2.0 authentication
+  - Playlist synchronization
+- Equalizer improvements
+  - Customizable presets
+  - Real-time visualization
+- Memory optimization
+  - Intelligent buffering
+  - Adaptive caching
 
-#### 9.2 Q2 2025 (Abril - Junio)
-- Sistema de plugins
-  - API de extensiones
-  - Marketplace de plugins
-  - Sistema de actualizaciones
-- Sincronización en la nube
+#### 9.2 Q2 2025 (April - June)
+- Plugin system
+  - Extension API
+  - Plugin marketplace
+  - Update system
+- Cloud synchronization
   - Google Drive integration
   - Dropbox support
   - iCloud compatibility
-- Visualizaciones de audio
-  - Espectro de frecuencia
-  - Formas de onda
-  - Visualizaciones personalizadas
+- Audio visualizations
+  - Frequency spectrum
+  - Waveforms
+  - Custom visualizations
 
-#### 9.3 Q3-Q4 2025 (Julio - Diciembre)
+#### 9.3 Q3-Q4 2025 (July - December)
 
-##### Integración con Servicios Externos
+##### Integration with External Services
 - **Spotify**
   ```json
   {
@@ -355,9 +355,9 @@ public:
       "recommendations": "/v1/recommendations"
     },
     "features": [
-      "búsqueda",
+      "search",
       "streaming",
-      "recomendaciones"
+      "recommendations"
     ]
   }
   ```
@@ -373,8 +373,8 @@ public:
     },
     "features": [
       "scrobbling",
-      "metadatos",
-      "recomendaciones"
+      "metadata",
+      "recommendations"
     ]
   }
   ```
@@ -389,30 +389,30 @@ public:
       "playlists": "/v1/me/playlists"
     },
     "features": [
-      "biblioteca",
+      "library",
       "playlists",
       "radio"
     ]
   }
   ```
 
-##### Aplicación Móvil Companion
+##### Companion Mobile App
 
-###### Arquitectura
+###### Architecture
 ```mermaid
 graph TB
-    A[App Móvil] --> B[API Gateway]
-    C[Cliente Móvil] --> B
-    B --> D[Servicio de Audio]
-    B --> E[Servicio de Usuarios]
-    B --> F[Servicio de Recomendaciones]
+    A[Mobile App] --> B[API Gateway]
+    C[Mobile Client] --> B
+    B --> D[Audio Service]
+    B --> E[User Service]
+    B --> F[Recommendation Service]
     D --> G[Storage]
-    E --> H[Base de Datos]
-    F --> I[Motor ML]
+    E --> H[Database]
+    F --> I[ML Engine]
 ```
 
-###### Funcionalidades Principales
-1. **Control Remoto**
+###### Main Features
+1. **Remote Control**
    ```swift
    protocol RemoteControl {
        func play()
@@ -423,7 +423,7 @@ graph TB
    }
    ```
 
-2. **Sincronización**
+2. **Synchronization**
    ```swift
    struct SyncManager {
        var lastSync: Date
@@ -436,7 +436,7 @@ graph TB
    }
    ```
 
-3. **Caché Local**
+3. **Local Cache**
    ```swift
    class LocalCache {
        var maxSize: Int
@@ -449,16 +449,16 @@ graph TB
    }
    ```
 
-##### Sistema de Recomendaciones
+##### Recommendation System
 
-###### Fuentes de Datos
-- Historial de reproducción
-- Metadatos de canciones
-- Géneros favoritos
-- Artistas relacionados
-- Tendencias temporales
+###### Data Sources
+- Playback history
+- Track metadata
+- Favorite genres
+- Related artists
+- Temporal trends
 
-###### Algoritmos
+###### Algorithms
 ```python
 class RecommendationEngine:
     def __init__(self):
@@ -489,99 +489,99 @@ class RecommendationEngine:
         return sorted(recommendations, key=lambda x: x[1], reverse=True)[:n]
 ```
 
-#### 9.4 2026 y Más Allá
-- Inteligencia Artificial
-  - Generación de playlists
-  - Análisis de estado de ánimo
-  - Composición asistida
-- Realidad Aumentada
-  - Visualizaciones 3D
-  - Experiencias inmersivas
-- Integración IoT
+#### 9.4 2026 and Beyond
+- Artificial Intelligence
+  - Playlist generation
+  - Mood analysis
+  - Assisted composition
+- Augmented Reality
+  - 3D visualizations
+  - Immersive experiences
+- IoT Integration
   - Smart home
-  - Dispositivos wearables
+  - Wearable devices
 
-### 10. Consideraciones de Implementación
+### 10. Implementation Considerations
 
-#### 10.1 Arquitectura de Microservicios
+#### 10.1 Microservices Architecture
 
 ```mermaid
 graph TB
-    A[Cliente Desktop] --> B[API Gateway]
-    C[Cliente Móvil] --> B
-    B --> D[Servicio de Audio]
-    B --> E[Servicio de Usuarios]
-    B --> F[Servicio de Recomendaciones]
+    A[Desktop Client] --> B[API Gateway]
+    C[Mobile Client] --> B
+    B --> D[Audio Service]
+    B --> E[User Service]
+    B --> F[Recommendation Service]
     D --> G[Storage]
-    E --> H[Base de Datos]
-    F --> I[Motor ML]
+    E --> H[Database]
+    F --> I[ML Engine]
 ```
 
-##### Servicios Principales
+##### Main Services
 
-1. **Servicio de Audio**
+1. **Audio Service**
 ```typescript
 interface AudioService {
-  // Gestión de archivos
-  uploadTrack(file: File): Promise<TrackMetadata>;
-  convertFormat(trackId: string, format: AudioFormat): Promise<string>;
-  
-  // Streaming
-  getStreamUrl(trackId: string): Promise<string>;
-  getChunk(trackId: string, position: number): Promise<ArrayBuffer>;
-  
-  // Metadatos
-  updateMetadata(trackId: string, metadata: Partial<TrackMetadata>): Promise<void>;
-  extractMetadata(trackId: string): Promise<TrackMetadata>;
+    // File management
+    uploadTrack(file: File): Promise<TrackMetadata>;
+    convertFormat(trackId: string, format: AudioFormat): Promise<string>;
+    
+    // Streaming
+    getStreamUrl(trackId: string): Promise<string>;
+    getChunk(trackId: string, position: number): Promise<ArrayBuffer>;
+    
+    // Metadata
+    updateMetadata(trackId: string, metadata: Partial<TrackMetadata>): Promise<void>;
+    extractMetadata(trackId: string): Promise<TrackMetadata>;
 }
 ```
 
-2. **Servicio de Usuarios**
+2. **User Service**
 ```typescript
 interface UserService {
-  // Autenticación
-  login(credentials: Credentials): Promise<Session>;
-  refresh(token: string): Promise<Session>;
-  
-  // Preferencias
-  getUserPreferences(userId: string): Promise<UserPreferences>;
-  updatePreferences(userId: string, prefs: Partial<UserPreferences>): Promise<void>;
-  
-  // Sincronización
-  getSyncStatus(userId: string): Promise<SyncStatus>;
-  sync(userId: string, changes: Change[]): Promise<SyncResult>;
+    // Authentication
+    login(credentials: Credentials): Promise<Session>;
+    refresh(token: string): Promise<Session>;
+    
+    // Preferences
+    getUserPreferences(userId: string): Promise<UserPreferences>;
+    updatePreferences(userId: string, prefs: Partial<UserPreferences>): Promise<void>;
+    
+    // Synchronization
+    getSyncStatus(userId: string): Promise<SyncStatus>;
+    sync(userId: string, changes: Change[]): Promise<SyncResult>;
 }
 ```
 
-3. **Servicio de Recomendaciones**
+3. **Recommendation Service**
 ```typescript
 interface RecommendationService {
-  // Recomendaciones personalizadas
-  getPersonalizedRecommendations(userId: string): Promise<Track[]>;
-  
-  // Análisis de gustos
-  analyzeUserTaste(userId: string): Promise<TasteProfile>;
-  
-  // Descubrimiento
-  getDiscoveryPlaylist(userId: string): Promise<Playlist>;
-  getSimilarTracks(trackId: string): Promise<Track[]>;
+    // Personalized recommendations
+    getPersonalizedRecommendations(userId: string): Promise<Track[]>;
+    
+    // Taste analysis
+    analyzeUserTaste(userId: string): Promise<TasteProfile>;
+    
+    // Discovery
+    getDiscoveryPlaylist(userId: string): Promise<Playlist>;
+    getSimilarTracks(trackId: string): Promise<Track[]>;
 }
 ```
 
-#### 10.2 Optimización de Recursos
+#### 10.2 Resource Optimization
 
-##### Gestión de Memoria
+##### Memory Management
 ```cpp
 class MemoryManager {
 public:
-    // Configuración de límites
+    // Limit configuration
     struct Limits {
         size_t maxCacheSize;
         size_t maxPlaylistSize;
         size_t maxConcurrentConversions;
     };
     
-    // Monitoreo de uso
+    // Usage monitoring
     struct Usage {
         size_t currentCacheSize;
         size_t activeConversions;
@@ -591,7 +591,7 @@ public:
     void setLimits(const Limits& limits);
     Usage getCurrentUsage() const;
     
-    // Gestión de caché
+    // Cache management
     void trimCache();
     void preloadTrack(const QString& trackId);
     void releaseTrack(const QString& trackId);
@@ -603,11 +603,11 @@ private:
 };
 ```
 
-##### Optimización de Red
+##### Network Optimization
 ```cpp
 class NetworkManager {
 public:
-    // Configuración de streaming
+    // Streaming configuration
     struct StreamConfig {
         size_t chunkSize;
         size_t prefetchCount;
@@ -615,11 +615,11 @@ public:
         bool enableCompression;
     };
     
-    // Control de ancho de banda
+    // Bandwidth control
     void setBandwidthLimit(size_t bytesPerSecond);
     void setPriority(RequestType type, int priority);
     
-    // Gestión de conexiones
+    // Connection management
     QNetworkReply* sendRequest(const NetworkRequest& request);
     void cancelRequest(const QString& requestId);
     
@@ -630,21 +630,21 @@ private:
 };
 ```
 
-#### 10.3 Seguridad
+#### 10.3 Security
 
-##### Cifrado de Datos
+##### Data Encryption
 ```cpp
 class SecurityManager {
 public:
-    // Cifrado de archivos
+    // File encryption
     QByteArray encryptFile(const QString& filePath, const QString& key);
     bool decryptFile(const QString& filePath, const QString& key);
     
-    // Gestión de claves
+    // Key management
     QString generateKey() const;
     bool validateKey(const QString& key) const;
     
-    // Sanitización
+    // Input sanitization
     QString sanitizeFileName(const QString& fileName) const;
     bool validateFileSignature(const QString& filePath) const;
     
@@ -654,9 +654,9 @@ private:
 };
 ```
 
-#### 10.4 Testing y QA
+#### 10.4 Testing and QA
 
-##### Tests Unitarios
+##### Unit Tests
 ```cpp
 class AudioConverterTest : public QObject {
     Q_OBJECT
@@ -675,7 +675,7 @@ private:
 };
 ```
 
-##### Tests de Integración
+##### Integration Tests
 ```python
 class IntegrationTests:
     def setUp(self):
@@ -683,43 +683,43 @@ class IntegrationTests:
         self.client = TestClient()
         
     def test_end_to_end_playback(self):
-        # Subir archivo
+        # Upload file
         track_id = self.client.upload_file("test.mp3")
         
-        # Verificar conversión
+        # Verify conversion
         status = self.client.wait_for_conversion(track_id)
         self.assertTrue(status.success)
         
-        # Probar reproducción
+        # Test playback
         player = self.app.get_player()
         player.load_track(track_id)
         player.play()
         
-        # Verificar progreso
+        # Verify progress
         self.assertTrue(self.wait_for_playback_progress())
 ```
 
-### 11. Métricas y Monitoreo
+### 11. Metrics and Monitoring
 
-#### 11.1 Telemetría
+#### 11.1 Telemetry
 
 ```typescript
 interface TelemetryData {
-    // Rendimiento
+    // Performance
     loadTime: number;
     memoryUsage: number;
     cpuUsage: number;
     
-    // Uso
+    // Usage
     activeUsers: number;
     playbackSessions: number;
     conversionJobs: number;
     
-    // Errores
+    // Errors
     errorCount: number;
     errorTypes: Record<string, number>;
     
-    // Red
+    // Network
     bandwidth: number;
     latency: number;
     packetLoss: number;
@@ -729,20 +729,20 @@ class TelemetryCollector {
     private metrics: TelemetryData;
     
     collectMetrics(): void {
-        // Implementación
+        // Implementation
     }
     
     analyzeTrends(): TrendAnalysis {
-        // Implementación
+        // Implementation
     }
     
     generateReport(): Report {
-        // Implementación
+        // Implementation
     }
 }
 ```
 
-#### 11.2 Alertas
+#### 11.2 Alerts
 
 ```yaml
 alerts:
@@ -773,4 +773,4 @@ alerts:
 
 ---
 
-*Última actualización: 2025-01-09*
+*Last updated: 2025-01-09*
