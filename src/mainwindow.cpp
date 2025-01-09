@@ -99,15 +99,22 @@ void MainWindow::configurarReproductor()
         actualizarEstadoReproduccion(state == QMediaPlayer::PlayingState);
     });
     connect(reproductor, &QMediaPlayer::errorOccurred, this, &MainWindow::manejarError);
-    connect(reproductor, &QMediaPlayer::mediaStatusChanged, [this](QMediaPlayer::MediaStatus status) {
-        qDebug() << "Estado del medio:" << status;
-    });
 
-    qDebug() << "Reproductor configurado con soporte para formatos:";
-    QStringList formatos = {"mp3", "wav", "ogg", "m4a", "flac", "aac"};
-    for (const QString& formato : formatos) {
-        qDebug() << " -" << formato;
-    }
+    // Conectar señales del slider de progreso
+    connect(ui->progressSlider, &QSlider::sliderPressed, [this]() {
+        sliderPressed = true;
+    });
+    
+    connect(ui->progressSlider, &QSlider::sliderReleased, [this]() {
+        sliderPressed = false;
+        reproductor->setPosition(ui->progressSlider->value());
+    });
+    
+    connect(ui->progressSlider, &QSlider::valueChanged, [this](int value) {
+        if (sliderPressed) {
+            reproductor->setPosition(value);
+        }
+    });
 }
 
 void MainWindow::configurarConexiones() {
@@ -346,8 +353,16 @@ void MainWindow::actualizarEstadoReproduccion(bool reproduciendo) {
 }
 
 void MainWindow::actualizarProgreso(qint64 posicion) {
-    if (!ui->progressSlider->isSliderDown()) {
+    if (!sliderPressed) {
         ui->progressSlider->setValue(posicion);
+        
+        // Actualizar etiqueta de tiempo si existe
+        QTime tiempoActual = QTime(0, 0).addMSecs(posicion);
+        QTime tiempoTotal = QTime(0, 0).addMSecs(duracionActual);
+        QString formato = tiempoTotal.hour() > 0 ? "hh:mm:ss" : "mm:ss";
+        ui->statusbar->showMessage(QString("%1 / %2")
+            .arg(tiempoActual.toString(formato))
+            .arg(tiempoTotal.toString(formato)));
     }
 }
 
