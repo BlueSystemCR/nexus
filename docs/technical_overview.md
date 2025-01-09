@@ -314,19 +314,191 @@ public:
 - Tiempo de conversión
 - Latencia de reproducción
 
-### 9. Roadmap
+### 9. Roadmap y Planificación Futura
 
-#### Q1 2025
+#### 9.1 Q1 2025 (Enero - Marzo)
 - Implementación de streaming
+  - Integración con Spotify Web API
+  - Autenticación OAuth 2.0
+  - Sincronización de playlists
 - Mejoras en el ecualizador
+  - Presets personalizables
+  - Visualización en tiempo real
 - Optimización de memoria
+  - Buffering inteligente
+  - Caché adaptativa
 
-#### Q2 2025
+#### 9.2 Q2 2025 (Abril - Junio)
 - Sistema de plugins
+  - API de extensiones
+  - Marketplace de plugins
+  - Sistema de actualizaciones
 - Sincronización en la nube
+  - Google Drive integration
+  - Dropbox support
+  - iCloud compatibility
 - Visualizaciones de audio
+  - Espectro de frecuencia
+  - Formas de onda
+  - Visualizaciones personalizadas
 
-#### Q3-Q4 2025
-- Integración con servicios externos
-- Modo sin conexión
-- Recomendaciones basadas en IA
+#### 9.3 Q3-Q4 2025 (Julio - Diciembre)
+
+##### Integración con Servicios Externos
+- **Spotify**
+  ```json
+  {
+    "api_version": "v1",
+    "endpoints": {
+      "tracks": "/v1/tracks",
+      "playlists": "/v1/playlists",
+      "recommendations": "/v1/recommendations"
+    },
+    "features": [
+      "búsqueda",
+      "streaming",
+      "recomendaciones"
+    ]
+  }
+  ```
+
+- **Last.fm**
+  ```json
+  {
+    "api_version": "2.0",
+    "endpoints": {
+      "scrobble": "/2.0/?method=track.scrobble",
+      "artist_info": "/2.0/?method=artist.getInfo",
+      "similar_tracks": "/2.0/?method=track.getSimilar"
+    },
+    "features": [
+      "scrobbling",
+      "metadatos",
+      "recomendaciones"
+    ]
+  }
+  ```
+
+- **Apple Music**
+  ```json
+  {
+    "api_version": "v1",
+    "endpoints": {
+      "catalog": "/v1/catalog",
+      "library": "/v1/me/library",
+      "playlists": "/v1/me/playlists"
+    },
+    "features": [
+      "biblioteca",
+      "playlists",
+      "radio"
+    ]
+  }
+  ```
+
+##### Aplicación Móvil Companion
+
+###### Arquitectura
+```mermaid
+graph TD
+    A[App Móvil] --> B[API Gateway]
+    B --> C[Servidor Nexus]
+    C --> D[Base de Datos]
+    C --> E[Sistema de Archivos]
+    A --> F[Caché Local]
+    A --> G[Sincronización]
+```
+
+###### Funcionalidades Principales
+1. **Control Remoto**
+   ```swift
+   protocol RemoteControl {
+       func play()
+       func pause()
+       func skip()
+       func setVolume(level: Float)
+       func seekTo(position: TimeInterval)
+   }
+   ```
+
+2. **Sincronización**
+   ```swift
+   struct SyncManager {
+       var lastSync: Date
+       var pendingChanges: [Change]
+       var conflictResolution: ConflictStrategy
+       
+       func sync() async throws
+       func resolveConflicts() async
+       func applyChanges() async
+   }
+   ```
+
+3. **Caché Local**
+   ```swift
+   class LocalCache {
+       var maxSize: Int
+       var retention: TimeInterval
+       var strategy: CacheStrategy
+       
+       func store(_ data: Data, for key: String)
+       func retrieve(_ key: String) -> Data?
+       func clear()
+   }
+   ```
+
+##### Sistema de Recomendaciones
+
+###### Fuentes de Datos
+- Historial de reproducción
+- Metadatos de canciones
+- Géneros favoritos
+- Artistas relacionados
+- Tendencias temporales
+
+###### Algoritmos
+```python
+class RecommendationEngine:
+    def __init__(self):
+        self.models = {
+            'collaborative': CollaborativeFilter(),
+            'content_based': ContentBasedFilter(),
+            'hybrid': HybridRecommender()
+        }
+        
+    def train(self, user_data, music_data):
+        for model in self.models.values():
+            model.fit(user_data, music_data)
+            
+    def get_recommendations(self, user_id, n=10):
+        recommendations = []
+        weights = {
+            'collaborative': 0.4,
+            'content_based': 0.3,
+            'hybrid': 0.3
+        }
+        
+        for model_name, weight in weights.items():
+            model_recs = self.models[model_name].predict(user_id)
+            recommendations.extend(
+                (rec, score * weight) for rec, score in model_recs
+            )
+            
+        return sorted(recommendations, key=lambda x: x[1], reverse=True)[:n]
+```
+
+#### 9.4 2026 y Más Allá
+- Inteligencia Artificial
+  - Generación de playlists
+  - Análisis de estado de ánimo
+  - Composición asistida
+- Realidad Aumentada
+  - Visualizaciones 3D
+  - Experiencias inmersivas
+- Integración IoT
+  - Smart home
+  - Dispositivos wearables
+
+---
+
+*Última actualización: 2025-01-09*
