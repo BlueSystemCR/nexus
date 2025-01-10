@@ -1131,11 +1131,6 @@ CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o: \
   /opt/homebrew/include/QtMultimedia/qaudio.h \
   /opt/homebrew/lib/QtMultimedia.framework/Headers/QAudioOutput \
   /opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QProgressDialog \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qprogressdialog.h \
-  /opt/homebrew/include/QtWidgets/qdialog.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QElapsedTimer \
-  /opt/homebrew/lib/QtCore.framework/Headers/qelapsedtimer.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QTreeWidgetItem \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qtreewidget.h \
   /opt/homebrew/include/QtWidgets/qtreeview.h \
@@ -1156,28 +1151,56 @@ CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o: \
   /opt/homebrew/include/QtWidgets/qtabbar.h \
   /opt/homebrew/include/QtWidgets/qrubberband.h \
   /opt/homebrew/include/QtWidgets/qtreewidgetitemiterator.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QShortcut \
-  /opt/homebrew/lib/QtGui.framework/Headers/qshortcut.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QTimer \
-  /opt/homebrew/lib/QtCore.framework/Headers/qtimer.h \
-  /opt/homebrew/include/QtCore/qbasictimer.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QMessageBox \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qmessagebox.h \
-  /opt/homebrew/include/QtWidgets/qdialogbuttonbox.h \
-  /Users/freddymolina/Projects/next/src/playlist.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
-  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QList \
-  /opt/homebrew/lib/QtCore.framework/Headers/qlist.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QString \
-  /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
-  /Users/freddymolina/Projects/next/src/metadatamanager.h \
-  /Users/freddymolina/Projects/next/src/audioconverter.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QProcess \
-  /opt/homebrew/lib/QtCore.framework/Headers/qprocess.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QSettings \
+  /opt/homebrew/lib/QtCore.framework/Headers/qsettings.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QDialog \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qdialog.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QVBoxLayout \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qboxlayout.h \
+  /opt/homebrew/include/QtWidgets/qlayout.h \
+  /opt/homebrew/include/QtWidgets/qlayoutitem.h \
+  /opt/homebrew/include/QtWidgets/qboxlayout.h \
+  /opt/homebrew/include/QtWidgets/qgridlayout.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QCheckBox \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qcheckbox.h \
+  /opt/homebrew/include/QtWidgets/qabstractbutton.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QDragEnterEvent \
+  /opt/homebrew/lib/QtGui.framework/Headers/qevent.h \
+  /opt/homebrew/include/QtCore/qcoreevent.h \
   /opt/homebrew/include/QtCore/qiodevice.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QTemporaryFile \
-  /opt/homebrew/lib/QtCore.framework/Headers/qtemporaryfile.h \
+  /opt/homebrew/include/QtGui/qeventpoint.h \
+  /opt/homebrew/include/QtGui/qvector2d.h \
+  /opt/homebrew/include/QtGui/qvectornd.h \
+  /opt/homebrew/include/QtGui/qpointingdevice.h \
+  /opt/homebrew/include/QtGui/qinputdevice.h \
+  /opt/homebrew/include/QtGui/qscreen.h \
+  /opt/homebrew/include/QtCore/QList \
+  /opt/homebrew/include/QtCore/QObject \
+  /opt/homebrew/include/QtCore/QRect /opt/homebrew/include/QtCore/QSize \
+  /opt/homebrew/include/QtCore/QSizeF \
+  /opt/homebrew/include/QtGui/QTransform \
+  /opt/homebrew/include/QtCore/qnativeinterface.h \
+  /opt/homebrew/include/QtGui/qscreen_platform.h \
+  /opt/homebrew/include/QtGui/qguiapplication.h \
+  /opt/homebrew/include/QtCore/qcoreapplication.h \
+  /opt/homebrew/include/QtCore/qdeadlinetimer.h \
+  /opt/homebrew/include/QtCore/qelapsedtimer.h \
+  /opt/homebrew/include/QtCore/qeventloop.h \
+  /opt/homebrew/include/QtCore/qcoreapplication_platform.h \
+  /opt/homebrew/include/QtGui/qinputmethod.h \
+  /opt/homebrew/include/QtGui/qguiapplication_platform.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QDragMoveEvent \
+  /opt/homebrew/lib/QtGui.framework/Headers/QDropEvent \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QStatusBar \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qstatusbar.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
+  /opt/homebrew/include/QtGui/qpicture.h \
+  /opt/homebrew/include/QtGui/qtextdocument.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QFileInfo \
+  /opt/homebrew/lib/QtCore.framework/Headers/qfileinfo.h \
   /opt/homebrew/include/QtCore/qfile.h \
   /opt/homebrew/include/QtCore/qfiledevice.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/filesystem \
@@ -1225,72 +1248,20 @@ CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-  /Users/freddymolina/Projects/next/src/asynctaskmanager.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QHash \
-  /opt/homebrew/lib/QtCore.framework/Headers/qhash.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QUuid \
-  /opt/homebrew/lib/QtCore.framework/Headers/quuid.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QDateTime \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdatetime.h \
+  /opt/homebrew/include/QtCore/qdatetime.h \
   /opt/homebrew/include/QtCore/qcalendar.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QMutex \
-  /opt/homebrew/lib/QtCore.framework/Headers/qmutex.h \
-  /opt/homebrew/include/QtCore/qdeadlinetimer.h \
-  /opt/homebrew/include/QtCore/qelapsedtimer.h \
-  /opt/homebrew/include/QtCore/qtsan_impl.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/sanitizer/tsan_interface.h \
-  /Users/freddymolina/Projects/next/src/threadpool.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QThread \
-  /opt/homebrew/lib/QtCore.framework/Headers/qthread.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/future \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/thread \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/formatter.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/jthread.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/stop_source.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/stop_state.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/atomic_unique_lock.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/intrusive_list_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/stop_token.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/thread.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/sstream \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/this_thread.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QThreadPool \
-  /opt/homebrew/lib/QtCore.framework/Headers/qthreadpool.h \
-  /opt/homebrew/include/QtCore/qthread.h \
-  /opt/homebrew/include/QtCore/qrunnable.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QRunnable \
-  /opt/homebrew/lib/QtCore.framework/Headers/qrunnable.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QQueue \
-  /opt/homebrew/lib/QtCore.framework/Headers/qqueue.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/include/ui_mainwindow.h \
+  /opt/homebrew/include/QtCore/qtimezone.h \
+  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/include/./ui_mainwindow.h \
   /opt/homebrew/include/QtCore/QVariant \
   /opt/homebrew/include/QtGui/QAction \
   /opt/homebrew/include/QtWidgets/QApplication \
   /opt/homebrew/include/QtWidgets/qapplication.h \
-  /opt/homebrew/include/QtCore/qcoreapplication.h \
-  /opt/homebrew/include/QtCore/qcoreevent.h \
-  /opt/homebrew/include/QtCore/qeventloop.h \
-  /opt/homebrew/include/QtCore/qnativeinterface.h \
-  /opt/homebrew/include/QtCore/qcoreapplication_platform.h \
-  /opt/homebrew/include/QtGui/qguiapplication.h \
-  /opt/homebrew/include/QtGui/qinputmethod.h \
-  /opt/homebrew/include/QtGui/qguiapplication_platform.h \
   /opt/homebrew/include/QtWidgets/QComboBox \
   /opt/homebrew/include/QtWidgets/qcombobox.h \
   /opt/homebrew/include/QtWidgets/QHBoxLayout \
-  /opt/homebrew/include/QtWidgets/qboxlayout.h \
-  /opt/homebrew/include/QtWidgets/qlayout.h \
-  /opt/homebrew/include/QtWidgets/qlayoutitem.h \
-  /opt/homebrew/include/QtWidgets/qgridlayout.h \
   /opt/homebrew/include/QtWidgets/QHeaderView \
   /opt/homebrew/include/QtWidgets/qheaderview.h \
   /opt/homebrew/include/QtWidgets/QLabel \
-  /opt/homebrew/include/QtWidgets/qlabel.h \
-  /opt/homebrew/include/QtGui/qpicture.h \
-  /opt/homebrew/include/QtGui/qtextdocument.h \
   /opt/homebrew/include/QtWidgets/QMainWindow \
   /opt/homebrew/include/QtWidgets/QMenu \
   /opt/homebrew/include/QtWidgets/qmenu.h \
@@ -1298,48 +1269,50 @@ CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o: \
   /opt/homebrew/include/QtWidgets/qmenubar.h \
   /opt/homebrew/include/QtWidgets/QPushButton \
   /opt/homebrew/include/QtWidgets/qpushbutton.h \
-  /opt/homebrew/include/QtWidgets/qabstractbutton.h \
   /opt/homebrew/include/QtWidgets/QSlider \
   /opt/homebrew/include/QtWidgets/QSpacerItem \
   /opt/homebrew/include/QtWidgets/QStatusBar \
-  /opt/homebrew/include/QtWidgets/qstatusbar.h \
   /opt/homebrew/include/QtWidgets/QTreeWidget \
   /opt/homebrew/include/QtWidgets/qtreewidget.h \
   /opt/homebrew/include/QtWidgets/QVBoxLayout \
   /opt/homebrew/include/QtWidgets/QWidget \
+  /Users/freddymolina/Projects/next/src/metadatamanager.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QString \
+  /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
+  /opt/homebrew/include/taglib/fileref.h \
+  /opt/homebrew/include/taglib/tfile.h \
+  /opt/homebrew/include/taglib/taglib_export.h \
+  /opt/homebrew/include/taglib/taglib.h \
+  /opt/homebrew/include/taglib/taglib_config.h \
+  /opt/homebrew/include/taglib/tag.h \
+  /opt/homebrew/include/taglib/tstring.h \
+  /opt/homebrew/include/taglib/tbytevector.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iostream \
+  /opt/homebrew/include/taglib/tiostream.h \
+  /opt/homebrew/include/taglib/tstringlist.h \
+  /opt/homebrew/include/taglib/tlist.h \
+  /opt/homebrew/include/taglib/tlist.tcc \
+  /opt/homebrew/include/taglib/trefcounter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSAtomic.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSAtomicDeprecated.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSSpinLockDeprecated.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSAtomicQueue.h \
+  /opt/homebrew/include/taglib/tbytevectorlist.h \
+  /opt/homebrew/include/taglib/audioproperties.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QFileDialog \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qfiledialog.h \
   /opt/homebrew/include/QtCore/qdir.h \
   /opt/homebrew/include/QtCore/qfileinfo.h \
-  /opt/homebrew/include/QtCore/qdatetime.h \
-  /opt/homebrew/include/QtCore/qtimezone.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QStandardPaths \
-  /opt/homebrew/lib/QtCore.framework/Headers/qstandardpaths.h \
+  /opt/homebrew/include/QtWidgets/qdialog.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QMessageBox \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qmessagebox.h \
+  /opt/homebrew/include/QtWidgets/qdialogbuttonbox.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QMimeData \
   /opt/homebrew/lib/QtCore.framework/Headers/qmimedata.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QDragEnterEvent \
-  /opt/homebrew/lib/QtGui.framework/Headers/qevent.h \
-  /opt/homebrew/include/QtGui/qeventpoint.h \
-  /opt/homebrew/include/QtGui/qvector2d.h \
-  /opt/homebrew/include/QtGui/qvectornd.h \
-  /opt/homebrew/include/QtGui/qpointingdevice.h \
-  /opt/homebrew/include/QtGui/qinputdevice.h \
-  /opt/homebrew/include/QtGui/qscreen.h \
-  /opt/homebrew/include/QtCore/QList \
-  /opt/homebrew/include/QtCore/QObject \
-  /opt/homebrew/include/QtCore/QRect /opt/homebrew/include/QtCore/QSize \
-  /opt/homebrew/include/QtCore/QSizeF \
-  /opt/homebrew/include/QtGui/QTransform \
-  /opt/homebrew/include/QtGui/qscreen_platform.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QDropEvent \
-  /opt/homebrew/lib/QtCore.framework/Headers/QUrl \
-  /opt/homebrew/lib/QtCore.framework/Headers/qurl.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QTime \
+  /opt/homebrew/lib/QtCore.framework/Headers/qdatetime.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QDir \
+  /opt/homebrew/lib/QtCore.framework/Headers/qdir.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QDirIterator \
   /opt/homebrew/lib/QtCore.framework/Headers/qdiriterator.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QInputDialog \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qinputdialog.h \
-  /opt/homebrew/include/QtWidgets/qlineedit.h \
-  /opt/homebrew/include/QtGui/qtextcursor.h \
-  /opt/homebrew/include/QtGui/qtextformat.h \
-  /opt/homebrew/include/QtGui/qpen.h \
-  /opt/homebrew/include/QtGui/qtextoption.h
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QHeaderView

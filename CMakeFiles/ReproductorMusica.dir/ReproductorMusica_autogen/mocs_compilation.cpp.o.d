@@ -1,11 +1,11 @@
 CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.o: \
   /Users/freddymolina/Projects/next/ReproductorMusica_autogen/mocs_compilation.cpp \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/moc_asynctaskmanager.cpp \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/../../src/asynctaskmanager.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
-  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
-  /opt/homebrew/include/QtCore/qobjectdefs.h \
-  /opt/homebrew/include/QtCore/qnamespace.h \
+  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/moc_mainwindow.cpp \
+  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/../../src/mainwindow.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
+  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h \
+  /opt/homebrew/include/QtGui/qtguiglobal.h \
   /opt/homebrew/include/QtCore/qglobal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/type_traits \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__assert \
@@ -573,9 +573,18 @@ CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.
   /opt/homebrew/include/QtCore/qtresource.h \
   /opt/homebrew/include/QtCore/qttranslation.h \
   /opt/homebrew/include/QtCore/qversiontagging.h \
+  /opt/homebrew/include/QtGui/qtgui-config.h \
+  /opt/homebrew/include/QtGui/qtguiexports.h \
+  /opt/homebrew/include/QtWidgets/qtwidgets-config.h \
+  /opt/homebrew/include/QtWidgets/qtwidgetsexports.h \
+  /opt/homebrew/include/QtWidgets/qwidget.h \
+  /opt/homebrew/include/QtGui/qwindowdefs.h \
+  /opt/homebrew/include/QtCore/qobjectdefs.h \
+  /opt/homebrew/include/QtCore/qnamespace.h \
   /opt/homebrew/include/QtCore/qtmetamacros.h \
   /opt/homebrew/include/QtCore/qobjectdefs_impl.h \
   /opt/homebrew/include/QtCore/qfunctionaltools_impl.h \
+  /opt/homebrew/include/QtCore/qobject.h \
   /opt/homebrew/include/QtCore/qstring.h \
   /opt/homebrew/include/QtCore/qchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/functional \
@@ -1070,52 +1079,141 @@ CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__chrono/year_month_weekday.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__chrono/literals.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/forward_list \
-  /opt/homebrew/lib/QtCore.framework/Headers/QHash \
-  /opt/homebrew/lib/QtCore.framework/Headers/qhash.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QElapsedTimer \
-  /opt/homebrew/lib/QtCore.framework/Headers/qelapsedtimer.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QUuid \
-  /opt/homebrew/lib/QtCore.framework/Headers/quuid.h \
-  /opt/homebrew/include/QtCore/qendian.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QDateTime \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdatetime.h \
-  /opt/homebrew/include/QtCore/qcalendar.h \
-  /opt/homebrew/include/QtCore/qlocale.h \
+  /opt/homebrew/include/QtCore/qmargins.h \
+  /opt/homebrew/include/QtCore/q23utility.h \
+  /opt/homebrew/include/QtGui/qaction.h \
+  /opt/homebrew/include/QtGui/qkeysequence.h \
+  /opt/homebrew/include/QtGui/qicon.h \
+  /opt/homebrew/include/QtCore/qsize.h \
+  /opt/homebrew/include/QtGui/qpixmap.h \
+  /opt/homebrew/include/QtGui/qpaintdevice.h \
+  /opt/homebrew/include/QtCore/qrect.h \
+  /opt/homebrew/include/QtCore/qpoint.h \
+  /opt/homebrew/include/QtGui/qcolor.h \
+  /opt/homebrew/include/QtGui/qrgb.h \
+  /opt/homebrew/include/QtGui/qrgba64.h \
+  /opt/homebrew/include/QtCore/qshareddata.h \
+  /opt/homebrew/include/QtGui/qimage.h \
+  /opt/homebrew/include/QtGui/qpixelformat.h \
+  /opt/homebrew/include/QtGui/qtransform.h \
+  /opt/homebrew/include/QtGui/qpolygon.h \
+  /opt/homebrew/include/QtGui/qregion.h \
+  /opt/homebrew/include/QtCore/qline.h \
   /opt/homebrew/include/QtCore/qvariant.h \
   /opt/homebrew/include/QtCore/qdebug.h \
   /opt/homebrew/include/QtCore/qtextstream.h \
   /opt/homebrew/include/QtCore/qcontiguouscache.h \
   /opt/homebrew/include/QtCore/qsharedpointer.h \
-  /opt/homebrew/include/QtCore/qshareddata.h \
   /opt/homebrew/include/QtCore/qsharedpointer_impl.h \
   /opt/homebrew/include/QtCore/qmap.h \
   /opt/homebrew/include/QtCore/qshareddata_impl.h \
   /opt/homebrew/include/QtCore/qset.h \
   /opt/homebrew/include/QtCore/qhash.h \
   /opt/homebrew/include/QtCore/qvarlengtharray.h \
-  /opt/homebrew/include/QtCore/q23utility.h \
-  /opt/homebrew/include/QtCore/qobject.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QMutex \
-  /opt/homebrew/lib/QtCore.framework/Headers/qmutex.h \
+  /opt/homebrew/include/QtGui/qpalette.h \
+  /opt/homebrew/include/QtGui/qbrush.h \
+  /opt/homebrew/include/QtGui/qfont.h \
+  /opt/homebrew/include/QtCore/qendian.h \
+  /opt/homebrew/include/QtGui/qfontmetrics.h \
+  /opt/homebrew/include/QtGui/qfontinfo.h \
+  /opt/homebrew/include/QtWidgets/qsizepolicy.h \
+  /opt/homebrew/include/QtGui/qcursor.h \
+  /opt/homebrew/include/QtGui/qbitmap.h \
+  /opt/homebrew/include/QtWidgets/qtabwidget.h \
+  /opt/homebrew/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+  /opt/homebrew/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
+  /opt/homebrew/include/QtCore/qurl.h \
+  /opt/homebrew/include/QtMultimedia/qtmultimediaglobal.h \
+  /opt/homebrew/include/QtMultimedia/qtmultimedia-config.h \
+  /opt/homebrew/include/QtMultimedia/qtmultimediaexports.h \
+  /opt/homebrew/include/QtMultimedia/qmediaenumdebug.h \
+  /opt/homebrew/include/QtCore/qmetaobject.h \
+  /opt/homebrew/include/QtMultimedia/qtaudio.h \
+  /opt/homebrew/include/QtMultimedia/qaudio.h \
+  /opt/homebrew/lib/QtMultimedia.framework/Headers/QAudioOutput \
+  /opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QTreeWidgetItem \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qtreewidget.h \
+  /opt/homebrew/include/QtWidgets/qtreeview.h \
+  /opt/homebrew/include/QtWidgets/qabstractitemview.h \
+  /opt/homebrew/include/QtWidgets/qabstractscrollarea.h \
+  /opt/homebrew/include/QtWidgets/qframe.h \
+  /opt/homebrew/include/QtCore/qabstractitemmodel.h \
+  /opt/homebrew/include/QtCore/qitemselectionmodel.h \
+  /opt/homebrew/include/QtWidgets/qabstractitemdelegate.h \
+  /opt/homebrew/include/QtWidgets/qstyleoption.h \
+  /opt/homebrew/include/QtCore/qlocale.h \
+  /opt/homebrew/include/QtWidgets/qabstractspinbox.h \
+  /opt/homebrew/include/QtGui/qvalidator.h \
+  /opt/homebrew/include/QtCore/qregularexpression.h \
+  /opt/homebrew/include/QtWidgets/qslider.h \
+  /opt/homebrew/include/QtWidgets/qabstractslider.h \
+  /opt/homebrew/include/QtWidgets/qstyle.h \
+  /opt/homebrew/include/QtWidgets/qtabbar.h \
+  /opt/homebrew/include/QtWidgets/qrubberband.h \
+  /opt/homebrew/include/QtWidgets/qtreewidgetitemiterator.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QSettings \
+  /opt/homebrew/lib/QtCore.framework/Headers/qsettings.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QDialog \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qdialog.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QVBoxLayout \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qboxlayout.h \
+  /opt/homebrew/include/QtWidgets/qlayout.h \
+  /opt/homebrew/include/QtWidgets/qlayoutitem.h \
+  /opt/homebrew/include/QtWidgets/qboxlayout.h \
+  /opt/homebrew/include/QtWidgets/qgridlayout.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QCheckBox \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qcheckbox.h \
+  /opt/homebrew/include/QtWidgets/qabstractbutton.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QDragEnterEvent \
+  /opt/homebrew/lib/QtGui.framework/Headers/qevent.h \
+  /opt/homebrew/include/QtCore/qcoreevent.h \
+  /opt/homebrew/include/QtCore/qiodevice.h \
+  /opt/homebrew/include/QtGui/qeventpoint.h \
+  /opt/homebrew/include/QtGui/qvector2d.h \
+  /opt/homebrew/include/QtGui/qvectornd.h \
+  /opt/homebrew/include/QtGui/qpointingdevice.h \
+  /opt/homebrew/include/QtGui/qinputdevice.h \
+  /opt/homebrew/include/QtGui/qscreen.h \
+  /opt/homebrew/include/QtCore/QList \
+  /opt/homebrew/include/QtCore/QObject \
+  /opt/homebrew/include/QtCore/QRect /opt/homebrew/include/QtCore/QSize \
+  /opt/homebrew/include/QtCore/QSizeF \
+  /opt/homebrew/include/QtGui/QTransform \
+  /opt/homebrew/include/QtCore/qnativeinterface.h \
+  /opt/homebrew/include/QtGui/qscreen_platform.h \
+  /opt/homebrew/include/QtGui/qguiapplication.h \
+  /opt/homebrew/include/QtCore/qcoreapplication.h \
   /opt/homebrew/include/QtCore/qdeadlinetimer.h \
   /opt/homebrew/include/QtCore/qelapsedtimer.h \
-  /opt/homebrew/include/QtCore/qtsan_impl.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/sanitizer/tsan_interface.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/../../src/threadpool.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QThread \
-  /opt/homebrew/lib/QtCore.framework/Headers/qthread.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/future \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/thread \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/formatter.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/jthread.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/stop_source.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/stop_state.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/atomic_unique_lock.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/intrusive_list_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/stop_token.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/thread.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/sstream \
+  /opt/homebrew/include/QtCore/qeventloop.h \
+  /opt/homebrew/include/QtCore/qcoreapplication_platform.h \
+  /opt/homebrew/include/QtGui/qinputmethod.h \
+  /opt/homebrew/include/QtGui/qguiapplication_platform.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QDragMoveEvent \
+  /opt/homebrew/lib/QtGui.framework/Headers/QDropEvent \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QStatusBar \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qstatusbar.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
+  /opt/homebrew/include/QtGui/qpicture.h \
+  /opt/homebrew/include/QtGui/qtextdocument.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QFileInfo \
+  /opt/homebrew/lib/QtCore.framework/Headers/qfileinfo.h \
+  /opt/homebrew/include/QtCore/qfile.h \
+  /opt/homebrew/include/QtCore/qfiledevice.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/filesystem \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/directory_entry.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/file_status.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/file_type.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/perms.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/path.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iomanip \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/istream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/ostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/bitset \
@@ -1143,194 +1241,6 @@ CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/unistd.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/this_thread.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QThreadPool \
-  /opt/homebrew/lib/QtCore.framework/Headers/qthreadpool.h \
-  /opt/homebrew/include/QtCore/qthread.h \
-  /opt/homebrew/include/QtCore/qrunnable.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QRunnable \
-  /opt/homebrew/lib/QtCore.framework/Headers/qrunnable.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QQueue \
-  /opt/homebrew/lib/QtCore.framework/Headers/qqueue.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
-  /opt/homebrew/include/QtCore/qtmochelpers.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/MYYQ2Y7GGF/moc_audioengine.cpp \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/MYYQ2Y7GGF/../../src/audio/audioengine.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QString \
-  /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/MYYQ2Y7GGF/../../src/audio/avfaudioengine.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/MYYQ2Y7GGF/../../src/audio/coreaudioengine.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioCodec.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioComponent.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreAudioTypes.framework/Headers/CoreAudioTypes.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreAudioTypes.framework/Headers/CoreAudioBaseTypes.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBase.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFAvailability.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/os/availability.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/Block.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/MacTypes.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/ConditionalMacros.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/ptrauth.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreAudioTypes.framework/Headers/AudioSessionTypes.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CoreFoundation.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/float.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/float.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/float.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/setjmp.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/signal.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBag.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBinaryHeap.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSByteOrder.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/arm/OSByteOrder.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_os_inline.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/arm/arch.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFCalendar.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFLocale.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFDictionary.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFNotificationCenter.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFDate.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFTimeZone.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFData.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFCharacterSet.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFError.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFCGTypes.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFDateFormatter.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFNumber.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFNumberFormatter.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPreferences.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPropertyList.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStream.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFURL.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFRunLoop.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/port.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/boolean.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/machine/boolean.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/arm/boolean.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/machine/vm_types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/arm/vm_types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFSocket.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/dispatch.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/os/base.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/unistd.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_posix_vdisable.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/select.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_select.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_uuid_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/gethostuuid.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/fcntl.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/fcntl.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_o_sync.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_o_dsync.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_s_ifmt.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_filesec_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/os/object.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/os/workgroup.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/os/workgroup_base.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/os/clock.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/os/workgroup_object.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/os/workgroup_interval.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/os/workgroup_parallel.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/base.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/time.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/clock_types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/time_value.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/object.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/queue.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/block.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/source.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/message.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/kern_return.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/machine/kern_return.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/arm/kern_return.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/group.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/semaphore.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/once.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/data.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/io.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/workloop.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dispatch/dispatch_swift_shims.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFSet.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringEncodingExt.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFTree.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFURLAccess.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFUUID.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFUtilities.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBundle.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/machine.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFMessagePort.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPlugIn.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFMachPort.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFURLEnumerator.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFFileSecurity.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/acl.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/kauth.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_guid_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringTokenizer.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFFileDescriptor.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFUserNotification.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFXMLNode.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFXMLParser.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AUAudioUnit.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AUAudioUnitImplementation.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AUComponent.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AUGraph.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioUnit.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioOutputUnit.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioUnitProperties.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioUnitParameters.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/MusicDevice.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AUParameters.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioConverter.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioFile.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioFileStream.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioFormat.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioQueue.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioServices.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreAudio.framework/Headers/AudioHardware.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreAudio.framework/Headers/AudioHardwareBase.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreAudio.framework/Headers/AudioHardwareDeprecated.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioHardwareService.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioUnitUtilities.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioWorkInterval.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/CAFFile.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/CAShow.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/ExtendedAudioFile.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/MusicPlayer.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreMIDI.framework/Headers/MIDIServices.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioFileComponent.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AUMIDIController.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/CoreAudioClock.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioSession.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreAudio.framework/Headers/CoreAudio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreAudio.framework/Headers/HostTime.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/MYYQ2Y7GGF/moc_avfaudioengine.cpp \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/MYYQ2Y7GGF/moc_coreaudioengine.cpp \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/moc_audioconverter.cpp \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/../../src/audioconverter.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QProcess \
-  /opt/homebrew/lib/QtCore.framework/Headers/qprocess.h \
-  /opt/homebrew/include/QtCore/qiodevice.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QTemporaryFile \
-  /opt/homebrew/lib/QtCore.framework/Headers/qtemporaryfile.h \
-  /opt/homebrew/include/QtCore/qfile.h \
-  /opt/homebrew/include/QtCore/qfiledevice.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/filesystem \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/directory_entry.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/file_status.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/file_type.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/perms.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/path.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iomanip \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/operations.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/perm_options.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/space_info.h \
@@ -1339,90 +1249,11 @@ CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/moc_mainwindow.cpp \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/../../src/mainwindow.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
-  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h \
-  /opt/homebrew/include/QtGui/qtguiglobal.h \
-  /opt/homebrew/include/QtGui/qtgui-config.h \
-  /opt/homebrew/include/QtGui/qtguiexports.h \
-  /opt/homebrew/include/QtWidgets/qtwidgets-config.h \
-  /opt/homebrew/include/QtWidgets/qtwidgetsexports.h \
-  /opt/homebrew/include/QtWidgets/qwidget.h \
-  /opt/homebrew/include/QtGui/qwindowdefs.h \
-  /opt/homebrew/include/QtCore/qmargins.h \
-  /opt/homebrew/include/QtGui/qaction.h \
-  /opt/homebrew/include/QtGui/qkeysequence.h \
-  /opt/homebrew/include/QtGui/qicon.h \
-  /opt/homebrew/include/QtCore/qsize.h \
-  /opt/homebrew/include/QtGui/qpixmap.h \
-  /opt/homebrew/include/QtGui/qpaintdevice.h \
-  /opt/homebrew/include/QtCore/qrect.h \
-  /opt/homebrew/include/QtCore/qpoint.h \
-  /opt/homebrew/include/QtGui/qcolor.h \
-  /opt/homebrew/include/QtGui/qrgb.h \
-  /opt/homebrew/include/QtGui/qrgba64.h \
-  /opt/homebrew/include/QtGui/qimage.h \
-  /opt/homebrew/include/QtGui/qpixelformat.h \
-  /opt/homebrew/include/QtGui/qtransform.h \
-  /opt/homebrew/include/QtGui/qpolygon.h \
-  /opt/homebrew/include/QtGui/qregion.h \
-  /opt/homebrew/include/QtCore/qline.h \
-  /opt/homebrew/include/QtGui/qpalette.h \
-  /opt/homebrew/include/QtGui/qbrush.h \
-  /opt/homebrew/include/QtGui/qfont.h \
-  /opt/homebrew/include/QtGui/qfontmetrics.h \
-  /opt/homebrew/include/QtGui/qfontinfo.h \
-  /opt/homebrew/include/QtWidgets/qsizepolicy.h \
-  /opt/homebrew/include/QtGui/qcursor.h \
-  /opt/homebrew/include/QtGui/qbitmap.h \
-  /opt/homebrew/include/QtWidgets/qtabwidget.h \
-  /opt/homebrew/lib/QtMultimedia.framework/Headers/QMediaPlayer \
-  /opt/homebrew/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
-  /opt/homebrew/include/QtCore/qurl.h \
-  /opt/homebrew/include/QtMultimedia/qtmultimediaglobal.h \
-  /opt/homebrew/include/QtMultimedia/qtmultimedia-config.h \
-  /opt/homebrew/include/QtMultimedia/qtmultimediaexports.h \
-  /opt/homebrew/include/QtMultimedia/qmediaenumdebug.h \
-  /opt/homebrew/include/QtCore/qmetaobject.h \
-  /opt/homebrew/include/QtMultimedia/qtaudio.h \
-  /opt/homebrew/include/QtMultimedia/qaudio.h \
-  /opt/homebrew/lib/QtMultimedia.framework/Headers/QAudioOutput \
-  /opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QProgressDialog \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qprogressdialog.h \
-  /opt/homebrew/include/QtWidgets/qdialog.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QTreeWidgetItem \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qtreewidget.h \
-  /opt/homebrew/include/QtWidgets/qtreeview.h \
-  /opt/homebrew/include/QtWidgets/qabstractitemview.h \
-  /opt/homebrew/include/QtWidgets/qabstractscrollarea.h \
-  /opt/homebrew/include/QtWidgets/qframe.h \
-  /opt/homebrew/include/QtCore/qabstractitemmodel.h \
-  /opt/homebrew/include/QtCore/qitemselectionmodel.h \
-  /opt/homebrew/include/QtWidgets/qabstractitemdelegate.h \
-  /opt/homebrew/include/QtWidgets/qstyleoption.h \
-  /opt/homebrew/include/QtWidgets/qabstractspinbox.h \
-  /opt/homebrew/include/QtGui/qvalidator.h \
-  /opt/homebrew/include/QtCore/qregularexpression.h \
-  /opt/homebrew/include/QtWidgets/qslider.h \
-  /opt/homebrew/include/QtWidgets/qabstractslider.h \
-  /opt/homebrew/include/QtWidgets/qstyle.h \
-  /opt/homebrew/include/QtWidgets/qtabbar.h \
-  /opt/homebrew/include/QtWidgets/qrubberband.h \
-  /opt/homebrew/include/QtWidgets/qtreewidgetitemiterator.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QShortcut \
-  /opt/homebrew/lib/QtGui.framework/Headers/qshortcut.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QTimer \
-  /opt/homebrew/lib/QtCore.framework/Headers/qtimer.h \
-  /opt/homebrew/include/QtCore/qbasictimer.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QMessageBox \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qmessagebox.h \
-  /opt/homebrew/include/QtWidgets/qdialogbuttonbox.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/../../src/playlist.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QList \
-  /opt/homebrew/lib/QtCore.framework/Headers/qlist.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/../../src/metadatamanager.h \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/moc_playlist.cpp \
-  /Users/freddymolina/Projects/next/ReproductorMusica_autogen/UVLADIE3JM/moc_threadpool.cpp
+  /opt/homebrew/include/QtCore/qdatetime.h \
+  /opt/homebrew/include/QtCore/qcalendar.h \
+  /opt/homebrew/include/QtCore/qtimezone.h \
+  /opt/homebrew/include/QtGui/qtextcursor.h \
+  /opt/homebrew/include/QtGui/qtextformat.h \
+  /opt/homebrew/include/QtGui/qpen.h \
+  /opt/homebrew/include/QtGui/qtextoption.h \
+  /opt/homebrew/include/QtCore/qtmochelpers.h

@@ -2,25 +2,36 @@
 #define METADATAMANAGER_H
 
 #include <QString>
-#include <QObject>
+#include <taglib/fileref.h>
 
-struct AudioMetadata {
+class MetadataManager {
+public:
+    MetadataManager();
+    ~MetadataManager();
+    
+    bool cargarArchivo(const QString& ruta);
+    QString obtenerTitulo() const;
+    QString obtenerArtista() const;
+    QString obtenerAlbum() const;
+    QString obtenerGenero() const;
+    QString obtenerFecha() const;
+    QString obtenerDuracion() const;
+    QString obtenerTonalidad() const;
+    QString normalizarTonalidad(const QString& tonalidad) const;
+    int obtenerBitrate() const;
+    
+private:
+    QString formatearDuracion(int segundos) const;
+    
+    TagLib::FileRef* fileRef;
     QString titulo;
     QString artista;
     QString album;
-    QString comentario;
+    QString genero;
+    QString fecha;
     QString duracion;
-};
-
-class MetadataManager
-{
-public:
-    MetadataManager() = default;
-    AudioMetadata obtenerMetadata(const QString& ruta);
-    bool actualizarComentario(const QString& ruta, const QString& comentario);
-
-private:
-    QString formatearDuracion(qint64 duracionMs);
+    QString tonalidad;
+    int bitrate;
 };
 
 #endif // METADATAMANAGER_H

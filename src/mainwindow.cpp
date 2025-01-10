@@ -1,487 +1,60 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "./ui_mainwindow.h"
+#include "metadatamanager.h"
 #include <QFileDialog>
-#include <QStandardPaths>
 #include <QMessageBox>
 #include <QMimeData>
 #include <QDragEnterEvent>
-#include <QDropEvent>
-#include <QUrl>
+#include <QTime>
+#include <QDir>
 #include <QDirIterator>
-#include <QInputDialog>
-#include <QDebug>
-#include <QThread>
-#include "audioconverter.h"
+#include <QHeaderView>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , reproductor(nullptr)
-    , audioOutput(nullptr)
-    , audioConverter(nullptr)
-    , progressDialog(nullptr)
-    , timer(new QTimer(this))  // Inicializar timer
-    , reproduciendo(false)
-    , duracionActual(0)
-    , autoPlayEnabled(true)
-    , sliderPressed(false)
-    , tamanoArchivoActual(0)
+    , reproductor(new QMediaPlayer(this))
+    , audioOutput(new QAudioOutput(this))
+    , statusLabel(nullptr)
+    , bitrateLabel(nullptr)
 {
     ui->setupUi(this);
     setAcceptDrops(true);
-    qDebug() << "AcceptDrops:" << acceptDrops();
-    
-    audioConverter = new AudioConverter(this);
-    progressDialog = new QProgressDialog("Convirtiendo archivo...", "Cancelar", 0, 100, this);
-    progressDialog->setWindowModality(Qt::WindowModal);
-    progressDialog->setAutoClose(true);
-    progressDialog->setAutoReset(true);
-    progressDialog->setMinimumDuration(500);
-    progressDialog->hide(); // Asegurarnos que el diálogo está oculto al inicio
-    
     configurarReproductor();
     configurarInterfaz();
     configurarConexiones();
-    configurarShortcuts();
-    
-    // Conectar señales del convertidor de audio
-    connect(audioConverter, &AudioConverter::conversionProgress,
-            this, [this](int progreso) {
-                if (progressDialog && progressDialog->isVisible()) {
-                    progressDialog->setValue(progreso);
-                    
-                    // Estimar tiempo restante
-                    if (conversionTimer.isValid()) {
-                        qint64 tiempoTranscurrido = conversionTimer.elapsed();
-                        if (progreso > 0) {
-                            qint64 tiempoEstimadoTotal = (tiempoTranscurrido * 100) / progreso;
-                            qint64 tiempoRestante = tiempoEstimadoTotal - tiempoTranscurrido;
-                            QString mensaje = QString("Convirtiendo archivo... %1% (Restante: %2s)")
-                                .arg(progreso)
-                                .arg(tiempoRestante / 1000);
-                            progressDialog->setLabelText(mensaje);
-                        }
-                    }
-                }
-            });
-            
-    connect(audioConverter, &AudioConverter::conversionFinished,
-            this, [this](const QString& outputFile) {
-                ocultarProgresoConversion();
-                reproducirArchivo(outputFile);
-                optimizarMemoria();
-            });
-            
-    connect(audioConverter, &AudioConverter::conversionError,
-            this, [this](const QString& error) {
-                ocultarProgresoConversion();
-                QMessageBox::warning(this, "Error de conversión", error);
-            });
-    
-    // Establecer el mensaje inicial en la barra de estado
-    ui->statusbar->showMessage("Listo para reproducir música");
-    
-    qDebug() << "MainWindow inicializado";
 }
 
-void MainWindow::configurarReproductor()
+MainWindow::~MainWindow()
 {
-    reproductor = new QMediaPlayer(this);
-    audioOutput = new QAudioOutput(this);
-    reproductor->setAudioOutput(audioOutput);
-    audioOutput->setVolume(0.5);
-    ui->volumeSlider->setValue(50);
-
-    // Conectar señales del reproductor
-    connect(reproductor, &QMediaPlayer::positionChanged, this, &MainWindow::actualizarProgreso);
-    connect(reproductor, &QMediaPlayer::durationChanged, this, &MainWindow::actualizarDuracion);
-    connect(reproductor, &QMediaPlayer::playbackStateChanged, [this](QMediaPlayer::PlaybackState state) {
-        actualizarEstadoReproduccion(state == QMediaPlayer::PlayingState);
-    });
-    connect(reproductor, &QMediaPlayer::errorOccurred, this, &MainWindow::manejarError);
-
-    // Conectar señales del slider de progreso
-    connect(ui->progressSlider, &QSlider::sliderPressed, [this]() {
-        sliderPressed = true;
-    });
-    
-    connect(ui->progressSlider, &QSlider::sliderReleased, [this]() {
-        sliderPressed = false;
-        reproductor->setPosition(ui->progressSlider->value());
-    });
-    
-    connect(ui->progressSlider, &QSlider::valueChanged, [this](int value) {
-        if (sliderPressed) {
-            reproductor->setPosition(value);
-        }
-    });
+    guardarConfiguracionColumnas();
+    delete ui;
 }
 
-void MainWindow::configurarConexiones() {
-    // Conexiones de audio
-    connect(reproductor, &QMediaPlayer::positionChanged, this, &MainWindow::actualizarProgreso);
-    connect(reproductor, &QMediaPlayer::durationChanged, this, &MainWindow::actualizarDuracion);
-    connect(reproductor, &QMediaPlayer::playbackStateChanged, this, [this](QMediaPlayer::PlaybackState state) {
-        actualizarEstadoReproduccion(state == QMediaPlayer::PlayingState);
-    });
-    connect(reproductor, &QMediaPlayer::errorOccurred, this, &MainWindow::manejarError);
-
-    // Conexiones de controles adicionales
-    connect(ui->rewindStartButton, &QPushButton::clicked, this, [this]() {
-        reproductor->setPosition(0);
-    });
-    
-    connect(ui->fastForwardButton, &QPushButton::clicked, this, [this]() {
-        reproductor->setPosition(duracionActual);
-    });
-
-    // Actualizar etiqueta de volumen
-    connect(ui->volumeSlider, &QSlider::valueChanged, this, [this](int value) {
-        ui->volumePercentLabel->setText(QString("%1%").arg(value));
-        audioOutput->setVolume(value / 100.0);
-    });
-
-    // Conexión para velocidad de reproducción
-    connect(ui->speedComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), 
-        this, [this](int index) {
-            QStringList velocidades = {"0.5", "0.75", "1.0", "1.25", "1.5", "2.0"};
-            if (index >= 0 && index < velocidades.size()) {
-                reproductor->setPlaybackRate(velocidades[index].toFloat());
-            }
-    });
-
-    connect(timer, &QTimer::timeout, this, &MainWindow::actualizarInterfaz);
-    timer->start(1000);  // Actualizar cada segundo
-    
-    connect(&playlist, &PlayList::listaModificada, this, &MainWindow::actualizarInterfaz);
-}
-
-void MainWindow::configurarInterfaz()
+void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 {
-    // Configurar la lista de reproducción
-    ui->playlistWidget->setColumnCount(5);
-    QStringList headers;
-    headers << "Título" << "Artista" << "Álbum" << "Comentarios" << "Duración";
-    ui->playlistWidget->setHeaderLabels(headers);
-    ui->playlistWidget->setSelectionMode(QAbstractItemView::SingleSelection);
-    ui->playlistWidget->setAlternatingRowColors(true);
-    
-    // Configurar el diálogo de progreso
-    if (progressDialog) {
-        progressDialog->close();
-        progressDialog->hide();
-        progressDialog->reset();
-    }
-    
-    // Configurar la barra de estado
-    ui->statusbar->showMessage("Listo para reproducir música");
-    
-    // Configurar los botones
-    ui->playButton->setText("▶");
-    ui->nextButton->setText("⏭");
-    ui->previousButton->setText("⏮");
-    
-    // Configurar el slider de volumen
-    ui->volumeSlider->setRange(0, 100);
-    ui->volumeSlider->setValue(50);
-    
-    // Configurar el slider de progreso
-    ui->progressSlider->setRange(0, 0);
-    
-    // Configurar el ancho de las columnas
-    ui->playlistWidget->header()->setSectionResizeMode(0, QHeaderView::Stretch);  // Título
-    ui->playlistWidget->header()->setSectionResizeMode(1, QHeaderView::Stretch);  // Artista
-    ui->playlistWidget->header()->setSectionResizeMode(2, QHeaderView::Stretch);  // Álbum
-    ui->playlistWidget->header()->setSectionResizeMode(3, QHeaderView::Stretch);  // Comentarios
-    ui->playlistWidget->header()->setSectionResizeMode(4, QHeaderView::Fixed);    // Duración
-    ui->playlistWidget->header()->resizeSection(4, 100);  // Ancho fijo para duración
-}
-
-void MainWindow::configurarShortcuts() {
-    // Crear los shortcuts
-    nextTrackShortcut = new QShortcut(QKeySequence(Qt::Key_Right), this);
-    prevTrackShortcut = new QShortcut(QKeySequence(Qt::Key_Left), this);
-    playPauseShortcut = new QShortcut(QKeySequence(Qt::Key_Space), this);
-    quickPlayNextShortcut = new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_Right), this);
-    
-    // Conectar los shortcuts
-    connect(nextTrackShortcut, &QShortcut::activated, this, &MainWindow::reproducirSiguiente);
-    connect(prevTrackShortcut, &QShortcut::activated, this, &MainWindow::reproducirAnterior);
-    connect(playPauseShortcut, &QShortcut::activated, this, &MainWindow::reproducirPausa);
-    connect(quickPlayNextShortcut, &QShortcut::activated, this, &MainWindow::reproducirRapido);
-    
-    // Debug de shortcuts
-    qDebug() << "Estado de los shortcuts:";
-    qDebug() << "Next Track:" << nextTrackShortcut->isEnabled();
-    qDebug() << "Prev Track:" << prevTrackShortcut->isEnabled();
-    qDebug() << "Play/Pause:" << playPauseShortcut->isEnabled();
-    qDebug() << "Quick Play:" << quickPlayNextShortcut->isEnabled();
-}
-
-void MainWindow::on_actionAbrirArchivo_triggered() {
-    QStringList archivos = QFileDialog::getOpenFileNames(
-        this,
-        "Seleccionar archivos de música",
-        QDir::homePath(),
-        "Archivos de música (*.mp3 *.wav *.ogg *.m4a *.flac);;Todos los archivos (*.*)"
-    );
-    
-    for (const QString& archivo : archivos) {
-        agregarCancion(archivo);
-    }
-}
-
-void MainWindow::on_actionAbrirDirectorio_triggered() {
-    QString directorio = QFileDialog::getExistingDirectory(
-        this,
-        "Seleccionar directorio",
-        QDir::homePath(),
-        QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
-    );
-    
-    if (!directorio.isEmpty()) {
-        procesarDirectorio(directorio);
-    }
-}
-
-void MainWindow::on_actionSalir_triggered() {
-    close();
-}
-
-void MainWindow::on_nextButton_clicked() {
-    reproducirSiguiente();
-}
-
-void MainWindow::on_previousButton_clicked() {
-    reproducirAnterior();
-}
-
-void MainWindow::reproducirPausa() {
-    if (reproductor->playbackState() == QMediaPlayer::PlayingState) {
-        reproductor->pause();
-    } else {
-        reproducir();
-    }
-}
-
-void MainWindow::reproducir()
-{
-    QString cancionActual = playlist.obtenerCancionActual();
-    if (!cancionActual.isEmpty()) {
-        QFileInfo fileInfo(cancionActual);
-        QString extension = fileInfo.suffix().toLower();
-        
-        // Actualizar la interfaz antes de iniciar la reproducción
-        actualizarInterfaz();
-        ui->statusbar->showMessage("Preparando archivo para reproducción...");
-        
-        if (extension == "flac") {
-            qDebug() << "Detectado archivo FLAC, iniciando conversión...";
-            ui->statusbar->showMessage("Convirtiendo archivo FLAC...");
-            limpiarArchivoTemporal();
-            mostrarProgresoConversion(cancionActual);
-            archivoTemporal = audioConverter->convertFlacToWav(cancionActual);
-        } else {
-            reproducirArchivo(cancionActual);
-        }
-    }
-}
-
-void MainWindow::reproducirArchivo(const QString& archivo)
-{
-    qDebug() << "Reproduciendo:" << archivo;
-    ui->statusbar->showMessage("Cargando archivo...");
-    
-    // Verificar que el archivo existe
-    QFileInfo fileInfo(archivo);
-    if (!fileInfo.exists()) {
-        qDebug() << "Error: El archivo no existe";
-        QMessageBox::warning(this, "Error", "El archivo no existe:\n" + archivo);
-        ui->statusbar->showMessage("Error: Archivo no encontrado");
-        return;
-    }
-    
-    // Verificar que el archivo es legible
-    QFile file(archivo);
-    if (!file.open(QIODevice::ReadOnly)) {
-        qDebug() << "Error: No se puede leer el archivo";
-        QMessageBox::warning(this, "Error", "No se puede leer el archivo:\n" + archivo);
-        ui->statusbar->showMessage("Error: No se puede leer el archivo");
-        return;
-    }
-    file.close();
-    
-    QUrl url = QUrl::fromLocalFile(archivo);
-    qDebug() << "URL del archivo:" << url.toString();
-    qDebug() << "Tamaño del archivo:" << fileInfo.size() << "bytes";
-    qDebug() << "Extensión del archivo:" << fileInfo.suffix().toLower();
-    
-    reproductor->setSource(url);
-    reproductor->play();
-    reproduciendo = true;
-    ui->playButton->setText("⏸");
-    actualizarInterfaz();
-}
-
-void MainWindow::reproducirSiguiente()
-{
-    if (playlist.avanzar()) {
-        reproducir();
-        actualizarInterfaz();
-    }
-}
-
-void MainWindow::reproducirAnterior()
-{
-    if (playlist.retroceder()) {
-        reproducir();
-        actualizarInterfaz();
-    }
-}
-
-void MainWindow::reproducirRapido() {
-    reproducirSiguiente();
-    reproducir();
-}
-
-void MainWindow::agregarCancion(const QString& ruta)
-{
-    QFileInfo fileInfo(ruta);
-    if (fileInfo.exists() && esArchivoMusica(ruta)) {
-        qDebug() << "Agregando canción:" << ruta;
-        AudioMetadata metadata = metadataManager.obtenerMetadata(ruta);
-        
-        QTreeWidgetItem *item = new QTreeWidgetItem(ui->playlistWidget);
-        item->setText(0, metadata.titulo);
-        item->setText(1, metadata.artista);
-        item->setText(2, metadata.album);
-        item->setText(3, metadata.comentario);
-        item->setText(4, metadata.duracion);
-        item->setData(0, Qt::UserRole, ruta);
-        
-        playlist.agregarCancion(ruta);
-    } else {
-        qDebug() << "Archivo no válido o no es un archivo de música:" << ruta;
-    }
-}
-
-void MainWindow::on_playlistWidget_itemDoubleClicked(QTreeWidgetItem *item, int column) {
-    if (!item) {
-        qDebug() << "Item nulo";
-    } else {
-        int indice = ui->playlistWidget->indexOfTopLevelItem(item);
-        if (indice != -1) {
-            playlist.establecerIndiceActual(indice);
-            reproducir();
-        }
-    }
-}
-
-void MainWindow::actualizarEstadoReproduccion(bool reproduciendo) {
-    this->reproduciendo = reproduciendo;
-    ui->playButton->setIcon(style()->standardIcon(
-        reproduciendo ? QStyle::SP_MediaPause : QStyle::SP_MediaPlay
-    ));
-}
-
-void MainWindow::actualizarProgreso(qint64 posicion) {
-    if (!sliderPressed) {
-        ui->progressSlider->setValue(posicion);
-        
-        // Actualizar etiquetas de tiempo
-        QTime tiempoActual = QTime(0, 0).addMSecs(posicion);
-        QTime tiempoTotal = QTime(0, 0).addMSecs(duracionActual);
-        QString formato = tiempoTotal.hour() > 0 ? "hh:mm:ss" : "mm:ss";
-        
-        // Actualizar etiquetas de tiempo independientes
-        ui->timeLabel->setText(tiempoActual.toString(formato));
-        ui->totalTimeLabel->setText(tiempoTotal.toString(formato));
-        
-        // Actualizar barra de estado con información adicional
-        if (reproductor->mediaStatus() == QMediaPlayer::BufferedMedia) {
-            QString nombreArchivo = QFileInfo(reproductor->source().toString()).fileName();
-            ui->statusbar->showMessage(tr("Reproduciendo: %1").arg(nombreArchivo));
-        }
-    }
-}
-
-void MainWindow::actualizarDuracion(qint64 duracion) {
-    ui->progressSlider->setRange(0, duracion);
-    duracionActual = duracion;
-}
-
-void MainWindow::on_volumeSlider_valueChanged(int value) {
-    audioOutput->setVolume(value / 100.0);
-}
-
-void MainWindow::on_progressSlider_sliderMoved(int position) {
-    reproductor->setPosition(position);
-}
-
-void MainWindow::actualizarInterfaz()
-{
-    // Actualizar lista de reproducción
-    QTreeWidgetItem* currentItem = ui->playlistWidget->currentItem();
-    int currentIndex = playlist.obtenerIndiceActual();
-    
-    // Si el índice actual es válido pero no coincide con la selección
-    if (currentIndex >= 0 && (!currentItem || ui->playlistWidget->indexOfTopLevelItem(currentItem) != currentIndex)) {
-        QTreeWidgetItem* newItem = ui->playlistWidget->topLevelItem(currentIndex);
-        if (newItem) {
-            ui->playlistWidget->setCurrentItem(newItem);
-            ui->playlistWidget->scrollToItem(newItem);
-        }
-    }
-    
-    // Actualizar barra de estado
-    QString mensaje;
-    if (reproduciendo) {
-        QString cancionActual = playlist.obtenerCancionActual();
-        QFileInfo fileInfo(cancionActual);
-        mensaje = QString("Reproduciendo: %1").arg(fileInfo.fileName());
-        
-        // Agregar información del formato
-        QString formato = fileInfo.suffix().toLower();
-        mensaje += QString(" [%1]").arg(formato.toUpper());
-        
-        // Agregar duración si está disponible
-        if (duracionActual > 0) {
-            int minutos = (duracionActual / 60000);
-            int segundos = (duracionActual % 60000) / 1000;
-            mensaje += QString(" - %1:%2").arg(minutos).arg(segundos, 2, 10, QChar('0'));
-        }
-    } else {
-        mensaje = "Listo";
-    }
-    ui->statusbar->showMessage(mensaje);
-}
-
-void MainWindow::dragEnterEvent(QDragEnterEvent *event) {
-    qDebug() << "dragEnterEvent recibido";
     if (event->mimeData()->hasUrls()) {
         event->acceptProposedAction();
     }
 }
 
-void MainWindow::dragMoveEvent(QDragMoveEvent *event) {
-    qDebug() << "dragMoveEvent recibido";
+void MainWindow::dragMoveEvent(QDragMoveEvent *event)
+{
     if (event->mimeData()->hasUrls()) {
         event->acceptProposedAction();
     }
 }
 
-void MainWindow::dropEvent(QDropEvent *event) {
-    qDebug() << "dropEvent recibido";
+void MainWindow::dropEvent(QDropEvent *event)
+{
     const QMimeData* mimeData = event->mimeData();
     
     if (mimeData->hasUrls()) {
-        qDebug() << "El evento tiene URLs";
         QList<QUrl> urlList = mimeData->urls();
         
         bool primeraCancion = true;
         for (const QUrl& url : urlList) {
             QString ruta = url.toLocalFile();
-            qDebug() << "Procesando URL:" << url;
             
             QFileInfo fileInfo(ruta);
             if (fileInfo.isDir()) {
@@ -489,7 +62,7 @@ void MainWindow::dropEvent(QDropEvent *event) {
             } else if (esArchivoMusica(ruta)) {
                 agregarCancion(ruta);
                 if (primeraCancion && reproductor->playbackState() != QMediaPlayer::PlayingState) {
-                    reproducirArchivo(ruta);
+                    reproducir();
                     primeraCancion = false;
                 }
             }
@@ -500,24 +73,21 @@ void MainWindow::dropEvent(QDropEvent *event) {
 
 void MainWindow::procesarDirectorio(const QString& directorio)
 {
-    QDir dir(directorio);
-    if (!dir.exists()) {
-        qDebug() << "El directorio no existe:" << directorio;
-        return;
-    }
-
-    int contadorArchivos = 0;
     QDirIterator it(directorio, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    bool primeraCancion = ui->playlistWidget->topLevelItemCount() == 0;
     
     while (it.hasNext()) {
         QString ruta = it.next();
         if (esArchivoMusica(ruta)) {
             agregarCancion(ruta);
-            contadorArchivos++;
         }
     }
     
-    qDebug() << "Se agregaron" << contadorArchivos << "archivos";
+    // Si no había canciones antes y ahora hay, reproducir la primera
+    if (primeraCancion && ui->playlistWidget->topLevelItemCount() > 0) {
+        ui->playlistWidget->setCurrentItem(ui->playlistWidget->topLevelItem(0));
+        reproducir();
+    }
 }
 
 bool MainWindow::esArchivoMusica(const QString& ruta) const
@@ -526,146 +96,470 @@ bool MainWindow::esArchivoMusica(const QString& ruta) const
     QStringList formatosSoportados = {
         "mp3", "wav", "ogg", "m4a", "flac", "aac", "aiff", "wma", "opus"
     };
-    
-    bool esFormato = formatosSoportados.contains(extension);
-    if (!esFormato) {
-        qDebug() << "Formato no soportado:" << extension << "para archivo:" << ruta;
-    }
-    return esFormato;
+    return formatosSoportados.contains(extension);
 }
 
-void MainWindow::manejarError(QMediaPlayer::Error error, const QString& errorString)
+void MainWindow::configurarReproductor()
 {
-    QString mensaje;
-    switch (error) {
-        case QMediaPlayer::NoError:
-            return;
-        case QMediaPlayer::ResourceError:
-            mensaje = "Error al acceder al archivo de audio";
-            break;
-        case QMediaPlayer::FormatError:
-            mensaje = "Formato de audio no soportado o archivo corrupto";
-            break;
-        case QMediaPlayer::NetworkError:
-            mensaje = "Error de red al reproducir el archivo";
-            break;
-        case QMediaPlayer::AccessDeniedError:
-            mensaje = "Acceso denegado al archivo de audio";
-            break;
-        default:
-            mensaje = "Error desconocido";
-    }
-
-    qDebug() << "Error en el reproductor:" << error << "-" << errorString;
-    qDebug() << "Archivo actual:" << playlist.obtenerCancionActual();
-    
-    // Obtener información adicional del archivo
-    QFileInfo fileInfo(playlist.obtenerCancionActual());
-    qDebug() << "Información del archivo:";
-    qDebug() << " - Tamaño:" << fileInfo.size() << "bytes";
-    qDebug() << " - Permisos:" << fileInfo.permissions();
-    qDebug() << " - Última modificación:" << fileInfo.lastModified().toString();
-    
-    QMessageBox::warning(this, "Error de reproducción", 
-                        mensaje + "\n\nDetalles: " + errorString + 
-                        "\n\nArchivo: " + fileInfo.fileName());
-
-    // Intentar reproducir la siguiente canción si hay error
-    if (autoPlayEnabled) {
-        reproducirSiguiente();
-    }
+    reproductor->setAudioOutput(audioOutput);
+    audioOutput->setVolume(0.5);
+    ui->volumeSlider->setValue(50);
 }
 
-bool MainWindow::eventFilter(QObject *obj, QEvent *event) {
-    return QMainWindow::eventFilter(obj, event);
-}
-
-void MainWindow::limpiarArchivoTemporal()
+void MainWindow::configurarInterfaz()
 {
-    if (!archivoTemporal.isEmpty()) {
-        QFile::remove(archivoTemporal);
-        archivoTemporal.clear();
+    // Configurar la lista de reproducción
+    ui->playlistWidget->setColumnCount(7);
+    ui->playlistWidget->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    ui->playlistWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->playlistWidget->setAlternatingRowColors(true);
+    ui->playlistWidget->setUniformRowHeights(true);
+    ui->playlistWidget->setAllColumnsShowFocus(true);
+    
+    // Configurar el header
+    QHeaderView* header = ui->playlistWidget->header();
+    header->setSectionsMovable(true);
+    header->setStretchLastSection(false);
+    header->setSectionResizeMode(QHeaderView::Interactive);
+    header->setContextMenuPolicy(Qt::CustomContextMenu);
+    
+    // Establecer nombres de columnas iniciales
+    QStringList headers;
+    headers << "Título" << "Artista" << "Álbum" << "Género" << "Fecha" << "Duración" << "Tonalidad";
+    ui->playlistWidget->setHeaderLabels(headers);
+    
+    // Establecer anchos y alineación de columnas
+    ui->playlistWidget->setColumnWidth(Title, 250);      // Título
+    ui->playlistWidget->setColumnWidth(Artist, 150);     // Artista
+    ui->playlistWidget->setColumnWidth(Album, 150);      // Álbum
+    ui->playlistWidget->setColumnWidth(Genre, 100);      // Género
+    ui->playlistWidget->setColumnWidth(Date, 70);        // Fecha
+    ui->playlistWidget->setColumnWidth(Duration, 70);    // Duración
+    ui->playlistWidget->setColumnWidth(InitialKey, 80);  // Tonalidad
+
+    // Configurar alineación de las columnas
+    for (int i = 0; i < ui->playlistWidget->columnCount(); ++i) {
+        QTreeWidgetItem* headerItem = ui->playlistWidget->headerItem();
+        if (i == Date || i == Duration || i == InitialKey) {
+            headerItem->setTextAlignment(i, Qt::AlignCenter);
+        } else {
+            headerItem->setTextAlignment(i, Qt::AlignLeft | Qt::AlignVCenter);
+        }
     }
-    audioConverter->cleanupTempFiles();
+    
+    // Configurar botones de control
+    QString estiloBoton = R"(
+        QPushButton {
+            min-width: 50px;
+            min-height: 50px;
+            padding: 8px;
+            border: none;
+            border-radius: 25px;
+            background-color: transparent;
+        }
+        QPushButton:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        QPushButton:pressed {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    )";
+    
+    ui->previousButton->setStyleSheet(estiloBoton);
+    ui->fastRewindButton->setStyleSheet(estiloBoton);
+    ui->playButton->setStyleSheet(estiloBoton);
+    ui->fastForwardButton->setStyleSheet(estiloBoton);
+    ui->nextButton->setStyleSheet(estiloBoton);
+    
+    // Establecer iconos más grandes
+    int iconSize = 32;  // Tamaño del icono en píxeles
+    ui->previousButton->setIconSize(QSize(iconSize, iconSize));
+    ui->fastRewindButton->setIconSize(QSize(iconSize, iconSize));
+    ui->playButton->setIconSize(QSize(iconSize, iconSize));
+    ui->fastForwardButton->setIconSize(QSize(iconSize, iconSize));
+    ui->nextButton->setIconSize(QSize(iconSize, iconSize));
+
+    // Configurar barra de estado
+    QStatusBar* estado = statusBar();
+    
+    // Label principal para el estado
+    statusLabel = new QLabel(this);
+    estado->addWidget(statusLabel);
+    
+    // Label para el bitrate (permanente, a la derecha)
+    bitrateLabel = new QLabel(this);
+    estado->addPermanentWidget(bitrateLabel);
+    
+    actualizarBarraEstado("Listo");
+    actualizarBitrate(0);
+    
+    // Cargar configuración de columnas guardada
+    cargarConfiguracionColumnas();
 }
 
-void MainWindow::mostrarProgresoConversion(const QString& nombreArchivo)
+void MainWindow::configurarConexiones()
 {
-    if (!progressDialog) {
-        return;
-    }
-    
-    QFileInfo fileInfo(nombreArchivo);
-    QString mensaje = QString("Convirtiendo %1...").arg(fileInfo.fileName());
-    progressDialog->setLabelText(mensaje);
-    progressDialog->setValue(0);
-    progressDialog->reset();
-    
-    // Solo mostrar si no está visible
-    if (!progressDialog->isVisible()) {
-        progressDialog->show();
-        conversionTimer.start();
-    }
+    connect(reproductor, &QMediaPlayer::positionChanged, this, &MainWindow::actualizarProgreso);
+    connect(reproductor, &QMediaPlayer::durationChanged, this, &MainWindow::actualizarDuracion);
+    connect(reproductor, &QMediaPlayer::playbackStateChanged, this, &MainWindow::actualizarEstadoReproduccion);
+    connect(reproductor, &QMediaPlayer::mediaStatusChanged, this, [this](QMediaPlayer::MediaStatus status) {
+        if (status == QMediaPlayer::LoadedMedia) {
+            MetadataManager metadata;
+            QString ruta = reproductor->source().toString();
+            if (metadata.cargarArchivo(ruta)) {
+                actualizarBitrate(metadata.obtenerBitrate());
+            }
+        }
+    });
 }
 
-void MainWindow::ocultarProgresoConversion()
+void MainWindow::actualizarBarraEstado(const QString& mensaje)
 {
-    if (!progressDialog) {
-        return;
-    }
-    
-    progressDialog->reset();
-    progressDialog->close();
-    progressDialog->hide();
-    conversionTimer.invalidate();
-    
-    // Actualizar la barra de estado
-    if (!reproduciendo) {
-        ui->statusbar->showMessage("Listo para reproducir música");
-    }
-}
-
-void MainWindow::optimizarMemoria()
-{
-    // Liberar memoria no utilizada
-    if (tamanoArchivoActual > 100 * 1024 * 1024) { // Si el archivo es mayor a 100MB
-        qDebug() << "Optimizando uso de memoria...";
-        QApplication::processEvents();
+    if (!mensaje.isEmpty()) {
+        QString nombreCancion;
+        if (ui->playlistWidget->currentItem()) {
+            nombreCancion = ui->playlistWidget->currentItem()->text(Title);
+        }
         
-        // En macOS, usamos una estrategia diferente para liberar memoria
-        QThread::msleep(100); // Dar tiempo al sistema para liberar recursos
-        QApplication::processEvents();
+        if (!nombreCancion.isEmpty()) {
+            QString textoEstado = mensaje + " - " + nombreCancion;
+            statusLabel->setText(textoEstado);
+        } else {
+            statusLabel->setText(mensaje);
+        }
+    }
+}
+
+void MainWindow::actualizarBitrate(qint64 bitrate)
+{
+    if (bitrate > 0) {
+        bitrateLabel->setText(QString("%1 kbps").arg(bitrate));
+    } else {
+        bitrateLabel->setText("");
+    }
+}
+
+void MainWindow::actualizarEstadoReproduccion(QMediaPlayer::PlaybackState state)
+{
+    switch (state) {
+        case QMediaPlayer::PlayingState:
+            actualizarBarraEstado("Reproduciendo");
+            ui->playButton->setText("⏸");
+            break;
+        case QMediaPlayer::PausedState:
+            actualizarBarraEstado("Pausado");
+            ui->playButton->setText("▶");
+            break;
+        case QMediaPlayer::StoppedState:
+            actualizarBarraEstado("Detenido");
+            ui->playButton->setText("▶");
+            break;
+    }
+}
+
+void MainWindow::agregarCancion(const QString& ruta)
+{
+    QFileInfo fileInfo(ruta);
+    if (!fileInfo.exists()) return;
+
+    MetadataManager metadata;
+    if (!metadata.cargarArchivo(ruta)) {
+        qDebug() << "Error al cargar metadatos:" << ruta;
+        return;
+    }
+
+    QTreeWidgetItem* item = new QTreeWidgetItem(ui->playlistWidget);
+    
+    // Obtener y limpiar el título de la canción
+    QString titulo = metadata.obtenerTitulo();
+    if (titulo.isEmpty()) {
+        titulo = fileInfo.baseName();
+    }
+    titulo = limpiarNombreCancion(titulo);
+    
+    // Obtener y normalizar la tonalidad
+    QString tonalidad = metadata.obtenerTonalidad();
+    tonalidad = metadata.normalizarTonalidad(tonalidad);
+    
+    // Establecer los textos para todas las columnas
+    item->setText(Title, titulo);
+    item->setText(Artist, metadata.obtenerArtista().isEmpty() ? "Artista desconocido" : metadata.obtenerArtista());
+    item->setText(Album, metadata.obtenerAlbum().isEmpty() ? "Sin álbum" : metadata.obtenerAlbum());
+    item->setText(Genre, metadata.obtenerGenero());
+    item->setText(Date, metadata.obtenerFecha());
+    item->setText(Duration, metadata.obtenerDuracion());
+    item->setText(InitialKey, tonalidad);
+    
+    // Guardar la ruta del archivo para uso interno
+    item->setData(0, Qt::UserRole, ruta);
+    
+    // Alinear el texto de las columnas
+    item->setTextAlignment(Date, Qt::AlignCenter);
+    item->setTextAlignment(Duration, Qt::AlignCenter);
+    item->setTextAlignment(InitialKey, Qt::AlignCenter);
+
+    // Si es el primer item, seleccionarlo y reproducir
+    if (ui->playlistWidget->topLevelItemCount() == 1) {
+        ui->playlistWidget->setCurrentItem(item);
+        reproducir();
+    }
+}
+
+QString MainWindow::limpiarNombreCancion(const QString& nombre) const
+{
+    QString limpio = nombre;
+    
+    // Eliminar caracteres especiales y números al inicio
+    limpio.remove(QRegularExpression("^[\\d\\W]+"));
+    
+    // Reemplazar guiones y guiones bajos por espacios
+    limpio.replace(QRegularExpression("[-_]+"), " ");
+    
+    // Eliminar extensiones comunes de archivo
+    limpio.remove(QRegularExpression("\\.(mp3|wav|flac|m4a|aac)$", QRegularExpression::CaseInsensitiveOption));
+    
+    // Capitalizar palabras
+    QStringList palabras = limpio.split(' ', Qt::SkipEmptyParts);
+    for (QString& palabra : palabras) {
+        if (!palabra.isEmpty()) {
+            palabra[0] = palabra[0].toUpper();
+        }
+    }
+    
+    return palabras.join(" ");
+}
+
+QString MainWindow::obtenerNombreCancion(const QString& ruta) const
+{
+    QFileInfo fileInfo(ruta);
+    QString nombre = fileInfo.baseName();
+    return limpiarNombreCancion(nombre);
+}
+
+void MainWindow::on_actionColumnas_triggered()
+{
+    QDialog dialog(this);
+    dialog.setWindowTitle("Configurar Columnas");
+    QVBoxLayout* layout = new QVBoxLayout(&dialog);
+
+    QList<QCheckBox*> checkboxes;
+    for (auto it = columnConfig.begin(); it != columnConfig.end(); ++it) {
+        QCheckBox* checkbox = new QCheckBox(it.value().name, &dialog);
+        checkbox->setChecked(it.value().visible);
+        checkboxes.append(checkbox);
+        layout->addWidget(checkbox);
+    }
+
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(
+        QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+        Qt::Horizontal, &dialog);
+    layout->addWidget(buttonBox);
+
+    connect(buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+
+    if (dialog.exec() == QDialog::Accepted) {
+        int i = 0;
+        for (auto it = columnConfig.begin(); it != columnConfig.end(); ++it, ++i) {
+            it.value().visible = checkboxes[i]->isChecked();
+        }
+        guardarConfiguracionColumnas();
+        actualizarColumnasVisibles();
+    }
+}
+
+void MainWindow::guardarConfiguracionColumnas()
+{
+    QSettings settings;
+    settings.beginGroup("Columns");
+    for (auto it = columnConfig.begin(); it != columnConfig.end(); ++it) {
+        settings.setValue(QString::number(it.key()) + "/visible", it.value().visible);
+        settings.setValue(QString::number(it.key()) + "/width", it.value().width);
+    }
+    settings.endGroup();
+}
+
+void MainWindow::cargarConfiguracionColumnas()
+{
+    QSettings settings;
+    settings.beginGroup("Columns");
+    for (auto it = columnConfig.begin(); it != columnConfig.end(); ++it) {
+        it.value().visible = settings.value(QString::number(it.key()) + "/visible", true).toBool();
+        it.value().width = settings.value(QString::number(it.key()) + "/width", it.value().width).toInt();
+    }
+    settings.endGroup();
+    actualizarColumnasVisibles();
+}
+
+void MainWindow::actualizarColumnasVisibles()
+{
+    QStringList headers;
+    QList<ColumnType> columnasVisibles;
+    
+    // Crear la lista de encabezados
+    for (auto it = columnConfig.begin(); it != columnConfig.end(); ++it) {
+        if (it.value().visible) {
+            headers << it.value().name;
+            columnasVisibles << it.key();
+        }
+    }
+    
+    // Asegurarnos de que tenemos exactamente 7 columnas
+    while (headers.size() < 7) {
+        headers << "";
+    }
+    
+    // Actualizar los encabezados
+    ui->playlistWidget->setHeaderLabels(headers);
+    
+    // Actualizar los anchos de columna
+    int col = 0;
+    for (auto it = columnConfig.begin(); it != columnConfig.end(); ++it) {
+        if (it.value().visible) {
+            ui->playlistWidget->setColumnWidth(col++, it.value().width);
+        }
+    }
+    
+    // Ocultar columnas restantes
+    while (col < 7) {
+        ui->playlistWidget->setColumnWidth(col++, 0);
+    }
+    
+    // Actualizar todas las filas
+    for (int i = 0; i < ui->playlistWidget->topLevelItemCount(); ++i) {
+        actualizarItemColumnas(ui->playlistWidget->topLevelItem(i));
+    }
+}
+
+void MainWindow::actualizarItemColumnas(QTreeWidgetItem* item)
+{
+    if (!item) return;
+
+    // Obtener los datos guardados
+    QString titulo = item->data(0, Qt::UserRole + Title).toString();
+    QString artista = item->data(0, Qt::UserRole + Artist).toString();
+    QString album = item->data(0, Qt::UserRole + Album).toString();
+    QString genero = item->data(0, Qt::UserRole + Genre).toString();
+    QString fecha = item->data(0, Qt::UserRole + Date).toString();
+    QString duracion = item->data(0, Qt::UserRole + Duration).toString();
+    QString tonalidad = item->data(0, Qt::UserRole + InitialKey).toString();
+
+    // Establecer los textos en las columnas correspondientes
+    item->setText(Title, titulo);
+    item->setText(Artist, artista);
+    item->setText(Album, album);
+    item->setText(Genre, genero);
+    item->setText(Date, fecha);
+    item->setText(Duration, duracion);
+    item->setText(InitialKey, tonalidad);
+}
+
+void MainWindow::on_actionAbrirArchivo_triggered()
+{
+    QStringList archivos = QFileDialog::getOpenFileNames(
+        this,
+        "Seleccionar archivos de música",
+        QString(),
+        "Archivos de música (*.mp3 *.m4a *.wav *.flac);;Todos los archivos (*.*)"
+    );
+
+    for (const QString& archivo : archivos) {
+        agregarCancion(archivo);
     }
 }
 
 void MainWindow::on_playButton_clicked()
 {
     if (reproductor->playbackState() == QMediaPlayer::PlayingState) {
-        reproductor->pause();
-        reproduciendo = false;
-        ui->playButton->setText("▶");
-        ui->statusbar->showMessage("Reproducción pausada");
+        pausar();
     } else {
-        if (reproductor->playbackState() == QMediaPlayer::StoppedState) {
-            reproducir();
-        } else {
-            reproductor->play();
-            reproduciendo = true;
-            ui->playButton->setText("⏸");
-        }
+        reproducir();
     }
-    actualizarInterfaz();
 }
 
-MainWindow::~MainWindow()
+void MainWindow::reproducir()
 {
-    limpiarArchivoTemporal();
-    delete ui;
-    delete reproductor;
-    delete audioOutput;
-    delete timer;
-    delete nextTrackShortcut;
-    delete prevTrackShortcut;
-    delete playPauseShortcut;
-    delete quickPlayNextShortcut;
+    if (ui->playlistWidget->currentItem()) {
+        QString ruta = ui->playlistWidget->currentItem()->data(0, Qt::UserRole).toString();
+        reproductor->setSource(QUrl::fromLocalFile(ruta));
+        reproductor->play();
+        ui->playButton->setText("⏸");
+    }
+}
+
+void MainWindow::pausar()
+{
+    reproductor->pause();
+    ui->playButton->setText("▶");
+}
+
+void MainWindow::on_volumeSlider_valueChanged(int value)
+{
+    audioOutput->setVolume(value / 100.0);
+    ui->volumePercentLabel->setText(QString("%1%").arg(value));
+}
+
+void MainWindow::actualizarProgreso(qint64 posicion)
+{
+    if (!ui->progressSlider->isSliderDown()) {
+        ui->progressSlider->setValue(posicion);
+    }
+    
+    // Actualizar etiquetas de tiempo
+    int segundos = (posicion / 1000) % 60;
+    int minutos = (posicion / 60000) % 60;
+    int horas = (posicion / 3600000);
+    
+    QString formato = horas > 0 ? "%1:%2:%3" : "%2:%3";
+    QString tiempo = horas > 0 
+        ? formato.arg(horas).arg(minutos, 2, 10, QChar('0')).arg(segundos, 2, 10, QChar('0'))
+        : formato.arg(minutos).arg(segundos, 2, 10, QChar('0'));
+        
+    ui->timeLabel->setText(tiempo);
+}
+
+void MainWindow::actualizarDuracion(qint64 duracion)
+{
+    ui->progressSlider->setMaximum(duracion);
+    
+    int segundos = (duracion / 1000) % 60;
+    int minutos = (duracion / 60000) % 60;
+    int horas = (duracion / 3600000);
+    
+    QString formato = horas > 0 ? "%1:%2:%3" : "%2:%3";
+    QString tiempo = horas > 0 
+        ? formato.arg(horas).arg(minutos, 2, 10, QChar('0')).arg(segundos, 2, 10, QChar('0'))
+        : formato.arg(minutos).arg(segundos, 2, 10, QChar('0'));
+        
+    ui->totalTimeLabel->setText(tiempo);
+}
+
+void MainWindow::on_progressSlider_sliderMoved(int position)
+{
+    reproductor->setPosition(position);
+}
+
+void MainWindow::on_playlistWidget_itemDoubleClicked(QTreeWidgetItem *item, int column)
+{
+    if (item) {
+        reproducir();
+    }
+}
+
+void MainWindow::on_nextButton_clicked()
+{
+    int currentRow = ui->playlistWidget->currentIndex().row();
+    if (currentRow < ui->playlistWidget->topLevelItemCount() - 1) {
+        ui->playlistWidget->setCurrentItem(ui->playlistWidget->topLevelItem(currentRow + 1));
+        reproducir();
+    }
+}
+
+void MainWindow::on_previousButton_clicked()
+{
+    int currentRow = ui->playlistWidget->currentIndex().row();
+    if (currentRow > 0) {
+        ui->playlistWidget->setCurrentItem(ui->playlistWidget->topLevelItem(currentRow - 1));
+        reproducir();
+    }
 }

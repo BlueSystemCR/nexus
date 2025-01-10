@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../src/mainwindow.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -38,11 +39,7 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "MainWindow",
     "on_actionAbrirArchivo_triggered",
     "",
-    "on_actionAbrirDirectorio_triggered",
-    "on_actionSalir_triggered",
     "on_playButton_clicked",
-    "on_nextButton_clicked",
-    "on_previousButton_clicked",
     "on_volumeSlider_valueChanged",
     "value",
     "on_progressSlider_sliderMoved",
@@ -51,10 +48,14 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "QTreeWidgetItem*",
     "item",
     "column",
-    "manejarError",
-    "QMediaPlayer::Error",
-    "error",
-    "errorString"
+    "on_nextButton_clicked",
+    "on_previousButton_clicked",
+    "on_actionColumnas_triggered",
+    "actualizarEstadoReproduccion",
+    "QMediaPlayer::PlaybackState",
+    "state",
+    "actualizarBitrate",
+    "bitrate"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -77,26 +78,26 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        1,    0,   74,    2, 0x08,    1 /* Private */,
        3,    0,   75,    2, 0x08,    2 /* Private */,
-       4,    0,   76,    2, 0x08,    3 /* Private */,
-       5,    0,   77,    2, 0x08,    4 /* Private */,
-       6,    0,   78,    2, 0x08,    5 /* Private */,
-       7,    0,   79,    2, 0x08,    6 /* Private */,
-       8,    1,   80,    2, 0x08,    7 /* Private */,
-      10,    1,   83,    2, 0x08,    9 /* Private */,
-      12,    2,   86,    2, 0x08,   11 /* Private */,
-      16,    2,   91,    2, 0x08,   14 /* Private */,
+       4,    1,   76,    2, 0x08,    3 /* Private */,
+       6,    1,   79,    2, 0x08,    5 /* Private */,
+       8,    2,   82,    2, 0x08,    7 /* Private */,
+      12,    0,   87,    2, 0x08,   10 /* Private */,
+      13,    0,   88,    2, 0x08,   11 /* Private */,
+      14,    0,   89,    2, 0x08,   12 /* Private */,
+      15,    1,   90,    2, 0x08,   13 /* Private */,
+      18,    1,   93,    2, 0x08,   15 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    5,
+    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, 0x80000000 | 9, QMetaType::Int,   10,   11,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    9,
-    QMetaType::Void, QMetaType::Int,   11,
-    QMetaType::Void, 0x80000000 | 13, QMetaType::Int,   14,   15,
-    QMetaType::Void, 0x80000000 | 17, QMetaType::QString,   18,   19,
+    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void, QMetaType::LongLong,   19,
 
        0        // eod
 };
@@ -112,15 +113,7 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
         // method 'on_actionAbrirArchivo_triggered'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_actionAbrirDirectorio_triggered'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_actionSalir_triggered'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_playButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_nextButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_previousButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_volumeSlider_valueChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -132,10 +125,18 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QTreeWidgetItem *, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'manejarError'
+        // method 'on_nextButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QMediaPlayer::Error, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+        // method 'on_previousButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_actionColumnas_triggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'actualizarEstadoReproduccion'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QMediaPlayer::PlaybackState, std::false_type>,
+        // method 'actualizarBitrate'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<qint64, std::false_type>
     >,
     nullptr
 } };
@@ -147,15 +148,15 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->on_actionAbrirArchivo_triggered(); break;
-        case 1: _t->on_actionAbrirDirectorio_triggered(); break;
-        case 2: _t->on_actionSalir_triggered(); break;
-        case 3: _t->on_playButton_clicked(); break;
-        case 4: _t->on_nextButton_clicked(); break;
-        case 5: _t->on_previousButton_clicked(); break;
-        case 6: _t->on_volumeSlider_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 7: _t->on_progressSlider_sliderMoved((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 8: _t->on_playlistWidget_itemDoubleClicked((*reinterpret_cast< std::add_pointer_t<QTreeWidgetItem*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 9: _t->manejarError((*reinterpret_cast< std::add_pointer_t<QMediaPlayer::Error>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 1: _t->on_playButton_clicked(); break;
+        case 2: _t->on_volumeSlider_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 3: _t->on_progressSlider_sliderMoved((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 4: _t->on_playlistWidget_itemDoubleClicked((*reinterpret_cast< std::add_pointer_t<QTreeWidgetItem*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 5: _t->on_nextButton_clicked(); break;
+        case 6: _t->on_previousButton_clicked(); break;
+        case 7: _t->on_actionColumnas_triggered(); break;
+        case 8: _t->actualizarEstadoReproduccion((*reinterpret_cast< std::add_pointer_t<QMediaPlayer::PlaybackState>>(_a[1]))); break;
+        case 9: _t->actualizarBitrate((*reinterpret_cast< std::add_pointer_t<qint64>>(_a[1]))); break;
         default: ;
         }
     }
