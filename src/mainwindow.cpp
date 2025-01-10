@@ -118,6 +118,38 @@ void MainWindow::configurarReproductor()
 }
 
 void MainWindow::configurarConexiones() {
+    // Conexiones de audio
+    connect(reproductor, &QMediaPlayer::positionChanged, this, &MainWindow::actualizarProgreso);
+    connect(reproductor, &QMediaPlayer::durationChanged, this, &MainWindow::actualizarDuracion);
+    connect(reproductor, &QMediaPlayer::playbackStateChanged, this, [this](QMediaPlayer::PlaybackState state) {
+        actualizarEstadoReproduccion(state == QMediaPlayer::PlayingState);
+    });
+    connect(reproductor, &QMediaPlayer::errorOccurred, this, &MainWindow::manejarError);
+
+    // Conexiones de controles adicionales
+    connect(ui->rewindStartButton, &QPushButton::clicked, this, [this]() {
+        reproductor->setPosition(0);
+    });
+    
+    connect(ui->fastForwardButton, &QPushButton::clicked, this, [this]() {
+        reproductor->setPosition(duracionActual);
+    });
+
+    // Actualizar etiqueta de volumen
+    connect(ui->volumeSlider, &QSlider::valueChanged, this, [this](int value) {
+        ui->volumePercentLabel->setText(QString("%1%").arg(value));
+        audioOutput->setVolume(value / 100.0);
+    });
+
+    // Conexión para velocidad de reproducción
+    connect(ui->speedComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), 
+        this, [this](int index) {
+            QStringList velocidades = {"0.5", "0.75", "1.0", "1.25", "1.5", "2.0"};
+            if (index >= 0 && index < velocidades.size()) {
+                reproductor->setPlaybackRate(velocidades[index].toFloat());
+            }
+    });
+
     connect(timer, &QTimer::timeout, this, &MainWindow::actualizarInterfaz);
     timer->start(1000);  // Actualizar cada segundo
     
@@ -356,13 +388,20 @@ void MainWindow::actualizarProgreso(qint64 posicion) {
     if (!sliderPressed) {
         ui->progressSlider->setValue(posicion);
         
-        // Actualizar etiqueta de tiempo si existe
+        // Actualizar etiquetas de tiempo
         QTime tiempoActual = QTime(0, 0).addMSecs(posicion);
         QTime tiempoTotal = QTime(0, 0).addMSecs(duracionActual);
         QString formato = tiempoTotal.hour() > 0 ? "hh:mm:ss" : "mm:ss";
-        ui->statusbar->showMessage(QString("%1 / %2")
-            .arg(tiempoActual.toString(formato))
-            .arg(tiempoTotal.toString(formato)));
+        
+        // Actualizar etiquetas de tiempo independientes
+        ui->timeLabel->setText(tiempoActual.toString(formato));
+        ui->totalTimeLabel->setText(tiempoTotal.toString(formato));
+        
+        // Actualizar barra de estado con información adicional
+        if (reproductor->mediaStatus() == QMediaPlayer::BufferedMedia) {
+            QString nombreArchivo = QFileInfo(reproductor->source().toString()).fileName();
+            ui->statusbar->showMessage(tr("Reproduciendo: %1").arg(nombreArchivo));
+        }
     }
 }
 
@@ -439,6 +478,7 @@ void MainWindow::dropEvent(QDropEvent *event) {
         qDebug() << "El evento tiene URLs";
         QList<QUrl> urlList = mimeData->urls();
         
+        bool primeraCancion = true;
         for (const QUrl& url : urlList) {
             QString ruta = url.toLocalFile();
             qDebug() << "Procesando URL:" << url;
@@ -448,8 +488,13 @@ void MainWindow::dropEvent(QDropEvent *event) {
                 procesarDirectorio(ruta);
             } else if (esArchivoMusica(ruta)) {
                 agregarCancion(ruta);
+                if (primeraCancion && reproductor->playbackState() != QMediaPlayer::PlayingState) {
+                    reproducirArchivo(ruta);
+                    primeraCancion = false;
+                }
             }
         }
+        event->acceptProposedAction();
     }
 }
 

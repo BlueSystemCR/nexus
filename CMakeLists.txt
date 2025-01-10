@@ -93,21 +93,14 @@ if(APPLE)
 endif()
 
 # Configurar audiotest
-add_executable(audiotest
-    src/test/audiotest.mm
-    src/audio/avfaudioengine.mm
-    src/audio/avfaudioengine.h
-)
-
-target_link_libraries(audiotest PRIVATE
-    Qt6::Core
-    "-framework AVFoundation"
-    "-framework CoreAudio"
-    "-framework AudioToolbox"
-    "-framework AppKit"
-    "-framework Foundation"
-)
-
-target_include_directories(audiotest PRIVATE
-    ${CMAKE_SOURCE_DIR}/src
-)
+if(APPLE AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/test/audiotest.mm")
+    add_executable(audiotest
+        src/test/audiotest.mm
+        src/audio/avfaudioengine.mm
+        src/audio/avfaudioengine.h
+    )
+    
+    target_link_libraries(audiotest PRIVATE
+        ${MACOS_FRAMEWORKS}
+    )
+endif()
