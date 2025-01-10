@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(ReproductorMusica VERSION 0.1 LANGUAGES CXX)
+project(ReproductorMusica VERSION 0.1 LANGUAGES CXX OBJCXX)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 17)
@@ -26,6 +26,18 @@ set(TAGLIB_INCLUDE_DIR "/opt/homebrew/include/taglib")
 set(QT_PLUGIN_PATH "/opt/homebrew/opt/qt6/plugins")
 set(GST_PLUGIN_PATH "/opt/homebrew/lib/gstreamer-1.0")
 
+# Configurar frameworks de macOS
+if(APPLE)
+    find_library(AVFOUNDATION_FRAMEWORK AVFoundation)
+    find_library(CORE_AUDIO_FRAMEWORK CoreAudio)
+    find_library(AUDIO_TOOLBOX_FRAMEWORK AudioToolbox)
+    set(MACOS_FRAMEWORKS
+        ${AVFOUNDATION_FRAMEWORK}
+        ${CORE_AUDIO_FRAMEWORK}
+        ${AUDIO_TOOLBOX_FRAMEWORK}
+    )
+endif()
+
 set(PROJECT_SOURCES
     src/main.cpp
     src/mainwindow.cpp
@@ -41,12 +53,28 @@ set(PROJECT_SOURCES
     src/asynctaskmanager.h
     src/metadatamanager.cpp
     src/metadatamanager.h
+    src/audio/audioengine.cpp
+    src/audio/audioengine.h
 )
+
+if(APPLE)
+    set(PROJECT_SOURCES ${PROJECT_SOURCES}
+        src/audio/avfaudioengine.mm
+        src/audio/avfaudioengine.h
+        src/audio/coreaudioengine.cpp
+        src/audio/coreaudioengine.h
+    )
+endif()
 
 qt_standard_project_setup()
 
 qt_add_executable(ReproductorMusica
     ${PROJECT_SOURCES}
+)
+
+target_include_directories(ReproductorMusica PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${TAGLIB_INCLUDE_DIR}
 )
 
 target_link_libraries(ReproductorMusica PRIVATE
@@ -58,13 +86,28 @@ target_link_libraries(ReproductorMusica PRIVATE
     ${TAGLIB_LIBRARY}
 )
 
-target_include_directories(ReproductorMusica PRIVATE
-    ${TAGLIB_INCLUDE_DIR}
-    ${QT_PLUGIN_PATH}
-    ${GST_PLUGIN_PATH}
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
+if(APPLE)
+    target_link_libraries(ReproductorMusica PRIVATE
+        ${MACOS_FRAMEWORKS}
+    )
+endif()
+
+# Configurar audiotest
+add_executable(audiotest
+    src/test/audiotest.mm
+    src/audio/avfaudioengine.mm
+    src/audio/avfaudioengine.h
 )
 
-target_compile_options(ReproductorMusica PRIVATE
-    ${TAGLIB_CFLAGS_OTHER}
+target_link_libraries(audiotest PRIVATE
+    Qt6::Core
+    "-framework AVFoundation"
+    "-framework CoreAudio"
+    "-framework AudioToolbox"
+    "-framework AppKit"
+    "-framework Foundation"
+)
+
+target_include_directories(audiotest PRIVATE
+    ${CMAKE_SOURCE_DIR}/src
 )
