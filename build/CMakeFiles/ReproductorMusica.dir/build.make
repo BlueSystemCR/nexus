@@ -73,7 +73,7 @@ ReproductorMusica_autogen/timestamp: /opt/homebrew/share/qt/libexec/moc
 ReproductorMusica_autogen/timestamp: /opt/homebrew/share/qt/libexec/uic
 ReproductorMusica_autogen/timestamp: CMakeFiles/ReproductorMusica.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target ReproductorMusica"
-	/opt/homebrew/bin/cmake -E cmake_autogen /Users/freddymolina/Projects/next/build/CMakeFiles/ReproductorMusica_autogen.dir/AutogenInfo.json Debug
+	/opt/homebrew/bin/cmake -E cmake_autogen /Users/freddymolina/Projects/next/build/CMakeFiles/ReproductorMusica_autogen.dir/AutogenInfo.json ""
 	/opt/homebrew/bin/cmake -E touch /Users/freddymolina/Projects/next/build/ReproductorMusica_autogen/timestamp
 
 CMakeFiles/ReproductorMusica.dir/codegen:
@@ -121,66 +121,10 @@ CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/freddymolina/Projects/next/src/mainwindow.cpp -o CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.s
 
-CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o: CMakeFiles/ReproductorMusica.dir/flags.make
-CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o: /Users/freddymolina/Projects/next/src/audioconverter.cpp
-CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o: CMakeFiles/ReproductorMusica.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o -MF CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o.d -o CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o -c /Users/freddymolina/Projects/next/src/audioconverter.cpp
-
-CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/freddymolina/Projects/next/src/audioconverter.cpp > CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.i
-
-CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/freddymolina/Projects/next/src/audioconverter.cpp -o CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.s
-
-CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o: CMakeFiles/ReproductorMusica.dir/flags.make
-CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o: /Users/freddymolina/Projects/next/src/playlist.cpp
-CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o: CMakeFiles/ReproductorMusica.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o -MF CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o.d -o CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o -c /Users/freddymolina/Projects/next/src/playlist.cpp
-
-CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/freddymolina/Projects/next/src/playlist.cpp > CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.i
-
-CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/freddymolina/Projects/next/src/playlist.cpp -o CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.s
-
-CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o: CMakeFiles/ReproductorMusica.dir/flags.make
-CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o: /Users/freddymolina/Projects/next/src/threadpool.cpp
-CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o: CMakeFiles/ReproductorMusica.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o -MF CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o.d -o CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o -c /Users/freddymolina/Projects/next/src/threadpool.cpp
-
-CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/freddymolina/Projects/next/src/threadpool.cpp > CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.i
-
-CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/freddymolina/Projects/next/src/threadpool.cpp -o CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.s
-
-CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o: CMakeFiles/ReproductorMusica.dir/flags.make
-CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o: /Users/freddymolina/Projects/next/src/asynctaskmanager.cpp
-CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o: CMakeFiles/ReproductorMusica.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o -MF CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o.d -o CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o -c /Users/freddymolina/Projects/next/src/asynctaskmanager.cpp
-
-CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/freddymolina/Projects/next/src/asynctaskmanager.cpp > CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.i
-
-CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/freddymolina/Projects/next/src/asynctaskmanager.cpp -o CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.s
-
 CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o: CMakeFiles/ReproductorMusica.dir/flags.make
 CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o: /Users/freddymolina/Projects/next/src/metadatamanager.cpp
 CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o: CMakeFiles/ReproductorMusica.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o -MF CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o.d -o CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o -c /Users/freddymolina/Projects/next/src/metadatamanager.cpp
 
 CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.i: cmake_force
@@ -191,42 +135,49 @@ CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/freddymolina/Projects/next/src/metadatamanager.cpp -o CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.s
 
+CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o: CMakeFiles/ReproductorMusica.dir/flags.make
+CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o: /Users/freddymolina/Projects/next/src/gstreamerplayer.cpp
+CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o: CMakeFiles/ReproductorMusica.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o -MF CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o.d -o CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o -c /Users/freddymolina/Projects/next/src/gstreamerplayer.cpp
+
+CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/freddymolina/Projects/next/src/gstreamerplayer.cpp > CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.i
+
+CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/freddymolina/Projects/next/src/gstreamerplayer.cpp -o CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.s
+
 # Object files for target ReproductorMusica
 ReproductorMusica_OBJECTS = \
 "CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/ReproductorMusica.dir/src/main.cpp.o" \
 "CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o" \
-"CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o" \
-"CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o" \
-"CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o" \
-"CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o" \
-"CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o"
+"CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o" \
+"CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o"
 
 # External object files for target ReproductorMusica
 ReproductorMusica_EXTERNAL_OBJECTS =
 
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.o
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/main.cpp.o
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/build.make
-ReproductorMusica: /opt/homebrew/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets
-ReproductorMusica: /opt/homebrew/lib/libtag.dylib
-ReproductorMusica: /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets
-ReproductorMusica: /opt/homebrew/lib/QtMultimedia.framework/Versions/A/QtMultimedia
-ReproductorMusica: /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui
-ReproductorMusica: /opt/homebrew/lib/QtNetwork.framework/Versions/A/QtNetwork
-ReproductorMusica: /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore
-ReproductorMusica: CMakeFiles/ReproductorMusica.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ReproductorMusica"
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.o
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/main.cpp.o
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.o
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: CMakeFiles/ReproductorMusica.dir/build.make
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: /opt/homebrew/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: /opt/homebrew/lib/QtMultimedia.framework/Versions/A/QtMultimedia
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: /opt/homebrew/lib/QtNetwork.framework/Versions/A/QtNetwork
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore
+ReproductorMusica.app/Contents/MacOS/ReproductorMusica: CMakeFiles/ReproductorMusica.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/freddymolina/Projects/next/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ReproductorMusica.app/Contents/MacOS/ReproductorMusica"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ReproductorMusica.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/ReproductorMusica.dir/build: ReproductorMusica
+CMakeFiles/ReproductorMusica.dir/build: ReproductorMusica.app/Contents/MacOS/ReproductorMusica
 .PHONY : CMakeFiles/ReproductorMusica.dir/build
 
 CMakeFiles/ReproductorMusica.dir/clean:

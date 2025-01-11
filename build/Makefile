@@ -179,53 +179,29 @@ ReproductorMusica_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/ReproductorMusica_autogen/mocs_compilation.cpp.s
 .PHONY : ReproductorMusica_autogen/mocs_compilation.cpp.s
 
-src/asynctaskmanager.o: src/asynctaskmanager.cpp.o
-.PHONY : src/asynctaskmanager.o
+src/gstreamerplayer.o: src/gstreamerplayer.cpp.o
+.PHONY : src/gstreamerplayer.o
 
 # target to build an object file
-src/asynctaskmanager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.o
-.PHONY : src/asynctaskmanager.cpp.o
+src/gstreamerplayer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o
+.PHONY : src/gstreamerplayer.cpp.o
 
-src/asynctaskmanager.i: src/asynctaskmanager.cpp.i
-.PHONY : src/asynctaskmanager.i
-
-# target to preprocess a source file
-src/asynctaskmanager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.i
-.PHONY : src/asynctaskmanager.cpp.i
-
-src/asynctaskmanager.s: src/asynctaskmanager.cpp.s
-.PHONY : src/asynctaskmanager.s
-
-# target to generate assembly for a file
-src/asynctaskmanager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/asynctaskmanager.cpp.s
-.PHONY : src/asynctaskmanager.cpp.s
-
-src/audioconverter.o: src/audioconverter.cpp.o
-.PHONY : src/audioconverter.o
-
-# target to build an object file
-src/audioconverter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.o
-.PHONY : src/audioconverter.cpp.o
-
-src/audioconverter.i: src/audioconverter.cpp.i
-.PHONY : src/audioconverter.i
+src/gstreamerplayer.i: src/gstreamerplayer.cpp.i
+.PHONY : src/gstreamerplayer.i
 
 # target to preprocess a source file
-src/audioconverter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.i
-.PHONY : src/audioconverter.cpp.i
+src/gstreamerplayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.i
+.PHONY : src/gstreamerplayer.cpp.i
 
-src/audioconverter.s: src/audioconverter.cpp.s
-.PHONY : src/audioconverter.s
+src/gstreamerplayer.s: src/gstreamerplayer.cpp.s
+.PHONY : src/gstreamerplayer.s
 
 # target to generate assembly for a file
-src/audioconverter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/audioconverter.cpp.s
-.PHONY : src/audioconverter.cpp.s
+src/gstreamerplayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.s
+.PHONY : src/gstreamerplayer.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -299,54 +275,6 @@ src/metadatamanager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/metadatamanager.cpp.s
 .PHONY : src/metadatamanager.cpp.s
 
-src/playlist.o: src/playlist.cpp.o
-.PHONY : src/playlist.o
-
-# target to build an object file
-src/playlist.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.o
-.PHONY : src/playlist.cpp.o
-
-src/playlist.i: src/playlist.cpp.i
-.PHONY : src/playlist.i
-
-# target to preprocess a source file
-src/playlist.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.i
-.PHONY : src/playlist.cpp.i
-
-src/playlist.s: src/playlist.cpp.s
-.PHONY : src/playlist.s
-
-# target to generate assembly for a file
-src/playlist.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/playlist.cpp.s
-.PHONY : src/playlist.cpp.s
-
-src/threadpool.o: src/threadpool.cpp.o
-.PHONY : src/threadpool.o
-
-# target to build an object file
-src/threadpool.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.o
-.PHONY : src/threadpool.cpp.o
-
-src/threadpool.i: src/threadpool.cpp.i
-.PHONY : src/threadpool.i
-
-# target to preprocess a source file
-src/threadpool.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.i
-.PHONY : src/threadpool.cpp.i
-
-src/threadpool.s: src/threadpool.cpp.s
-.PHONY : src/threadpool.s
-
-# target to generate assembly for a file
-src/threadpool.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReproductorMusica.dir/build.make CMakeFiles/ReproductorMusica.dir/src/threadpool.cpp.s
-.PHONY : src/threadpool.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -361,12 +289,9 @@ help:
 	@echo "... ReproductorMusica_autogen/mocs_compilation.o"
 	@echo "... ReproductorMusica_autogen/mocs_compilation.i"
 	@echo "... ReproductorMusica_autogen/mocs_compilation.s"
-	@echo "... src/asynctaskmanager.o"
-	@echo "... src/asynctaskmanager.i"
-	@echo "... src/asynctaskmanager.s"
-	@echo "... src/audioconverter.o"
-	@echo "... src/audioconverter.i"
-	@echo "... src/audioconverter.s"
+	@echo "... src/gstreamerplayer.o"
+	@echo "... src/gstreamerplayer.i"
+	@echo "... src/gstreamerplayer.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -376,12 +301,6 @@ help:
 	@echo "... src/metadatamanager.o"
 	@echo "... src/metadatamanager.i"
 	@echo "... src/metadatamanager.s"
-	@echo "... src/playlist.o"
-	@echo "... src/playlist.i"
-	@echo "... src/playlist.s"
-	@echo "... src/threadpool.o"
-	@echo "... src/threadpool.i"
-	@echo "... src/threadpool.s"
 .PHONY : help
 
 

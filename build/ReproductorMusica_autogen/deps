@@ -15,8 +15,10 @@ ReproductorMusica_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/_types/_nl_item.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/_xlocale.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/arm/_endian.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/arm/_mcontext.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/arm/_types.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/arm/endian.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/arm/signal.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/arm/types.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/assert.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/adjacent_find.h \
@@ -581,12 +583,6 @@ ReproductorMusica_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__ranges/view_interface.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__split_buffer \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__std_mbstate_t.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/atomic_unique_lock.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/intrusive_list_view.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/intrusive_shared_ptr.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/stop_source.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/stop_state.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__stop_token/stop_token.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__string/char_traits.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__string/constexpr_c_functions.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__string/extern_template_lists.h \
@@ -595,12 +591,8 @@ ReproductorMusica_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__system_error/error_code.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__system_error/error_condition.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__system_error/system_error.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/formatter.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/id.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/jthread.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/poll_with_backoff.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/this_thread.h \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__thread/thread.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__threading_support \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__tree \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__tuple/make_tuple_types.h \
@@ -803,14 +795,15 @@ ReproductorMusica_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/exception \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/execution \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/filesystem \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/float.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/format \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/forward_list \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/functional \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/future \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/initializer_list \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iomanip \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/ios \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iosfwd \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iostream \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/istream \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iterator \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/limits \
@@ -828,7 +821,6 @@ ReproductorMusica_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/print \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/queue \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/ratio \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/sstream \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/stack \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/stdbool.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/stddef.h \
@@ -841,7 +833,6 @@ ReproductorMusica_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/string.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/string_view \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/system_error \
-	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/thread \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/tuple \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/type_traits \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/typeinfo \
@@ -852,17 +843,27 @@ ReproductorMusica_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/version \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/wchar.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/wctype.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/dirent.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSAtomic.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSAtomicDeprecated.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSAtomicQueue.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSSpinLockDeprecated.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/_OSByteOrder.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/arm/_OSByteOrder.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/arm/_structs.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/mach/machine/_structs.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/machine/_endian.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/machine/_mcontext.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/machine/_types.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/machine/endian.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/machine/signal.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/machine/types.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/nl_types.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/pthread/pthread.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/pthread/pthread_impl.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/pthread/qos.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/pthread/sched.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/signal.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/__endian.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_endian.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_posix_availability.h \
@@ -913,6 +914,7 @@ ReproductorMusica_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_off_t.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_pid_t.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_rsize_t.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_sigaltstack.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_sigset_t.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_size_t.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_ssize_t.h \
@@ -926,12 +928,15 @@ ReproductorMusica_autogen/timestamp: \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_u_int64_t.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_u_int8_t.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_u_short.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_ucontext.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_uid_t.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_uintptr_t.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_useconds_t.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/appleapiopts.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/cdefs.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/dirent.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/qos.h \
+	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/signal.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/types.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/time.h \
 	/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/xlocale.h \
@@ -948,35 +953,208 @@ ReproductorMusica_autogen/timestamp: \
 	/Users/freddymolina/Projects/next/build/CMakeFiles/3.31.3/CMakeCXXCompiler.cmake \
 	/Users/freddymolina/Projects/next/build/CMakeFiles/3.31.3/CMakeSystem.cmake \
 	/Users/freddymolina/Projects/next/build/ReproductorMusica_autogen/moc_predefs.h \
-	/Users/freddymolina/Projects/next/src/asynctaskmanager.cpp \
-	/Users/freddymolina/Projects/next/src/asynctaskmanager.h \
-	/Users/freddymolina/Projects/next/src/audioconverter.cpp \
-	/Users/freddymolina/Projects/next/src/audioconverter.h \
+	/Users/freddymolina/Projects/next/src/gstreamerplayer.cpp \
+	/Users/freddymolina/Projects/next/src/gstreamerplayer.h \
 	/Users/freddymolina/Projects/next/src/main.cpp \
 	/Users/freddymolina/Projects/next/src/mainwindow.cpp \
 	/Users/freddymolina/Projects/next/src/mainwindow.h \
 	/Users/freddymolina/Projects/next/src/metadatamanager.cpp \
 	/Users/freddymolina/Projects/next/src/metadatamanager.h \
-	/Users/freddymolina/Projects/next/src/playlist.cpp \
-	/Users/freddymolina/Projects/next/src/playlist.h \
-	/Users/freddymolina/Projects/next/src/threadpool.cpp \
-	/Users/freddymolina/Projects/next/src/threadpool.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QDateTime \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QDebug \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QElapsedTimer \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QHash \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib-object.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/deprecated/gallocator.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/deprecated/gcache.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/deprecated/gcompletion.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/deprecated/gmain.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/deprecated/grel.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/deprecated/gthread.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/galloca.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/garray.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gasyncqueue.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gatomic.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gbacktrace.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gbase64.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gbitlock.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gbookmarkfile.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gbytes.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gcharset.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gchecksum.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gconvert.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gdataset.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gdate.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gdatetime.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gdir.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/genviron.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gerror.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gfileutils.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/ggettext.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/ghash.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/ghmac.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/ghook.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/ghostutils.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/giochannel.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gkeyfile.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/glib-autocleanups.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/glib-typeof.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/glib-visibility.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/glist.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gmacros.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gmain.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gmappedfile.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gmarkup.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gmem.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gmessages.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gnode.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/goption.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gpathbuf.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gpattern.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gpoll.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gprimes.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gqsort.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gquark.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gqueue.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/grand.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/grcbox.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/grefcount.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/grefstring.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gregex.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gscanner.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gsequence.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gshell.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gslice.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gslist.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gspawn.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gstrfuncs.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gstring.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gstringchunk.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gstrvbuilder.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gtestutils.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gthread.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gthreadpool.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gtimer.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gtimezone.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gtrashstack.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gtree.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gtypes.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gunicode.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/guri.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gutils.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/guuid.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gvariant.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gvarianttype.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gversion.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/glib/gversionmacros.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gbinding.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gbindinggroup.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gboxed.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gclosure.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/genums.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/glib-enumtypes.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/glib-types.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gmarshal.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gobject-autocleanups.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gobject-visibility.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gobject.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gparam.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gparamspecs.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gsignal.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gsignalgroup.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gsourceclosure.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gtype.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gtypemodule.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gtypeplugin.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gvalue.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gvaluearray.h \
+	/opt/homebrew/Cellar/glib/2.82.4/include/glib-2.0/gobject/gvaluetypes.h \
+	/opt/homebrew/Cellar/glib/2.82.4/lib/glib-2.0/include/glibconfig.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/glib-compat.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gst.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstallocator.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstatomicqueue.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstbin.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstbuffer.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstbufferlist.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstbufferpool.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstbus.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstbytearrayinterface.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstcaps.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstcapsfeatures.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstchildproxy.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstclock.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstcompat.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstconfig.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstcontext.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstcontrolbinding.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstcontrolsource.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstdatetime.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstdebugutils.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstdevice.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstdevicemonitor.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstdeviceprovider.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstdeviceproviderfactory.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstdynamictypefactory.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstelement.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstelementfactory.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstelementmetadata.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstenumtypes.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsterror.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstevent.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstformat.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstghostpad.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstinfo.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstiterator.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstmacos.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstmacros.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstmemory.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstmessage.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstmeta.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstminiobject.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstobject.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstpad.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstpadtemplate.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstparamspecs.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstparse.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstpipeline.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstplugin.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstpluginfeature.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstpoll.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstpreset.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstpromise.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstprotection.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstquery.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstregistry.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstsample.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstsegment.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gststreamcollection.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gststreams.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gststructure.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstsystemclock.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttaglist.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttagsetter.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttask.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttaskpool.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttoc.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttocsetter.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttracer.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttracerfactory.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttracerrecord.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttypefind.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsttypefindfactory.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gsturi.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstutils.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstvalue.h \
+	/opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstversion.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QFileInfo \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QList \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QMutex \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QMap \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QObject \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QProcess \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QQueue \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QRunnable \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QRect \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QSettings \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QSize \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QSizeF \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QString \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QTemporaryFile \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QThread \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QThreadPool \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QTimer \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QUuid \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QStringList \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/QTime \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/q20memory.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/q20type_traits.h \
@@ -991,7 +1169,6 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qatomic.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qatomic_cxx11.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qbasicatomic.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qbasictimer.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qbindingstorage.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qbytearray.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qbytearrayalgorithms.h \
@@ -1009,6 +1186,9 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qcontainerinfo.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qcontainertools_impl.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qcontiguouscache.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qcoreapplication.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qcoreapplication_platform.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qcoreevent.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qdarwinhelpers.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qdatastream.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qdatetime.h \
@@ -1016,9 +1196,11 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qdebug.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qelapsedtimer.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qendian.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qeventloop.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qexceptionhandling.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qfile.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qfiledevice.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qfileinfo.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qflags.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qfloat16.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qforeach.h \
@@ -1047,8 +1229,8 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qmetaobject.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qmetatype.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qminmax.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qmutex.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qnamespace.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qnativeinterface.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qnumeric.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qobject.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qobject_impl.h \
@@ -1057,16 +1239,14 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qoverload.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qpair.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qpoint.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qprocess.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qprocessordetection.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qqueue.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qrect.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qrefcount.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qregularexpression.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qrunnable.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qscopedpointer.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qscopeguard.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qset.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qsettings.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qshareddata.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qshareddata_impl.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qsharedpointer.h \
@@ -1093,17 +1273,13 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtcore-config.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtcoreexports.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtdeprecationmarkers.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtemporaryfile.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtenvironmentvariables.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtextstream.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qthread.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qthreadpool.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtimer.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtimezone.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtmetamacros.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtnoop.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtpreprocessorsupport.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtresource.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtsan_impl.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qttranslation.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qttypetraits.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtversion.h \
@@ -1112,38 +1288,52 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qtypes.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qurl.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qutf8stringview.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/quuid.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qvariant.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qvarlengtharray.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/QShortcut \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/QDragEnterEvent \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/QDragMoveEvent \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/QDropEvent \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/QTransform \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qaction.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qbitmap.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qcolor.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qcursor.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qevent.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qeventpoint.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qfont.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qfontinfo.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qfontmetrics.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qguiapplication.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qguiapplication_platform.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qicon.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qimage.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qinputdevice.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qinputmethod.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qpalette.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qpicture.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qpixmap.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qpointingdevice.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qpolygon.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qregion.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qrgb.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qshortcut.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qscreen.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qscreen_platform.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qtextdocument.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qtguiexports.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qvalidator.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qvector2d.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qvectornd.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtMultimedia.framework/Versions/A/Headers/QAudioOutput \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtMultimedia.framework/Versions/A/Headers/QMediaPlayer \
@@ -1155,24 +1345,40 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtMultimedia.framework/Versions/A/Headers/qtmultimedia-config.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtMultimedia.framework/Versions/A/Headers/qtmultimediaexports.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtMultimedia.framework/Versions/A/Headers/qtmultimediaglobal.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QCheckBox \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QDialog \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QDialogButtonBox \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QLabel \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QListWidget \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QListWidgetItem \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QMessageBox \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QProgressDialog \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QStatusBar \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QTreeWidgetItem \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/QVBoxLayout \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qabstractbutton.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemdelegate.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemview.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qabstractscrollarea.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qabstractslider.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qabstractspinbox.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qboxlayout.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qcheckbox.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qdialog.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qdialogbuttonbox.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qgridlayout.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qlabel.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qlayout.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qlayoutitem.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qlistview.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qlistwidget.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qmessagebox.h \
-	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qprogressdialog.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qrubberband.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qslider.h \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qstatusbar.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qstyle.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qstyleoption.h \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/Headers/qtabbar.h \
@@ -1201,6 +1407,34 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/cmake/Qt6/QtPublicTestHelpers.cmake \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/cmake/Qt6/QtPublicToolHelpers.cmake \
 	/opt/homebrew/Cellar/qt/6.7.3/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake \
+	/opt/homebrew/Cellar/qt/6.7.3/lib/cmake/Qt6/macos/Info.plist.app.in \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/audioproperties.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/fileref.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/flacmetadatablock.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/flacpicture.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/id3v1tag.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/id3v2.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/id3v2frame.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/id3v2framefactory.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/id3v2header.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/id3v2tag.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tag.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/taglib.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/taglib_config.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/taglib_export.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tbytevector.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tbytevectorlist.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tfile.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tiostream.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tlist.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tlist.tcc \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tmap.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tmap.tcc \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tpropertymap.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/trefcounter.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tstring.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/tstringlist.h \
+	/opt/homebrew/Cellar/taglib/1.13.1/include/taglib/xiphcomment.h \
 	/opt/homebrew/lib/cmake/Qt6/Qt6Config.cmake \
 	/opt/homebrew/lib/cmake/Qt6/Qt6ConfigExtras.cmake \
 	/opt/homebrew/lib/cmake/Qt6/Qt6ConfigVersion.cmake \
@@ -1441,23 +1675,79 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-release.cmake \
 	/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake \
 	/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeCXXCompiler.cmake.in \
+	/opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp \
 	/opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeCompilerIdDetection.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeSystem.cmake.in \
 	/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeTestCompilerCommon.cmake \
+	/opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckCXXCompilerFlag.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckCXXSourceCompiles.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckIncludeFileCXX.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
+	/opt/homebrew/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/FindOpenGL.cmake \
 	/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake \
 	/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake \
@@ -1467,15 +1757,18 @@ ReproductorMusica_autogen/timestamp: \
 	/opt/homebrew/share/cmake/Modules/GNUInstallDirs.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake \
+	/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CheckCompilerFlag.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake \
+	/opt/homebrew/share/cmake/Modules/Internal/FeatureTesting.cmake \
 	/opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake \
 	/opt/homebrew/share/cmake/Modules/MacroAddFileDependencies.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake \
+	/opt/homebrew/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake \

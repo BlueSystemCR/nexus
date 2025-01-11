@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../src/mainwindow.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -36,25 +37,30 @@ namespace {
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::stringData(
     "MainWindow",
-    "on_actionAbrirArchivo_triggered",
+    "on_addButton_clicked",
     "",
-    "on_actionAbrirDirectorio_triggered",
-    "on_actionSalir_triggered",
     "on_playButton_clicked",
-    "on_nextButton_clicked",
-    "on_previousButton_clicked",
     "on_volumeSlider_valueChanged",
     "value",
-    "on_progressSlider_sliderMoved",
-    "position",
+    "on_actionAgregar_Archivos_triggered",
+    "on_actionAgregar_Carpeta_triggered",
+    "on_actionSalir_triggered",
+    "on_actionAcerca_de_triggered",
+    "on_actionLimpiar_Lista_triggered",
     "on_playlistWidget_itemDoubleClicked",
-    "QTreeWidgetItem*",
+    "QListWidgetItem*",
     "item",
-    "column",
-    "manejarError",
-    "QMediaPlayer::Error",
-    "error",
-    "errorString"
+    "on_nextButton_clicked",
+    "on_previousButton_clicked",
+    "on_actionColumnas_triggered",
+    "actualizarProgreso",
+    "posicion",
+    "actualizarDuracion",
+    "duracion",
+    "actualizarEstadoReproduccion",
+    "estado",
+    "manejarErrorReproduccion",
+    "error"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -67,7 +73,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -75,28 +81,40 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   74,    2, 0x08,    1 /* Private */,
-       3,    0,   75,    2, 0x08,    2 /* Private */,
-       4,    0,   76,    2, 0x08,    3 /* Private */,
-       5,    0,   77,    2, 0x08,    4 /* Private */,
-       6,    0,   78,    2, 0x08,    5 /* Private */,
-       7,    0,   79,    2, 0x08,    6 /* Private */,
-       8,    1,   80,    2, 0x08,    7 /* Private */,
-      10,    1,   83,    2, 0x08,    9 /* Private */,
-      12,    2,   86,    2, 0x08,   11 /* Private */,
-      16,    2,   91,    2, 0x08,   14 /* Private */,
+       1,    0,  110,    2, 0x08,    1 /* Private */,
+       3,    0,  111,    2, 0x08,    2 /* Private */,
+       4,    1,  112,    2, 0x08,    3 /* Private */,
+       6,    0,  115,    2, 0x08,    5 /* Private */,
+       7,    0,  116,    2, 0x08,    6 /* Private */,
+       8,    0,  117,    2, 0x08,    7 /* Private */,
+       9,    0,  118,    2, 0x08,    8 /* Private */,
+      10,    0,  119,    2, 0x08,    9 /* Private */,
+      11,    1,  120,    2, 0x08,   10 /* Private */,
+      14,    0,  123,    2, 0x08,   12 /* Private */,
+      15,    0,  124,    2, 0x08,   13 /* Private */,
+      16,    0,  125,    2, 0x08,   14 /* Private */,
+      17,    1,  126,    2, 0x08,   15 /* Private */,
+      19,    1,  129,    2, 0x08,   17 /* Private */,
+      21,    1,  132,    2, 0x08,   19 /* Private */,
+      23,    1,  135,    2, 0x08,   21 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    5,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    9,
-    QMetaType::Void, QMetaType::Int,   11,
-    QMetaType::Void, 0x80000000 | 13, QMetaType::Int,   14,   15,
-    QMetaType::Void, 0x80000000 | 17, QMetaType::QString,   18,   19,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 12,   13,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::LongLong,   18,
+    QMetaType::Void, QMetaType::LongLong,   20,
+    QMetaType::Void, QMetaType::QString,   22,
+    QMetaType::Void, QMetaType::QString,   24,
 
        0        // eod
 };
@@ -110,31 +128,43 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSMainWindowENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
-        // method 'on_actionAbrirArchivo_triggered'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_actionAbrirDirectorio_triggered'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_actionSalir_triggered'
+        // method 'on_addButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_playButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_nextButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_previousButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_volumeSlider_valueChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'on_progressSlider_sliderMoved'
+        // method 'on_actionAgregar_Archivos_triggered'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_actionAgregar_Carpeta_triggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_actionSalir_triggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_actionAcerca_de_triggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_actionLimpiar_Lista_triggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_playlistWidget_itemDoubleClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QTreeWidgetItem *, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'manejarError'
+        QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>,
+        // method 'on_nextButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QMediaPlayer::Error, std::false_type>,
+        // method 'on_previousButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_actionColumnas_triggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'actualizarProgreso'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<qint64, std::false_type>,
+        // method 'actualizarDuracion'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<qint64, std::false_type>,
+        // method 'actualizarEstadoReproduccion'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'manejarErrorReproduccion'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
     >,
     nullptr
@@ -146,16 +176,22 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<MainWindow *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_actionAbrirArchivo_triggered(); break;
-        case 1: _t->on_actionAbrirDirectorio_triggered(); break;
-        case 2: _t->on_actionSalir_triggered(); break;
-        case 3: _t->on_playButton_clicked(); break;
-        case 4: _t->on_nextButton_clicked(); break;
-        case 5: _t->on_previousButton_clicked(); break;
-        case 6: _t->on_volumeSlider_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 7: _t->on_progressSlider_sliderMoved((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 8: _t->on_playlistWidget_itemDoubleClicked((*reinterpret_cast< std::add_pointer_t<QTreeWidgetItem*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 9: _t->manejarError((*reinterpret_cast< std::add_pointer_t<QMediaPlayer::Error>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 0: _t->on_addButton_clicked(); break;
+        case 1: _t->on_playButton_clicked(); break;
+        case 2: _t->on_volumeSlider_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 3: _t->on_actionAgregar_Archivos_triggered(); break;
+        case 4: _t->on_actionAgregar_Carpeta_triggered(); break;
+        case 5: _t->on_actionSalir_triggered(); break;
+        case 6: _t->on_actionAcerca_de_triggered(); break;
+        case 7: _t->on_actionLimpiar_Lista_triggered(); break;
+        case 8: _t->on_playlistWidget_itemDoubleClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 9: _t->on_nextButton_clicked(); break;
+        case 10: _t->on_previousButton_clicked(); break;
+        case 11: _t->on_actionColumnas_triggered(); break;
+        case 12: _t->actualizarProgreso((*reinterpret_cast< std::add_pointer_t<qint64>>(_a[1]))); break;
+        case 13: _t->actualizarDuracion((*reinterpret_cast< std::add_pointer_t<qint64>>(_a[1]))); break;
+        case 14: _t->actualizarEstadoReproduccion((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 15: _t->manejarErrorReproduccion((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
@@ -180,13 +216,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 16)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        _id -= 16;
     }
     return _id;
 }

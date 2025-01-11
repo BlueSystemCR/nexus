@@ -1,2 +1,2 @@
-set(__QT_DEPLOY_TARGET_ReproductorMusica_FILE /Users/freddymolina/Projects/next/build/ReproductorMusica)
+set(__QT_DEPLOY_TARGET_ReproductorMusica_FILE /Users/freddymolina/Projects/next/build/ReproductorMusica.app/Contents/MacOS/ReproductorMusica)
 set(__QT_DEPLOY_TARGET_ReproductorMusica_TYPE EXECUTABLE)

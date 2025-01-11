@@ -22,7 +22,7 @@
     }
 
     /* Lista de reproducción */
-    QTreeWidget {
+    QListWidget {
         background-color: #121212;
         border: none;
         color: #FFFFFF;
@@ -120,36 +120,13 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTreeWidget" name="playlistWidget">
+     <widget class="QListWidget" name="playlistWidget">
       <property name="acceptDrops">
        <bool>true</bool>
       </property>
-      <property name="dragDropMode">
-       <enum>QAbstractItemView::DropOnly</enum>
+      <property name="dragEnabled">
+       <bool>true</bool>
       </property>
-      <property name="defaultDropAction">
-       <enum>Qt::CopyAction</enum>
-      </property>
-      <column>
-       <property name="text">
-        <string>Título</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Artista</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Álbum</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Duración</string>
-       </property>
-      </column>
      </widget>
     </item>
     <item>

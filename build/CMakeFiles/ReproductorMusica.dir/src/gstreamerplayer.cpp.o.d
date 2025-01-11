@@ -1,10 +1,10 @@
-CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o: \
-  /Users/freddymolina/Projects/next/src/mainwindow.cpp \
-  /Users/freddymolina/Projects/next/src/mainwindow.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
-  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h \
-  /opt/homebrew/include/QtGui/qtguiglobal.h \
+CMakeFiles/ReproductorMusica.dir/src/gstreamerplayer.cpp.o: \
+  /Users/freddymolina/Projects/next/src/gstreamerplayer.cpp \
+  /Users/freddymolina/Projects/next/src/gstreamerplayer.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
+  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
+  /opt/homebrew/include/QtCore/qobjectdefs.h \
+  /opt/homebrew/include/QtCore/qnamespace.h \
   /opt/homebrew/include/QtCore/qglobal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/type_traits \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__assert \
@@ -572,18 +572,9 @@ CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o: \
   /opt/homebrew/include/QtCore/qtresource.h \
   /opt/homebrew/include/QtCore/qttranslation.h \
   /opt/homebrew/include/QtCore/qversiontagging.h \
-  /opt/homebrew/include/QtGui/qtgui-config.h \
-  /opt/homebrew/include/QtGui/qtguiexports.h \
-  /opt/homebrew/include/QtWidgets/qtwidgets-config.h \
-  /opt/homebrew/include/QtWidgets/qtwidgetsexports.h \
-  /opt/homebrew/include/QtWidgets/qwidget.h \
-  /opt/homebrew/include/QtGui/qwindowdefs.h \
-  /opt/homebrew/include/QtCore/qobjectdefs.h \
-  /opt/homebrew/include/QtCore/qnamespace.h \
   /opt/homebrew/include/QtCore/qtmetamacros.h \
   /opt/homebrew/include/QtCore/qobjectdefs_impl.h \
   /opt/homebrew/include/QtCore/qfunctionaltools_impl.h \
-  /opt/homebrew/include/QtCore/qobject.h \
   /opt/homebrew/include/QtCore/qstring.h \
   /opt/homebrew/include/QtCore/qchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/functional \
@@ -1078,68 +1069,6 @@ CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__chrono/year_month_weekday.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__chrono/literals.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/forward_list \
-  /opt/homebrew/include/QtCore/qmargins.h \
-  /opt/homebrew/include/QtCore/q23utility.h \
-  /opt/homebrew/include/QtGui/qaction.h \
-  /opt/homebrew/include/QtGui/qkeysequence.h \
-  /opt/homebrew/include/QtGui/qicon.h \
-  /opt/homebrew/include/QtCore/qsize.h \
-  /opt/homebrew/include/QtGui/qpixmap.h \
-  /opt/homebrew/include/QtGui/qpaintdevice.h \
-  /opt/homebrew/include/QtCore/qrect.h \
-  /opt/homebrew/include/QtCore/qpoint.h \
-  /opt/homebrew/include/QtGui/qcolor.h \
-  /opt/homebrew/include/QtGui/qrgb.h \
-  /opt/homebrew/include/QtGui/qrgba64.h \
-  /opt/homebrew/include/QtCore/qshareddata.h \
-  /opt/homebrew/include/QtGui/qimage.h \
-  /opt/homebrew/include/QtGui/qpixelformat.h \
-  /opt/homebrew/include/QtGui/qtransform.h \
-  /opt/homebrew/include/QtGui/qpolygon.h \
-  /opt/homebrew/include/QtGui/qregion.h \
-  /opt/homebrew/include/QtCore/qline.h \
-  /opt/homebrew/include/QtCore/qvariant.h \
-  /opt/homebrew/include/QtCore/qdebug.h \
-  /opt/homebrew/include/QtCore/qtextstream.h \
-  /opt/homebrew/include/QtCore/qcontiguouscache.h \
-  /opt/homebrew/include/QtCore/qsharedpointer.h \
-  /opt/homebrew/include/QtCore/qsharedpointer_impl.h \
-  /opt/homebrew/include/QtCore/qmap.h \
-  /opt/homebrew/include/QtCore/qshareddata_impl.h \
-  /opt/homebrew/include/QtCore/qset.h \
-  /opt/homebrew/include/QtCore/qhash.h \
-  /opt/homebrew/include/QtCore/qvarlengtharray.h \
-  /opt/homebrew/include/QtGui/qpalette.h \
-  /opt/homebrew/include/QtGui/qbrush.h \
-  /opt/homebrew/include/QtGui/qfont.h \
-  /opt/homebrew/include/QtCore/qendian.h \
-  /opt/homebrew/include/QtGui/qfontmetrics.h \
-  /opt/homebrew/include/QtGui/qfontinfo.h \
-  /opt/homebrew/include/QtWidgets/qsizepolicy.h \
-  /opt/homebrew/include/QtGui/qcursor.h \
-  /opt/homebrew/include/QtGui/qbitmap.h \
-  /opt/homebrew/include/QtWidgets/qtabwidget.h \
-  /opt/homebrew/lib/QtMultimedia.framework/Headers/QMediaPlayer \
-  /opt/homebrew/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
-  /opt/homebrew/include/QtCore/qurl.h \
-  /opt/homebrew/include/QtMultimedia/qtmultimediaglobal.h \
-  /opt/homebrew/include/QtMultimedia/qtmultimedia-config.h \
-  /opt/homebrew/include/QtMultimedia/qtmultimediaexports.h \
-  /opt/homebrew/include/QtMultimedia/qmediaenumdebug.h \
-  /opt/homebrew/include/QtCore/qmetaobject.h \
-  /opt/homebrew/include/QtMultimedia/qtaudio.h \
-  /opt/homebrew/include/QtMultimedia/qaudio.h \
-  /opt/homebrew/lib/QtMultimedia.framework/Headers/QAudioOutput \
-  /opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
-  /opt/homebrew/include/QtWidgets/qframe.h \
-  /opt/homebrew/include/QtGui/qpicture.h \
-  /opt/homebrew/include/QtCore/qiodevice.h \
-  /opt/homebrew/include/QtGui/qtextdocument.h \
-  /Users/freddymolina/Projects/next/src/gstreamerplayer.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
-  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QString \
   /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
   /opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gst.h \
@@ -1332,82 +1261,23 @@ CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o: \
   /opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstparse.h \
   /opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstcompat.h \
   /opt/homebrew/Cellar/gstreamer/1.24.11/include/gstreamer-1.0/gst/gstmacos.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QListWidget \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qlistwidget.h \
-  /opt/homebrew/include/QtWidgets/qlistview.h \
-  /opt/homebrew/include/QtWidgets/qabstractitemview.h \
-  /opt/homebrew/include/QtWidgets/qabstractscrollarea.h \
-  /opt/homebrew/include/QtCore/qabstractitemmodel.h \
-  /opt/homebrew/include/QtCore/qitemselectionmodel.h \
-  /opt/homebrew/include/QtWidgets/qabstractitemdelegate.h \
-  /opt/homebrew/include/QtWidgets/qstyleoption.h \
-  /opt/homebrew/include/QtCore/qlocale.h \
-  /opt/homebrew/include/QtWidgets/qabstractspinbox.h \
-  /opt/homebrew/include/QtGui/qvalidator.h \
-  /opt/homebrew/include/QtCore/qregularexpression.h \
-  /opt/homebrew/include/QtWidgets/qslider.h \
-  /opt/homebrew/include/QtWidgets/qabstractslider.h \
-  /opt/homebrew/include/QtWidgets/qstyle.h \
-  /opt/homebrew/include/QtWidgets/qtabbar.h \
-  /opt/homebrew/include/QtWidgets/qrubberband.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QMessageBox \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qmessagebox.h \
-  /opt/homebrew/include/QtWidgets/qdialog.h \
-  /opt/homebrew/include/QtWidgets/qdialogbuttonbox.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QTime \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdatetime.h \
-  /opt/homebrew/include/QtCore/qcalendar.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QTreeWidgetItem \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qtreewidget.h \
-  /opt/homebrew/include/QtWidgets/qtreeview.h \
-  /opt/homebrew/include/QtWidgets/qtreewidgetitemiterator.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QSettings \
-  /opt/homebrew/lib/QtCore.framework/Headers/qsettings.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QDialog \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qdialog.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QVBoxLayout \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qboxlayout.h \
-  /opt/homebrew/include/QtWidgets/qlayout.h \
-  /opt/homebrew/include/QtWidgets/qlayoutitem.h \
-  /opt/homebrew/include/QtWidgets/qboxlayout.h \
-  /opt/homebrew/include/QtWidgets/qgridlayout.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QCheckBox \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qcheckbox.h \
-  /opt/homebrew/include/QtWidgets/qabstractbutton.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QDialogButtonBox \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QDragEnterEvent \
-  /opt/homebrew/lib/QtGui.framework/Headers/qevent.h \
-  /opt/homebrew/include/QtCore/qcoreevent.h \
-  /opt/homebrew/include/QtGui/qeventpoint.h \
-  /opt/homebrew/include/QtGui/qvector2d.h \
-  /opt/homebrew/include/QtGui/qvectornd.h \
-  /opt/homebrew/include/QtGui/qpointingdevice.h \
-  /opt/homebrew/include/QtGui/qinputdevice.h \
-  /opt/homebrew/include/QtGui/qscreen.h \
-  /opt/homebrew/include/QtCore/QList \
-  /opt/homebrew/include/QtCore/QObject \
-  /opt/homebrew/include/QtCore/QRect /opt/homebrew/include/QtCore/QSize \
-  /opt/homebrew/include/QtCore/QSizeF \
-  /opt/homebrew/include/QtGui/QTransform \
-  /opt/homebrew/include/QtCore/qnativeinterface.h \
-  /opt/homebrew/include/QtGui/qscreen_platform.h \
-  /opt/homebrew/include/QtGui/qguiapplication.h \
-  /opt/homebrew/include/QtCore/qcoreapplication.h \
-  /opt/homebrew/include/QtCore/qdeadlinetimer.h \
-  /opt/homebrew/include/QtCore/qelapsedtimer.h \
-  /opt/homebrew/include/QtCore/qeventloop.h \
-  /opt/homebrew/include/QtCore/qcoreapplication_platform.h \
-  /opt/homebrew/include/QtGui/qinputmethod.h \
-  /opt/homebrew/include/QtGui/qguiapplication_platform.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QDragMoveEvent \
-  /opt/homebrew/lib/QtGui.framework/Headers/QDropEvent \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QStatusBar \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qstatusbar.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QFileInfo \
-  /opt/homebrew/lib/QtCore.framework/Headers/qfileinfo.h \
-  /opt/homebrew/include/QtCore/qfile.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
+  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+  /opt/homebrew/include/QtCore/qtextstream.h \
+  /opt/homebrew/include/QtCore/qcontiguouscache.h \
+  /opt/homebrew/include/QtCore/qsharedpointer.h \
+  /opt/homebrew/include/QtCore/qshareddata.h \
+  /opt/homebrew/include/QtCore/qsharedpointer_impl.h \
+  /opt/homebrew/include/QtCore/qmap.h \
+  /opt/homebrew/include/QtCore/qshareddata_impl.h \
+  /opt/homebrew/include/QtCore/qset.h \
+  /opt/homebrew/include/QtCore/qhash.h \
+  /opt/homebrew/include/QtCore/qvarlengtharray.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QFile \
+  /opt/homebrew/lib/QtCore.framework/Headers/qfile.h \
   /opt/homebrew/include/QtCore/qfiledevice.h \
+  /opt/homebrew/include/QtCore/qiodevice.h \
+  /opt/homebrew/include/QtCore/qobject.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/filesystem \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/directory_entry.h \
@@ -1452,76 +1322,4 @@ CMakeFiles/ReproductorMusica.dir/src/mainwindow.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/directory_options.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-  /opt/homebrew/include/QtCore/qdatetime.h \
-  /opt/homebrew/include/QtCore/qtimezone.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QListWidgetItem \
-  /opt/homebrew/lib/QtCore.framework/Headers/QStringList \
-  /opt/homebrew/lib/QtCore.framework/Headers/qstringlist.h \
-  /Users/freddymolina/Projects/next/src/metadatamanager.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QMap \
-  /opt/homebrew/lib/QtCore.framework/Headers/qmap.h \
-  /opt/homebrew/include/taglib/fileref.h \
-  /opt/homebrew/include/taglib/tfile.h \
-  /opt/homebrew/include/taglib/taglib_export.h \
-  /opt/homebrew/include/taglib/taglib.h \
-  /opt/homebrew/include/taglib/taglib_config.h \
-  /opt/homebrew/include/taglib/tag.h \
-  /opt/homebrew/include/taglib/tstring.h \
-  /opt/homebrew/include/taglib/tbytevector.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/iostream \
-  /opt/homebrew/include/taglib/tiostream.h \
-  /opt/homebrew/include/taglib/tstringlist.h \
-  /opt/homebrew/include/taglib/tlist.h \
-  /opt/homebrew/include/taglib/tlist.tcc \
-  /opt/homebrew/include/taglib/trefcounter.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSAtomic.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSAtomicDeprecated.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSSpinLockDeprecated.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/libkern/OSAtomicQueue.h \
-  /opt/homebrew/include/taglib/tbytevectorlist.h \
-  /opt/homebrew/include/taglib/audioproperties.h \
-  /opt/homebrew/include/taglib/tpropertymap.h \
-  /opt/homebrew/include/taglib/tmap.h \
-  /opt/homebrew/include/taglib/tmap.tcc \
-  /opt/homebrew/include/taglib/id3v2tag.h \
-  /opt/homebrew/include/taglib/id3v2.h \
-  /opt/homebrew/include/taglib/id3v2framefactory.h \
-  /opt/homebrew/include/taglib/id3v2frame.h \
-  /opt/homebrew/include/taglib/id3v2header.h \
-  /opt/homebrew/include/taglib/xiphcomment.h \
-  /opt/homebrew/include/taglib/flacpicture.h \
-  /opt/homebrew/include/taglib/flacmetadatablock.h \
-  /opt/homebrew/include/taglib/id3v1tag.h \
-  /Users/freddymolina/Projects/next/build/ReproductorMusica_autogen/include/./ui_mainwindow.h \
-  /opt/homebrew/include/QtCore/QVariant \
-  /opt/homebrew/include/QtGui/QAction \
-  /opt/homebrew/include/QtWidgets/QApplication \
-  /opt/homebrew/include/QtWidgets/qapplication.h \
-  /opt/homebrew/include/QtWidgets/QComboBox \
-  /opt/homebrew/include/QtWidgets/qcombobox.h \
-  /opt/homebrew/include/QtWidgets/QHBoxLayout \
-  /opt/homebrew/include/QtWidgets/QLabel \
-  /opt/homebrew/include/QtWidgets/QListWidget \
-  /opt/homebrew/include/QtWidgets/QMainWindow \
-  /opt/homebrew/include/QtWidgets/QMenu \
-  /opt/homebrew/include/QtWidgets/qmenu.h \
-  /opt/homebrew/include/QtWidgets/QMenuBar \
-  /opt/homebrew/include/QtWidgets/qmenubar.h \
-  /opt/homebrew/include/QtWidgets/QPushButton \
-  /opt/homebrew/include/QtWidgets/qpushbutton.h \
-  /opt/homebrew/include/QtWidgets/QSlider \
-  /opt/homebrew/include/QtWidgets/QSpacerItem \
-  /opt/homebrew/include/QtWidgets/QStatusBar \
-  /opt/homebrew/include/QtWidgets/QVBoxLayout \
-  /opt/homebrew/include/QtWidgets/QWidget \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QFileDialog \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qfiledialog.h \
-  /opt/homebrew/include/QtCore/qdir.h \
-  /opt/homebrew/include/QtCore/qfileinfo.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QMimeData \
-  /opt/homebrew/lib/QtCore.framework/Headers/qmimedata.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QDir \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdir.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__filesystem/u8path.h

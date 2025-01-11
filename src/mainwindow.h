@@ -1,9 +1,17 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+// Includes del sistema
 #include <QMainWindow>
 #include <QMediaPlayer>
 #include <QAudioOutput>
+#include <QLabel>
+#include "gstreamerplayer.h"
+#include <QListWidget>
+#include <QMessageBox>
+#include <QTime>
+
+// Includes de Qt
 #include <QTreeWidgetItem>
 #include <QSettings>
 #include <QDialog>
@@ -14,8 +22,12 @@
 #include <QDragMoveEvent>
 #include <QDropEvent>
 #include <QStatusBar>
-#include <QLabel>
 #include <QFileInfo>
+#include <QListWidgetItem>
+#include <QStringList>
+
+// Includes del proyecto
+#include "metadatamanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -46,20 +58,28 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private slots:
-    void on_actionAbrirArchivo_triggered();
+    void on_addButton_clicked();
     void on_playButton_clicked();
     void on_volumeSlider_valueChanged(int value);
-    void on_progressSlider_sliderMoved(int position);
-    void on_playlistWidget_itemDoubleClicked(QTreeWidgetItem *item, int column);
+    void on_actionAgregar_Archivos_triggered();
+    void on_actionAgregar_Carpeta_triggered();
+    void on_actionSalir_triggered();
+    void on_actionAcerca_de_triggered();
+    void on_actionLimpiar_Lista_triggered();
+    void on_playlistWidget_itemDoubleClicked(QListWidgetItem *item);
     void on_nextButton_clicked();
     void on_previousButton_clicked();
     void on_actionColumnas_triggered();
-    void actualizarEstadoReproduccion(QMediaPlayer::PlaybackState state);
-    void actualizarBitrate(qint64 bitrate);
+    
+    // Slots para manejo de medios
+    void actualizarProgreso(qint64 posicion);
+    void actualizarDuracion(qint64 duracion);
+    void actualizarEstadoReproduccion(const QString &estado);
+    void manejarErrorReproduccion(const QString &error);
 
 private:
     Ui::MainWindow *ui;
-    QMediaPlayer *reproductor;
+    GStreamerPlayer *reproductor;
     QAudioOutput *audioOutput;
     QLabel *statusLabel;
     QLabel *bitrateLabel;
@@ -70,9 +90,7 @@ private:
     void configurarConexiones();
     void reproducir();
     void pausar();
-    void actualizarProgreso(qint64 posicion);
-    void actualizarDuracion(qint64 duracion);
-    void agregarCancion(const QString& ruta);
+    void agregarCancion(const QString& ruta, bool primeraCancion = false);
     void guardarConfiguracionColumnas();
     void cargarConfiguracionColumnas();
     void actualizarColumnasVisibles();
@@ -93,13 +111,13 @@ private:
     
     // Configuración de columnas con nombres en español
     QMap<ColumnType, ColumnInfo> columnConfig = {
-        {Title, {"Título", true, 300}},
-        {Artist, {"Artista", true, 200}},
-        {Album, {"Álbum", true, 200}},
-        {Genre, {"Género", true, 150}},
-        {Date, {"Fecha", true, 100}},
-        {Duration, {"Duración", true, 100}},
-        {InitialKey, {"Tonalidad", true, 100}}
+        {Title, {"Título", true, 250}},
+        {Artist, {"Artista", true, 150}},
+        {Album, {"Álbum", true, 150}},
+        {Genre, {"Género", true, 100}},
+        {Date, {"Fecha", true, 70}},
+        {Duration, {"Duración", true, 70}},
+        {InitialKey, {"Tonalidad", true, 80}}
     };
 };
 
